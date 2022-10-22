@@ -14,11 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool facingRight = true;
 
     private bool isGrounded;
-    private bool isGroundedRight;
-    private bool isGroundedLeft;
     public Transform groundCheck;
-    public Transform groundCheckRight;
-    public Transform groundCheckLeft;
     public float checkRadius;
     public LayerMask whatIsGround;
 
@@ -35,8 +31,7 @@ public class PlayerController : MonoBehaviour
     {
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        isGroundedRight = Physics2D.OverlapCircle(groundCheckRight.position, checkRadius, whatIsGround);
-        isGroundedLeft = Physics2D.OverlapCircle(groundCheckLeft.position, checkRadius, whatIsGround);
+        
 
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
@@ -57,16 +52,8 @@ public class PlayerController : MonoBehaviour
         {
             extraJumps = extraJumpsValue;
         }
-        if (isGroundedRight == true)
-        {
-            extraJumps = extraJumpsValue;
-        }
-        if (isGroundedLeft == true)
-        {
-            extraJumps = extraJumpsValue;
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+        if(Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
