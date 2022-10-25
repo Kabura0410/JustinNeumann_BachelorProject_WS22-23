@@ -23,7 +23,9 @@ public class Enemy : MonoBehaviour
 
     private bool ignoreMovementLogic = true;
 
-    [SerializeField] private float logicDelay; 
+    [SerializeField] private float logicDelay;
+
+    [SerializeField] private SpriteRenderer enemySprite;
 
     private void Start()
     {
@@ -66,10 +68,12 @@ public class Enemy : MonoBehaviour
         if(Physics2D.OverlapCircle(rightRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
         {
             ChangeDirection();
+            enemySprite.flipX = direction.x > 0 ? false : true;
         }
         if (Physics2D.OverlapCircle(leftRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
         {
             ChangeDirection();
+            enemySprite.flipX = direction.x > 0 ? false : true;
         }
     }
 
