@@ -4558,7 +4558,7 @@ MonoBehaviour:
   offset: 0
   projectile: {fileID: 2288040545729649526, guid: 9afa2a276257cdc43a9e6e804bfdccb8, type: 3}
   shotPoint: {fileID: 1998818340}
-  startTimeBtwShots: 0.1
+  startTimeBtwShots: 0.2
   flashEffect: {fileID: 3967512539779551259, guid: d46ed918bcbd678449b18499d3e22ef6, type: 3}
 --- !u!1 &1609313221
 GameObject:
@@ -5626,7 +5626,7 @@ GameObject:
   - component: {fileID: 2068780089}
   - component: {fileID: 2068780088}
   - component: {fileID: 2068780087}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5649,6 +5649,7 @@ MonoBehaviour:
   jumpForce: 22
   groundCheck: {fileID: 1175476276}
   checkRadius: 0.3
+  checkRadiusForSemiGround: 0.1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1280
