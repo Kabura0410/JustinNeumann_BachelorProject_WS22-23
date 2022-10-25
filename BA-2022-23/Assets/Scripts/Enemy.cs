@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public GameObject deathEffect;
     public GameObject damageEffect;
+    public int damage;
 
     private Vector3 direction;
 

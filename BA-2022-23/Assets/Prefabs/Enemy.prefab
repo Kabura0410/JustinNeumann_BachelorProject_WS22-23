@@ -157,6 +157,7 @@ MonoBehaviour:
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
   damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
+  damage: 2
   leftRayPos: {fileID: 7747098032296613408}
   rightRayPos: {fileID: 3221249550479418630}
   whatIsGround:

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public int health;
+
     public float speed;
     public float jumpForce;
     private float moveInput;
@@ -32,6 +34,12 @@ public class PlayerController : MonoBehaviour
     private float _jumpTime;
 
     private bool isJumping;
+
+
+    private float vertical;
+    public float ladderSpeed;
+    private bool isLadder;
+    private bool isClimbing;
 
     void Start()
     {
@@ -61,6 +69,17 @@ public class PlayerController : MonoBehaviour
 
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+
+        if(isClimbing)
+        {
+            rb.gravityScale = 0f;
+            rb.velocity = new Vector2(rb.velocity.x, vertical * ladderSpeed);
+        }
+        else
+        {
+            rb.gravityScale = 5f;
+        }
 
     }
 
@@ -106,11 +125,16 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
 
+        vertical = Input.GetAxis("Vertical");
 
-        /*else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
+        if(isLadder && Input.GetKey(KeyCode.W) && Mathf.Abs(vertical) > 0f)
         {
-            rb.velocity = Vector2.up * jumpForce;
-        }*/
+            isClimbing = true;
+        }
+        else
+        {
+            isClimbing = false;
+        }
     }
 
     public void GetContactDamage()
@@ -129,6 +153,25 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(.2f);
         Physics2D.IgnoreCollision(_targetCollider, playerCollider, false);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Ladder"))
+        {
+            isLadder = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ladder"))
+        {
+            isLadder = false;
+            isClimbing = false;
+        }
+    }
+
 }
 
     
