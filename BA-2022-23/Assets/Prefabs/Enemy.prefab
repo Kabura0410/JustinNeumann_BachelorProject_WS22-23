@@ -136,7 +136,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 2
   m_Material: {fileID: 6200000, guid: f952ccaaecf4b2148b91fe93ae279d15, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -164,6 +164,7 @@ MonoBehaviour:
     m_Bits: 1280
   movementSpeed: 5
   maxYVelocity: 14
+  logicDelay: 5
 --- !u!61 &5383283307089427587
 BoxCollider2D:
   m_ObjectHideFlags: 0

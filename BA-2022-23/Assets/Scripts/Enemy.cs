@@ -21,6 +21,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float maxYVelocity;
 
+    private bool ignoreMovementLogic = true;
+
+    [SerializeField] private float logicDelay; 
+
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(9,9);
@@ -30,6 +34,14 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if(logicDelay > 0)
+        {
+            logicDelay -= Time.deltaTime;
+            if(logicDelay <= 0)
+            {
+                ignoreMovementLogic = false;
+            }
+        }
         CheckWalls();
         DoMovement();
         if(Mathf.Abs(rb.velocity.y) > maxYVelocity)
@@ -51,19 +63,13 @@ public class Enemy : MonoBehaviour
 
     private void CheckWalls()
     {
-        if(direction == Vector3.right)
+        if(Physics2D.OverlapCircle(rightRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
         {
-            if(Physics2D.OverlapCircle(rightRayPos.position, 0.1f, whatIsGround))
-            {
-                ChangeDirection();
-            }
+            ChangeDirection();
         }
-        else
+        if (Physics2D.OverlapCircle(leftRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
         {
-            if (Physics2D.OverlapCircle(leftRayPos.position, 0.1f, whatIsGround))
-            {
-                ChangeDirection();
-            }
+            ChangeDirection();
         }
     }
 
