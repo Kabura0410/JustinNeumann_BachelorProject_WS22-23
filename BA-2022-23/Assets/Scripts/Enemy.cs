@@ -9,9 +9,33 @@ public class Enemy : MonoBehaviour
     public GameObject deathEffect;
     public GameObject damageEffect;
 
+    private Vector3 direction;
+
+    public Transform leftRayPos, rightRayPos;
+
+    public LayerMask whatIsGround;
+
+    [SerializeField] private float movementSpeed;
+
+    private Rigidbody2D rb;
+
+    [SerializeField] private float maxYVelocity;
+
+    private void Start()
+    {
+        Physics2D.IgnoreLayerCollision(9,9);
+        rb = GetComponent<Rigidbody2D>();
+        direction = Vector3.right;
+    }
 
     private void Update()
     {
+        CheckWalls();
+        DoMovement();
+        if(Mathf.Abs(rb.velocity.y) > maxYVelocity)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -maxYVelocity);
+        }
         if(health <= 0)
         {
             GameObject go = Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -20,11 +44,51 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void DoMovement()
+    {
+        transform.position += direction * Time.deltaTime * movementSpeed;
+    }
+
+    private void CheckWalls()
+    {
+        if(direction == Vector3.right)
+        {
+            if(Physics2D.OverlapCircle(rightRayPos.position, 0.1f, whatIsGround))
+            {
+                ChangeDirection();
+            }
+        }
+        else
+        {
+            if (Physics2D.OverlapCircle(leftRayPos.position, 0.1f, whatIsGround))
+            {
+                ChangeDirection();
+            }
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
         GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity);
         GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
+    }
+
+    public void SetStartDirection(Vector3 _direction)
+    {
+        direction = _direction;
+    }
+
+    public void ChangeDirection()
+    {
+        if(direction == Vector3.right)
+        {
+            direction = Vector3.left;
+        }
+        else
+        {
+            direction = Vector3.right;
+        }
     }
 
 }

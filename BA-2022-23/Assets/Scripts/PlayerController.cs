@@ -90,16 +90,13 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Space) && isJumping)
         {
-            print("Hold");
             if(_jumpTime > 0)
             {
-                print("isGreater");
                 rb.velocity = Vector2.up * jumpForce * jumpForce;
                 _jumpTime -= Time.deltaTime;
             }
             else
             {
-                print("isSmaler");
                 isJumping = false;
             }
         }
