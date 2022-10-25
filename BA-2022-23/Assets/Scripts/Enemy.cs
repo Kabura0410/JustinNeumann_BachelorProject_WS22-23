@@ -31,7 +31,6 @@ public class Enemy : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(9,9);
         rb = GetComponent<Rigidbody2D>();
-        direction = Vector3.right;
     }
 
     private void Update()
