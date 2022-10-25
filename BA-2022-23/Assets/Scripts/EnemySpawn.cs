@@ -50,7 +50,7 @@ public class EnemySpawn : MonoBehaviour
         switch (direction)
         {
             case directionType.left:
-                go.GetComponent<Enemy>().SetStartDirection(Vector3.right);
+                go.GetComponent<Enemy>().SetStartDirection(Vector3.left);
                 break;
             case directionType.right:
                 go.GetComponent<Enemy>().SetStartDirection(Vector3.right);
