@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
+        Physics2D.IgnoreLayerCollision(9,11);
     }
 
     void FixedUpdate()
@@ -83,6 +84,11 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
         }
+    }
+
+    public void GetContactDamage()
+    {
+        print("Got contact damage");
     }
 
     private void CheckFlip()
