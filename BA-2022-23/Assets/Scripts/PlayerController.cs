@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private int extraJumps;
     public int extraJumpsValue;
 
+    [SerializeField] private SpriteRenderer playerSprite;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -38,6 +40,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        CheckFlip();
         if(isGrounded == true)
         {
             extraJumps = extraJumpsValue;
@@ -52,6 +55,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
         }
+    }
+
+    private void CheckFlip()
+    {
+        Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        playerSprite.flipX = direction.x > 0 ? false : true;
     }
 }
 

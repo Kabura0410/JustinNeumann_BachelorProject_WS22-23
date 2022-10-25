@@ -36,7 +36,8 @@ public class Projectile : MonoBehaviour
 
     void DestroyProjectile()
     {
-        Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
         Destroy(gameObject);
     }
 }

@@ -14,7 +14,8 @@ public class Enemy : MonoBehaviour
     {
         if(health <= 0)
         {
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            GameObject go = Instantiate(deathEffect, transform.position, Quaternion.identity);
+            GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
             Destroy(gameObject);
         }
     }
@@ -22,7 +23,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Instantiate(damageEffect, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity);
+        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
     }
 
 }

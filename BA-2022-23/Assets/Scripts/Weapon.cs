@@ -27,7 +27,8 @@ public class Weapon : MonoBehaviour
             {
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
-                Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
+                GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
+                GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
             }
         }
         else
