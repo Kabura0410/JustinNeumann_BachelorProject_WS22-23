@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private bool isOnSemiPlatform;
     public Transform groundCheck;
     public float checkRadius;
+    public float checkRadiusForSemiGround;
     public LayerMask whatIsGround;
     public LayerMask whatIsSemiGround;
 
@@ -24,6 +25,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
 
     [SerializeField] private Collider2D playerCollider;
+
+    private Collider2D currentSemiCollider;
 
     void Start()
     {
@@ -36,7 +39,18 @@ public class PlayerController : MonoBehaviour
     {
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        isOnSemiPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsSemiGround);
+        isOnSemiPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadiusForSemiGround, whatIsSemiGround);
+        if (isOnSemiPlatform)
+        {
+            if(currentSemiCollider == null)
+            {
+                currentSemiCollider = Physics2D.OverlapCircle(groundCheck.position, checkRadiusForSemiGround, whatIsSemiGround);
+            }
+        }
+        else
+        {
+            currentSemiCollider = null;
+        }
 
 
         moveInput = Input.GetAxisRaw("Horizontal");
@@ -52,10 +66,10 @@ public class PlayerController : MonoBehaviour
             extraJumps = extraJumpsValue;
             if (isOnSemiPlatform)
             {
-                if (Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.S) && currentSemiCollider != null)
                 {
-                    playerCollider.enabled = false;
-                    StartCoroutine(ReactivateCollider());
+                    Physics2D.IgnoreCollision(currentSemiCollider, playerCollider, true);
+                    StartCoroutine(ReactivateCollision(currentSemiCollider));
                 }
             }
         }
@@ -77,10 +91,10 @@ public class PlayerController : MonoBehaviour
         playerSprite.flipX = direction.x > 0 ? false : true;
     }
 
-    private IEnumerator ReactivateCollider()
+    private IEnumerator ReactivateCollision(Collider2D _targetCollider)
     {
         yield return new WaitForSecondsRealtime(.2f);
-        playerCollider.enabled = true;
+        Physics2D.IgnoreCollision(_targetCollider, playerCollider, false);
     }
 }
 
