@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 
     public int health;
     public GameObject deathEffect;
+    public GameObject damageEffect;
 
 
     private void Update()
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Instantiate(damageEffect, transform.position, Quaternion.identity);
     }
 
 }

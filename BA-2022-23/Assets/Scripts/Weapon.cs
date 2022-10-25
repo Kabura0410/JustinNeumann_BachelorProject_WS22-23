@@ -13,6 +13,8 @@ public class Weapon : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
 
+    public GameObject flashEffect;
+
     private void Update()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -25,6 +27,7 @@ public class Weapon : MonoBehaviour
             {
                 Instantiate(projectile, shotPoint.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
+                Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
             }
         }
         else

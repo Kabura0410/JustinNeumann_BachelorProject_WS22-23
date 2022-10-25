@@ -1418,6 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &387014204
 Rigidbody2D:
   serializedVersion: 4
@@ -1652,6 +1653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &425728577
 Rigidbody2D:
   serializedVersion: 4
@@ -1953,7 +1955,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 8
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3254902, g: 0.654902, b: 0.7254902, a: 0.5254902}
+  m_Color: {r: 0.21176472, g: 0.3803922, b: 0.43137258, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3449,6 +3451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &861938971
 Rigidbody2D:
   serializedVersion: 4
@@ -3599,6 +3602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &984278111
 Rigidbody2D:
   serializedVersion: 4
@@ -4518,6 +4522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!61 &1100435581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4720,6 +4725,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &1222165000
 Rigidbody2D:
   serializedVersion: 4
@@ -5176,6 +5182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &1267300794
 Rigidbody2D:
   serializedVersion: 4
@@ -6455,6 +6462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &1572799932
 Rigidbody2D:
   serializedVersion: 4
@@ -6621,6 +6629,7 @@ MonoBehaviour:
   projectile: {fileID: 2288040545729649526, guid: 9afa2a276257cdc43a9e6e804bfdccb8, type: 3}
   shotPoint: {fileID: 1998818340}
   startTimeBtwShots: 0.1
+  flashEffect: {fileID: 3967512539779551259, guid: d46ed918bcbd678449b18499d3e22ef6, type: 3}
 --- !u!1 &1609313221
 GameObject:
   m_ObjectHideFlags: 0
@@ -6807,6 +6816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &1685033581
 Rigidbody2D:
   serializedVersion: 4
@@ -7290,6 +7300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 30
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
+  damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
 --- !u!50 &1803749150
 Rigidbody2D:
   serializedVersion: 4
