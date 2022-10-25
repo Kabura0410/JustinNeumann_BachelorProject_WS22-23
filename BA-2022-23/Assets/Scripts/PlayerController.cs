@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
 
     private Collider2D currentSemiCollider;
 
+    public float jumpTime;
+    private float _jumpTime;
+
+    private bool isJumping;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -79,11 +84,36 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
+            isJumping = true;
+            _jumpTime = jumpTime;
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
+
+        if(Input.GetKey(KeyCode.Space) && isJumping)
+        {
+            print("Hold");
+            if(_jumpTime > 0)
+            {
+                print("isGreater");
+                rb.velocity = Vector2.up * jumpForce;
+                _jumpTime -= Time.deltaTime;
+            }
+            else
+            {
+                print("isSmaler");
+                isJumping = false;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumping = false;
+        }
+
+
+        /*else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
         {
             rb.velocity = Vector2.up * jumpForce;
-        }
+        }*/
     }
 
     public void GetContactDamage()
