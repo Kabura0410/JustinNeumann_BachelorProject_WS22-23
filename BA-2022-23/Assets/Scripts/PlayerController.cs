@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             if(_jumpTime > 0)
             {
                 print("isGreater");
-                rb.velocity = Vector2.up * jumpForce;
+                rb.velocity = Vector2.up * jumpForce * jumpForce;
                 _jumpTime -= Time.deltaTime;
             }
             else
