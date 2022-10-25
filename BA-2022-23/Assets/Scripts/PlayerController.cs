@@ -12,26 +12,32 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     private bool isGrounded;
+    private bool isOnSemiPlatform;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
+    public LayerMask whatIsSemiGround;
 
     private int extraJumps;
     public int extraJumpsValue;
 
     [SerializeField] private SpriteRenderer playerSprite;
 
+    [SerializeField] private Collider2D playerCollider;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
     }
 
     void FixedUpdate()
     {
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-    
+        isOnSemiPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsSemiGround);
+
 
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
@@ -44,6 +50,14 @@ public class PlayerController : MonoBehaviour
         if(isGrounded == true)
         {
             extraJumps = extraJumpsValue;
+            if (isOnSemiPlatform)
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    playerCollider.enabled = false;
+                    StartCoroutine(ReactivateCollider());
+                }
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
@@ -61,6 +75,12 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         playerSprite.flipX = direction.x > 0 ? false : true;
+    }
+
+    private IEnumerator ReactivateCollider()
+    {
+        yield return new WaitForSecondsRealtime(.2f);
+        playerCollider.enabled = true;
     }
 }
 
