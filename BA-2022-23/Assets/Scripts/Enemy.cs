@@ -65,15 +65,19 @@ public class Enemy : MonoBehaviour
 
     private void CheckWalls()
     {
-        if(Physics2D.OverlapCircle(rightRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
+        if(direction == Vector3.right)
         {
-            ChangeDirection();
-            enemySprite.flipX = direction.x > 0 ? false : true;
+            if(Physics2D.OverlapCircle(rightRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
+            {
+                ChangeDirection();
+            }
         }
-        if (Physics2D.OverlapCircle(leftRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
+        if(direction == Vector3.left)
         {
-            ChangeDirection();
-            enemySprite.flipX = direction.x > 0 ? false : true;
+            if (Physics2D.OverlapCircle(leftRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
+            {
+                ChangeDirection();
+            }
         }
     }
 
@@ -87,6 +91,7 @@ public class Enemy : MonoBehaviour
     public void SetStartDirection(Vector3 _direction)
     {
         direction = _direction;
+        enemySprite.flipX = direction.x > 0 ? false : true;
     }
 
     public void ChangeDirection()
@@ -99,6 +104,7 @@ public class Enemy : MonoBehaviour
         {
             direction = Vector3.right;
         }
+        enemySprite.flipX = direction.x > 0 ? false : true;
     }
 
 }
