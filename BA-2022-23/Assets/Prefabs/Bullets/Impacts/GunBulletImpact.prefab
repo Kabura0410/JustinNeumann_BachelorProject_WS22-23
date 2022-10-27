@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3967512539779551269}
   - component: {fileID: 3967512539779551258}
   m_Layer: 0
-  m_Name: ProjectileDestroyed
+  m_Name: GunBulletImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
