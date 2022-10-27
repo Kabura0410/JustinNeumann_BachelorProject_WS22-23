@@ -158,7 +158,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator KnockBack(Vector3 _direction, float _intensity, float timer)
     {
         timer += Time.deltaTime;
-        rb.AddForce(new Vector2(_direction.x * _intensity, _direction.y * _intensity / 4));
+        rb.AddForce(new Vector2(_direction.x * _intensity, _direction.y * _intensity / 4) + Vector2.up * _intensity / 8);
         yield return new WaitForEndOfFrame();
         if(timer < knockbackDuration)
         {
