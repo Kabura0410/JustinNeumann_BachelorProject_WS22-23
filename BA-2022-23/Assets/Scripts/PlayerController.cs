@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
     private bool isLadder;
     private bool isClimbing;
 
+    [SerializeField] private float knockbackDuration;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -146,6 +148,22 @@ public class PlayerController : MonoBehaviour
     {
         Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         playerSprite.flipX = direction.x > 0 ? false : true;
+    }
+
+    public void GetKnockback(Vector3 _direction, float _intensity)
+    {
+        StartCoroutine(KnockBack(_direction, _intensity, 0));
+    }
+
+    private IEnumerator KnockBack(Vector3 _direction, float _intensity, float timer)
+    {
+        timer += Time.deltaTime;
+        rb.AddForce(new Vector2(_direction.x * _intensity, _direction.y * _intensity / 4));
+        yield return new WaitForEndOfFrame();
+        if(timer < knockbackDuration)
+        {
+            StartCoroutine(KnockBack(_direction, _intensity, timer));
+        }
     }
 
     private IEnumerator ReactivateCollision(Collider2D _targetCollider)

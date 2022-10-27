@@ -15,6 +15,16 @@ public class Weapon : MonoBehaviour
 
     public GameObject flashEffect;
 
+    [SerializeField] private float spreadFactor;
+
+    [SerializeField] private int bulletAmount;
+
+    [SerializeField] private float playerKnockback;
+    [SerializeField] private float enemyKnockback;
+
+
+
+
     private void Update()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -25,10 +35,15 @@ public class Weapon : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                Instantiate(projectile, shotPoint.position, transform.rotation);
+                for(int i = 0; i < bulletAmount; i++)
+                {
+                    GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
+                    go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
+                }
                 timeBtwShots = startTimeBtwShots;
                 GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
                 GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
+                GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback);
             }
         }
         else
