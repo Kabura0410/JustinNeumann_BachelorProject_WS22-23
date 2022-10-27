@@ -163,10 +163,16 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1280
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 4096
   movementSpeed: 4
+  rb: {fileID: 0}
   maxYVelocity: 14
   logicDelay: 2
   enemySprite: {fileID: 5383283307089427588}
+  isClimbing: 0
+  ladderJumpHeight: 3650
 --- !u!61 &8717385540481307546
 BoxCollider2D:
   m_ObjectHideFlags: 0

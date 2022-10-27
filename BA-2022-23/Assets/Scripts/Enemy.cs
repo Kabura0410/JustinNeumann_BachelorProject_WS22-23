@@ -16,9 +16,11 @@ public class Enemy : MonoBehaviour
 
     public LayerMask whatIsGround;
 
+    public LayerMask whatIsLadder;
+
     [SerializeField] private float movementSpeed;
 
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     [SerializeField] private float maxYVelocity;
 
@@ -27,6 +29,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float logicDelay;
 
     [SerializeField] private SpriteRenderer enemySprite;
+
+    public bool isClimbing;
+
+    [SerializeField] private float ladderJumpHeight;
 
     private void Start()
     {
@@ -44,11 +50,16 @@ public class Enemy : MonoBehaviour
                 ignoreMovementLogic = false;
             }
         }
-        CheckWalls();
-        DoMovement();
         if(Mathf.Abs(rb.velocity.y) > maxYVelocity)
         {
-            rb.velocity = new Vector2(rb.velocity.x, -maxYVelocity);
+            if(rb.velocity.y < 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -maxYVelocity);
+            }
+            else
+            {
+                rb.velocity = new Vector2(rb.velocity.x, maxYVelocity);
+            }
         }
         if(health <= 0)
         {
@@ -58,9 +69,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        CheckWalls();
+        DoMovement();
+        
+    }
+
     private void DoMovement()
     {
-        transform.position += direction * Time.deltaTime * movementSpeed;
+        if (!isClimbing)
+        {
+            transform.position += direction * Time.deltaTime * movementSpeed;
+        }
+        else
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            transform.position += Vector3.up * Time.deltaTime * movementSpeed;
+        }
     }
 
     private void CheckWalls()
@@ -69,14 +95,58 @@ public class Enemy : MonoBehaviour
         {
             if(Physics2D.OverlapCircle(rightRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
             {
-                ChangeDirection();
+                if (!isClimbing)
+                {
+                    ChangeDirection();
+                }
+            }
+            else 
+            {
+                if(Physics2D.OverlapCircle(rightRayPos.position, 0.2f, whatIsLadder))
+                {
+                    isClimbing = true;
+                }
+                else
+                {
+                    if (isClimbing)
+                    {
+                        isClimbing = false;
+                        rb.AddForce(new Vector2(0, ladderJumpHeight));
+                    }
+                    else
+                    {
+                        isClimbing = false;
+                    }
+                }
             }
         }
         if(direction == Vector3.left)
         {
             if (Physics2D.OverlapCircle(leftRayPos.position, 0.1f, whatIsGround) && !ignoreMovementLogic)
             {
-                ChangeDirection();
+                if (!isClimbing)
+                {
+                    ChangeDirection();
+                }
+            }
+            else 
+            {
+                if (Physics2D.OverlapCircle(leftRayPos.position, 0.2f, whatIsLadder))
+                {
+                    isClimbing = true;
+                }
+                else
+                {
+                    if (isClimbing)
+                    {
+                        isClimbing = false;
+                        rb.AddForce(new Vector2(0, ladderJumpHeight));
+                    }
+                    else
+                    {
+                        isClimbing = false;
+                    }
+                }
             }
         }
     }
@@ -106,5 +176,4 @@ public class Enemy : MonoBehaviour
         }
         enemySprite.flipX = direction.x > 0 ? false : true;
     }
-
 }
