@@ -166,7 +166,7 @@ MonoBehaviour:
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 4096
-  movementSpeed: 4
+  movementSpeed: 2
   rb: {fileID: 0}
   maxYVelocity: 14
   logicDelay: 2

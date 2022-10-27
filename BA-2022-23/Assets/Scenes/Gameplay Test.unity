@@ -5280,7 +5280,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.2, y: 1}
   m_EdgeRadius: 0
 --- !u!212 &1262469750
 SpriteRenderer:
@@ -5776,8 +5776,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423679382}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.777, z: 0}
-  m_LocalScale: {x: 2, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -7237,7 +7237,7 @@ MonoBehaviour:
   playerSprite: {fileID: 2068780090}
   playerCollider: {fileID: 0}
   jumpTime: 0.15
-  ladderSpeed: 10
+  ladderSpeed: 500
 --- !u!50 &2068780088
 Rigidbody2D:
   serializedVersion: 4
