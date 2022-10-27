@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3967512539779551269}
   - component: {fileID: 3967512539779551258}
   m_Layer: 0
-  m_Name: GunBulletImpact
+  m_Name: SniperBulletImpact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.9607843, g: 0.8156863, b: 0.14117648, a: 1}
+      maxColor: {r: 0.35924816, g: 0.8396226, b: 0.06732824, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1479,9 +1479,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9607843, g: 0.8156863, b: 0.14117648, a: 0}
-        key1: {r: 0.9607843, g: 0.8156863, b: 0.14117648, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 1}
+        key0: {r: 0.36078432, g: 0.84313726, b: 0.07058824, a: 0}
+        key1: {r: 0.36078432, g: 0.84313726, b: 0.07058824, a: 1}
+        key2: {r: 0.9607843, g: 0.8156863, b: 0.14117648, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1489,7 +1489,7 @@ ParticleSystem:
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
         ctime1: 65535
-        ctime2: 0
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0

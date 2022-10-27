@@ -104,4 +104,4 @@ MonoBehaviour:
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 768
-  destroyEffect: {fileID: 3967512539779551259, guid: 3e99ca05ae778ce459db18439b850e6a, type: 3}
+  destroyEffect: {fileID: 3967512539779551259, guid: f5c0f7aa919a96e4385d5c13b2bc6524, type: 3}
