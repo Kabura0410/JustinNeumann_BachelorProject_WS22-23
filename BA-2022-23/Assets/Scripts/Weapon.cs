@@ -23,7 +23,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float enemyKnockback;
 
 
+    [SerializeField] private float reloadTime;
 
+    [SerializeField] private int ammoCapacity;
+    private int actualAmmo;
+
+    private void Start()
+    {
+        actualAmmo = ammoCapacity;
+    }
 
     private void Update()
     {
@@ -31,7 +39,7 @@ public class Weapon : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if(timeBtwShots <= 0)
+        if(timeBtwShots <= 0 && actualAmmo > 0)
         {
             if (Input.GetMouseButton(0))
             {
@@ -39,6 +47,11 @@ public class Weapon : MonoBehaviour
                 {
                     GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
                     go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
+                }
+                actualAmmo--;
+                if(actualAmmo <= 0)
+                {
+                    StartCoroutine(ReloadWeapon());
                 }
                 timeBtwShots = startTimeBtwShots;
                 GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
@@ -51,5 +64,11 @@ public class Weapon : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
         
+    }
+
+    private IEnumerator ReloadWeapon()
+    {
+        yield return new WaitForSecondsRealtime(reloadTime);
+        actualAmmo = ammoCapacity; 
     }
 }
