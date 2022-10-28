@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerController player;
 
+    [SerializeField] private List<GameObject> allWeapons;
 
     private void Awake()
     {
@@ -24,7 +25,32 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1))
+        {
+            int currentIndex = 0;
+            GameObject activeWeapon = null;
+            foreach (var r in allWeapons)
+            {
+                if (r.activeSelf)
+                {
+                    r.SetActive(false);
+                    activeWeapon = r;
+                }
+            }
+            if (activeWeapon != null)
+            {
+                currentIndex = allWeapons.IndexOf(activeWeapon);
+                if (currentIndex == allWeapons.Count - 1)
+                {
+                    allWeapons[0].SetActive(true);
+                }
+                else
+                {
+                    allWeapons[currentIndex + 1].SetActive(true);
+                }
+
+            }
+        }
     }
 
     public IEnumerator DeleteParticleDelayed(GameObject _targetObject, float _time)
