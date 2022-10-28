@@ -56,7 +56,7 @@ MonoBehaviour:
   playerKnockback: 100
   enemyKnockback: 0
   reloadTime: 2
-  ammoCapacity: 30
+  ammoCapacity: 60
 --- !u!1 &4559628699102559420
 GameObject:
   m_ObjectHideFlags: 0
