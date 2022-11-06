@@ -13,27 +13,41 @@ public class EnemyTriggerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && enemy.focusType != Enemy.FocusType.crystal)
         {
             enemy.ChangeFocus(Enemy.FocusType.player);
             enemy.DoAttack();
             enemy.ToggleMovement();
         }
-        if(collision.gameObject.tag == "Crystal" && enemy.isGrounded)
+        if(collision.gameObject.tag == "Crystal")
         {
             enemy.ChangeFocus(Enemy.FocusType.crystal);
-            enemy.DoAttack();
-            float r = Random.Range(0f, 1f);
-            StartCoroutine(enemy.ToggleMovementDelayed(r));
+            StartCoroutine(CheckGround());
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && enemy.focusType != Enemy.FocusType.crystal)
         {
             enemy.ChangeFocus(Enemy.FocusType.none);
             enemy.ToggleMovement();
+        }
+    }
+
+    private IEnumerator CheckGround()
+    {
+        yield return new WaitForEndOfFrame();
+        if (enemy.isGrounded)
+        {
+            print("Grounded");
+            enemy.DoAttack();
+            float r = Random.Range(0.2f, 1f);
+            StartCoroutine(enemy.ToggleMovementDelayed(r));
+        }
+        else
+        {
+            StartCoroutine(CheckGround());
         }
     }
 }
