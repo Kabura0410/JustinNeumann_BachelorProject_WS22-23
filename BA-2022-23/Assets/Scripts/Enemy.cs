@@ -85,6 +85,7 @@ public class Enemy : MonoBehaviour
         {
             GameObject go = Instantiate(deathEffect, transform.position, Quaternion.identity);
             GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
+            GameManager.instance.allSpawnedEnemies.Remove(this);
             Destroy(gameObject);
         }
     }

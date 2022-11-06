@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyObject;
-
-
     public enum directionType
     {
         left,
@@ -15,16 +12,12 @@ public class EnemySpawn : MonoBehaviour
 
     [SerializeField] private directionType direction;
 
-    [SerializeField] private float minSpawnDelay;
-    [SerializeField] private float maxSpawnDelay;
+    public float minSpawnDelay;
+    public float maxSpawnDelay;
 
     private float actualSpawnDelay;
 
-    void Start()
-    {
-        SpawnEnemy();
-        CalculateSpawnTime();
-    }
+    public bool boosted;
 
     void Update()
     {
@@ -34,19 +27,22 @@ public class EnemySpawn : MonoBehaviour
             if(actualSpawnDelay <= 0)
             {
                 CalculateSpawnTime();
-                SpawnEnemy();
+                if(GameManager.instance.GetRemainingEnemyAmount() > 0)
+                {
+                    SpawnEnemy();
+                }
             }
         }
     }
 
-    private void CalculateSpawnTime()
+    public void CalculateSpawnTime()
     {
         actualSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
     }
 
     private void SpawnEnemy()
     {
-        GameObject go = Instantiate(enemyObject, transform.position, Quaternion.identity);
+        GameObject go = Instantiate(GameManager.instance.GetSpawnObject(), transform.position, Quaternion.identity);
         switch (direction)
         {
             case directionType.left:
@@ -56,5 +52,7 @@ public class EnemySpawn : MonoBehaviour
                 go.GetComponent<Enemy>().SetStartDirection(Vector3.right);
                 break;
         }
+        GameManager.instance.ReduceEnemySpawnAmount();
+        GameManager.instance.allSpawnedEnemies.Add(go.GetComponent<Enemy>());
     }
 }

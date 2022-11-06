@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class GameManager : MonoBehaviour
 
     public Crystal crystal;
 
+    public List<Wave> allWaves;
+
+    private int currentWave;
+
+    [SerializeField] private List<EnemySpawn> allEnemySpawns;
+
+    [HideInInspector] public List<Enemy> allSpawnedEnemies;
+
     private void Awake()
     {
         if(instance == null)
@@ -23,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        InitializeWave();
     }
 
     void Update()
@@ -54,6 +63,31 @@ public class GameManager : MonoBehaviour
 
             }
         }
+
+        CheckWaveCondition();
+
+        if (!allWaves[currentWave].waveCompleted)
+        {
+            if(allWaves[currentWave]._boostTime > 0)
+            {
+                allWaves[currentWave]._boostTime -= Time.deltaTime;
+                if(allWaves[currentWave]._boostTime <= 0)
+                {
+                    DoWaveBoost();
+                }
+            }
+        }
+    }
+
+    private void CheckWaveCondition()
+    {
+        if(allSpawnedEnemies.Count <= 0)
+        {
+            if(GetRemainingEnemyAmount() <= 0)
+            {
+                IncreaseWave();
+            }
+        }
     }
 
     public void LoseGame()
@@ -71,4 +105,131 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(_time);
         Destroy(_targetObject.gameObject);
     }
+
+    private void InitializeWave()
+    {
+        //Calculate boost time
+        allWaves[currentWave]._boostTime = Random.Range(allWaves[currentWave].minBoostTime, allWaves[currentWave].maxBoostTime);
+
+        //Boost spawner
+        foreach (var r in allWaves[currentWave].boostedSpawns)
+        {
+            r.maxSpawnDelay /= allWaves[currentWave].boostMultiplier;
+            r.minSpawnDelay /= allWaves[currentWave].boostMultiplier;
+            r.boosted = true;
+        }
+
+        foreach(var r in allEnemySpawns)
+        {
+            r.CalculateSpawnTime();
+        }
+    }
+
+    private void DoWaveBoost()
+    {
+        //Calculate boost time
+        allWaves[currentWave]._boostTime = Random.Range(allWaves[currentWave].minBoostTime, allWaves[currentWave].maxBoostTime);
+
+        //Calculate the amount of spawner boosted
+        int boostedSpawnAmount = allWaves[currentWave].boostedSpawns.Count;
+
+        //Reset boost of the boosted spawns
+        List<EnemySpawn> boostedSpawns = allEnemySpawns.Where(r => r.boosted).ToList();
+        foreach(var r in boostedSpawns)
+        {
+            r.maxSpawnDelay *= allWaves[currentWave].boostMultiplier;
+            r.minSpawnDelay *= allWaves[currentWave].boostMultiplier;
+            r.boosted = false;
+        }
+
+        //Apply new boost to spawns
+        List<EnemySpawn> possibleBoostedSpawns = allEnemySpawns.Where(r => !r.boosted).ToList();
+        if(boostedSpawnAmount > 0)
+        {
+            for(int i = 0; i < boostedSpawnAmount; i++)
+            {
+                int r = Random.Range(0, possibleBoostedSpawns.Count);
+                possibleBoostedSpawns[r].boosted = true;
+                possibleBoostedSpawns[r].maxSpawnDelay /= allWaves[currentWave].boostMultiplier;
+                possibleBoostedSpawns[r].minSpawnDelay /= allWaves[currentWave].boostMultiplier;
+                print(possibleBoostedSpawns[r].name);
+                possibleBoostedSpawns.RemoveAt(r);
+            }
+        }
+    }
+
+    public void ReduceEnemySpawnAmount()
+    {
+        allWaves[currentWave].totalEnemySpawnAmount--;
+    }
+
+    public int GetRemainingEnemyAmount()
+    {
+        return allWaves[currentWave].totalEnemySpawnAmount;
+    }
+
+    public void IncreaseWave()
+    {
+        if(currentWave < allWaves.Count - 1)
+        {
+            foreach(var r in allWaves[currentWave].boostedSpawns)
+            {
+                r.minSpawnDelay *= allWaves[currentWave].boostMultiplier;
+                r.maxSpawnDelay *= allWaves[currentWave].boostMultiplier;
+                r.boosted = false;
+            }
+            allWaves[currentWave].waveCompleted = true;
+            currentWave++;
+            InitializeWave();
+        }
+        else
+        {
+            //LevelCompleted
+        }
+    }
+
+    public GameObject GetSpawnObject()
+    {
+        bool picked = false;
+        GameObject go = null;
+        foreach(var r in allWaves[currentWave].enemiesOnThisWave)
+        {
+            float random = Random.Range(0f, 1f) * 100;
+            if(random < r.probability && !picked)
+            {
+                picked = true;
+                go = r.enemyObj;
+            }
+        }
+        if(go == null)
+        {
+            return allWaves[currentWave].enemiesOnThisWave[0].enemyObj;
+        }
+        else
+        {
+            return go;
+        }
+    }
+}
+
+[System.Serializable]
+public class Wave
+{
+    public int totalEnemySpawnAmount;
+    public List<EnemySpawn> boostedSpawns;
+    public float maxBoostTime;
+    public float minBoostTime;
+    [HideInInspector] public float _boostTime;
+    public float boostMultiplier;
+
+    public List<EnemyEntry> enemiesOnThisWave;
+
+    public bool waveCompleted;
+}
+
+[System.Serializable]
+public class EnemyEntry
+{
+    public GameObject enemyObj;
+    public float probability;
 }

@@ -40,7 +40,6 @@ public class EnemyTriggerScript : MonoBehaviour
         yield return new WaitForEndOfFrame();
         if (enemy.isGrounded)
         {
-            print("Grounded");
             enemy.DoAttack();
             float r = Random.Range(0.2f, 1f);
             StartCoroutine(enemy.ToggleMovementDelayed(r));
