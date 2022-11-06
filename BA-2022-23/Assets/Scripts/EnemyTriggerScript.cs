@@ -23,7 +23,8 @@ public class EnemyTriggerScript : MonoBehaviour
         {
             enemy.ChangeFocus(Enemy.FocusType.crystal);
             enemy.DoAttack();
-            enemy.ToggleMovement();
+            float r = Random.Range(0f, 1f);
+            StartCoroutine(enemy.ToggleMovementDelayed(r));
         }
     }
 

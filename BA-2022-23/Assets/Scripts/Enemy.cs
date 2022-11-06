@@ -247,4 +247,10 @@ public class Enemy : MonoBehaviour
     {
         doMove = !doMove;
     }
+
+    public IEnumerator ToggleMovementDelayed(float _time)
+    {
+        yield return new WaitForSecondsRealtime(_time);
+        ToggleMovement();
+    }
 }
