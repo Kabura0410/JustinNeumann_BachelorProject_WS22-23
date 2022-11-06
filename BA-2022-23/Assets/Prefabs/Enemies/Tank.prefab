@@ -204,7 +204,7 @@ MonoBehaviour:
   logicDelay: 4
   enemySprite: {fileID: 5383283307089427588}
   isClimbing: 0
-  ladderJumpHeight: 3650
+  ladderJumpHeight: 8000
   attackSpeed: 2
   isGrounded: 0
   groundCheck: {fileID: 4184505603100730028}
