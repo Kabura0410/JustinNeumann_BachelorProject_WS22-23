@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5383283307089427586}
   - component: {fileID: 8717385540481307546}
   m_Layer: 9
-  m_Name: Enemy
+  m_Name: Tank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 5383283307089427593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7994756603028314446}
@@ -154,10 +154,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c0b22276c72dc54094492d4bdb99651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 200
   deathEffect: {fileID: 3967512539779551259, guid: a2849023a928f9c42aedd26cf9d286ff, type: 3}
   damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
-  damage: 5
+  damage: 10
   leftRayPos: {fileID: 7747098032296613408}
   rightRayPos: {fileID: 3221249550479418630}
   whatIsGround:
@@ -166,7 +166,7 @@ MonoBehaviour:
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 4096
-  movementSpeed: 2
+  movementSpeed: 1
   rb: {fileID: 0}
   maxYVelocity: 14
   logicDelay: 4
