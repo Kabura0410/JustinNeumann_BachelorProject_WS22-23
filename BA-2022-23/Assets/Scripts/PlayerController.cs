@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             if(_jumpTime > 0)
             {
-                rb.velocity = Vector2.up * jumpForce * jumpForce;
+                rb.velocity = Vector2.up * jumpForce;
                 _jumpTime -= Time.deltaTime;
             }
             else
