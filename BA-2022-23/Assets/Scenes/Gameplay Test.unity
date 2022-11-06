@@ -2775,6 +2775,7 @@ MonoBehaviour:
   - {fileID: 459945024}
   - {fileID: 754321537}
   - {fileID: 554452477}
+  crystal: {fileID: 1423679386}
 --- !u!1001 &594118910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6546,9 +6547,10 @@ GameObject:
   - component: {fileID: 1423679385}
   - component: {fileID: 1423679384}
   - component: {fileID: 1423679383}
+  - component: {fileID: 1423679386}
   m_Layer: 0
   m_Name: Crystal
-  m_TagString: Ground
+  m_TagString: Crystal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6646,6 +6648,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1423679386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423679382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb5a7580cd0e1244bf41106be5788c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
 --- !u!4 &1425621493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044264868285635969, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public PlayerController player;
 
     [SerializeField] private List<GameObject> allWeapons;
+
+    public Crystal crystal;
 
     private void Awake()
     {
@@ -51,6 +54,11 @@ public class GameManager : MonoBehaviour
 
             }
         }
+    }
+
+    public void LoseGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public IEnumerator DeleteParticleDelayed(GameObject _targetObject, float _time)

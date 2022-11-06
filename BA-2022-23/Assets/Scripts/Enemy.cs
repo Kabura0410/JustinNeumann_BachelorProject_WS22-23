@@ -34,6 +34,26 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float ladderJumpHeight;
 
+    [SerializeField] private float attackSpeed;
+    private float _attackSpeed;
+
+    private bool doMove = true;
+
+
+    [Header("Groundcheck")]
+    public bool isGrounded;
+    public Transform groundCheck;
+    public float checkRadius;
+
+    public enum FocusType
+    {
+        none,
+        player,
+        crystal
+    }
+
+    public FocusType focusType;
+
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(9,9);
@@ -71,21 +91,38 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
         CheckWalls();
         DoMovement();
+        DoTimer();
+        if (!doMove)
+        {
+            DoAttack();
+        }
         
     }
 
     private void DoMovement()
     {
-        if (!isClimbing)
+        if (doMove)
         {
-            transform.position += direction * Time.deltaTime * movementSpeed;
+            if (!isClimbing)
+            {
+                transform.position += direction * Time.deltaTime * movementSpeed;
+            }
+            else
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+                transform.position += Vector3.up * Time.deltaTime * movementSpeed;
+            }
         }
-        else
+    }
+
+    private void DoTimer()
+    {
+        if(_attackSpeed > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0);
-            transform.position += Vector3.up * Time.deltaTime * movementSpeed;
+            _attackSpeed -= Time.fixedDeltaTime;
         }
     }
 
@@ -175,5 +212,39 @@ public class Enemy : MonoBehaviour
             direction = Vector3.right;
         }
         enemySprite.flipX = direction.x > 0 ? false : true;
+    }
+
+    public void ChangeFocus(FocusType _focusType)
+    {
+        focusType = _focusType;
+    }
+
+    public void DoAttack()
+    {
+        if(_attackSpeed <= 0)
+        {
+            switch (focusType)
+            {
+                case FocusType.none:
+                    break;
+                case FocusType.player:
+                    GameManager.instance.player.GetDamage(damage);
+                    break;
+                case FocusType.crystal:
+                    GameManager.instance.crystal.GetDamage(damage);
+                    break;
+            }
+            _attackSpeed = attackSpeed;
+        }
+    }
+
+    public void DoContactDamage()
+    {
+        GameManager.instance.player.GetDamage(damage);
+    }
+
+    public void ToggleMovement()
+    {
+        doMove = !doMove;
     }
 }

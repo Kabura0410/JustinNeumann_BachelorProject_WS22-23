@@ -139,11 +139,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void GetContactDamage()
-    {
-        print("Got contact damage");
-    }
-
     private void CheckFlip()
     {
         Vector3 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -155,9 +150,23 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(KnockBack(_direction, _intensity, 0));
     }
 
+    public void GetDamage(int _amount)
+    {
+        health -= _amount;
+        if(health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        //Hier die Logik fürs sterben 
+    }
+
     private IEnumerator KnockBack(Vector3 _direction, float _intensity, float timer)
     {
-        timer += Time.deltaTime;
+        timer += Time.fixedDeltaTime;
         rb.AddForce(new Vector2(_direction.x * _intensity, _direction.y * _intensity / 4) + Vector2.up * _intensity / 8);
         yield return new WaitForEndOfFrame();
         if(timer < knockbackDuration)
