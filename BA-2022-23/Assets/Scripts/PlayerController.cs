@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        //Hier die Logik fürs sterben 
+        GameManager.instance.KillPlayer();
     }
 
     private IEnumerator KnockBack(Vector3 _direction, float _intensity, float timer)

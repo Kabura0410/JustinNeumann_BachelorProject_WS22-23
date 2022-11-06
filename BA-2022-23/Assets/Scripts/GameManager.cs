@@ -61,6 +61,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+    public void KillPlayer()
+    {
+        LoseGame();
+    }
+
     public IEnumerator DeleteParticleDelayed(GameObject _targetObject, float _time)
     {
         yield return new WaitForSecondsRealtime(_time);
