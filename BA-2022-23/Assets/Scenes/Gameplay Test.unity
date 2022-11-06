@@ -128,6 +128,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4044264868285635969, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
   m_PrefabInstance: {fileID: 1192364512}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &151577743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
+  m_PrefabInstance: {fileID: 1192364512}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5d7313a2a47ca4aad64a8c9444d400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &166182890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2289,7 +2300,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411230557}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2854,7 +2865,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588443956}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2887,6 +2898,81 @@ MonoBehaviour:
   - {fileID: 754321537}
   - {fileID: 554452477}
   crystal: {fileID: 1423679386}
+  allWaves:
+  - totalEnemySpawnAmount: 10
+    boostedSpawns: []
+    maxBoostTime: 10
+    minBoostTime: 5
+    _boostTime: 0
+    boostMultiplier: 4
+    enemiesOnThisWave:
+    - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
+      probability: 90
+    - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
+      probability: 10
+    waveCompleted: 0
+  - totalEnemySpawnAmount: 15
+    boostedSpawns:
+    - {fileID: 1191517969}
+    maxBoostTime: 10
+    minBoostTime: 5
+    _boostTime: 0
+    boostMultiplier: 4
+    enemiesOnThisWave:
+    - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
+      probability: 90
+    - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
+      probability: 10
+    waveCompleted: 0
+  - totalEnemySpawnAmount: 15
+    boostedSpawns:
+    - {fileID: 1874775172}
+    maxBoostTime: 10
+    minBoostTime: 5
+    _boostTime: 0
+    boostMultiplier: 4
+    enemiesOnThisWave:
+    - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
+      probability: 90
+    - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
+      probability: 10
+    waveCompleted: 0
+  - totalEnemySpawnAmount: 15
+    boostedSpawns:
+    - {fileID: 1277940340}
+    - {fileID: 151577743}
+    maxBoostTime: 10
+    minBoostTime: 5
+    _boostTime: 0
+    boostMultiplier: 4
+    enemiesOnThisWave:
+    - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
+      probability: 90
+    - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
+      probability: 10
+    waveCompleted: 0
+  - totalEnemySpawnAmount: 30
+    boostedSpawns:
+    - {fileID: 1191517969}
+    - {fileID: 1874775172}
+    maxBoostTime: 10
+    minBoostTime: 5
+    _boostTime: 0
+    boostMultiplier: 4
+    enemiesOnThisWave:
+    - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
+      probability: 90
+    - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
+      probability: 10
+    waveCompleted: 0
+  allEnemySpawns:
+  - {fileID: 1191517969}
+  - {fileID: 1277940340}
+  - {fileID: 1874775172}
+  - {fileID: 151577743}
+  - {fileID: 1425621494}
+  - {fileID: 1891828283}
+  allSpawnedEnemies: []
 --- !u!1001 &594118910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2944,7 +3030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: maxSpawnDelay
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635983, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: m_Icon
@@ -3567,7 +3653,7 @@ PrefabInstance:
       objectReference: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
     - target: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: maxSpawnDelay
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635983, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: m_Icon
@@ -5847,6 +5933,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1191517969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
+  m_PrefabInstance: {fileID: 4044264867620933193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5d7313a2a47ca4aad64a8c9444d400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1192364512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5904,7 +6001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: maxSpawnDelay
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635983, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: m_Icon
@@ -6200,7 +6297,7 @@ PrefabInstance:
       objectReference: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
     - target: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: maxSpawnDelay
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635983, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: m_Icon
@@ -6439,6 +6536,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4044264868285635969, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
   m_PrefabInstance: {fileID: 2056988082}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1277940340 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
+  m_PrefabInstance: {fileID: 2056988082}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5d7313a2a47ca4aad64a8c9444d400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1309569817 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1661177946680491154, guid: 1fc2017d2e99e8047a36547d81a5dad0, type: 3}
@@ -6862,6 +6970,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4044264868285635969, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
   m_PrefabInstance: {fileID: 1257796809}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425621494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
+  m_PrefabInstance: {fileID: 1257796809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5d7313a2a47ca4aad64a8c9444d400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1444835834
 GameObject:
   m_ObjectHideFlags: 0
@@ -6885,7 +7004,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1444835834}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8138,6 +8257,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4044264868285635969, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
   m_PrefabInstance: {fileID: 594118910}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1874775172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
+  m_PrefabInstance: {fileID: 594118910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5d7313a2a47ca4aad64a8c9444d400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1876208956
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,7 +8291,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876208956}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8221,6 +8351,17 @@ Transform:
   m_Father: {fileID: 1444835835}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891828283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
+  m_PrefabInstance: {fileID: 665991340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5d7313a2a47ca4aad64a8c9444d400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931865360
 GameObject:
   m_ObjectHideFlags: 0
@@ -8987,7 +9128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: maxSpawnDelay
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635983, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: m_Icon
@@ -9428,7 +9569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635982, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: maxSpawnDelay
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4044264868285635983, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
       propertyPath: m_Icon
