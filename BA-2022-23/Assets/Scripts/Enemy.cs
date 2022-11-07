@@ -238,12 +238,12 @@ public class Enemy : MonoBehaviour
                     if(x > 0)
                     {
                         GameManager.instance.player.rb.velocity = Vector3.zero;
-                        GameManager.instance.player.GetKnockback(new Vector3(1, .5f, 0), knockbackIntensity);
+                        GameManager.instance.player.GetKnockback(new Vector3(1, .8f, 0), knockbackIntensity);
                     }
                     else
                     {
                         GameManager.instance.player.rb.velocity = Vector3.zero;
-                        GameManager.instance.player.GetKnockback(new Vector3(-1, .5f, 0), knockbackIntensity);
+                        GameManager.instance.player.GetKnockback(new Vector3(-1, .8f, 0), knockbackIntensity);
                     }
                     break;
                 case FocusType.crystal:

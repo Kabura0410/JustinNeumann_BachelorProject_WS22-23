@@ -53,7 +53,7 @@ MonoBehaviour:
   flashEffect: {fileID: 3967512539779551259, guid: d46ed918bcbd678449b18499d3e22ef6, type: 3}
   spreadFactor: 8
   bulletAmount: 1
-  playerKnockback: 400
+  playerKnockback: 100
   enemyKnockback: 0
   reloadTime: 5
   ammoCapacity: 600

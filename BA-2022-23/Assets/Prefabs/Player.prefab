@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   speed: 200
-  jumpForce: 100
+  jumpForce: 4
   rb: {fileID: 0}
   groundCheck: {fileID: 3647053673753622625}
   checkRadius: 0.3
@@ -235,9 +235,10 @@ MonoBehaviour:
   extraJumpsValue: 1
   playerSprite: {fileID: 3647053674368300143}
   playerCollider: {fileID: 0}
-  jumpTime: 0.8
+  jumpTime: 0.2
   ladderSpeed: 500
-  maxYVelocity: 15
+  maxYVelocity: 20
+  maxXVelocity: 0
   xDrag: 0.6
   yDrag: 0.98
   knockbackDuration: 0.2
