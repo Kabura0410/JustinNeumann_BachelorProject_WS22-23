@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private float moveInput;
 
-    private Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
 
     private bool isGrounded;
     private bool isOnSemiPlatform;
@@ -41,6 +41,16 @@ public class PlayerController : MonoBehaviour
     private bool isLadder;
     private bool isClimbing;
 
+    private float startGravity;
+
+    [SerializeField] private float maxYVelocity;
+    [SerializeField] private float maxXVelocity;
+
+    [Range(0f,1f)][SerializeField] private float xDrag;
+    [Range(0f,1f)][SerializeField] private float yDrag;
+
+    private bool knockbackReceived;
+
     [SerializeField] private float knockbackDuration;
 
     void Start()
@@ -49,6 +59,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<Collider2D>();
         Physics2D.IgnoreLayerCollision(9,11);
+        startGravity = rb.gravityScale;
     }
 
     void FixedUpdate()
@@ -68,21 +79,58 @@ public class PlayerController : MonoBehaviour
             currentSemiCollider = null;
         }
 
+        if (!knockbackReceived)
+        {
+            moveInput = Input.GetAxisRaw("Horizontal");
+            rb.AddForce(new Vector2(moveInput * speed, rb.velocity.y));
+        }
 
-        moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
 
-        if(isClimbing)
+
+
+        //Apply maximum y velocity 
+        if(rb.velocity.y > maxYVelocity)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, maxYVelocity);
+        }
+        if (rb.velocity.y < -maxYVelocity)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -maxYVelocity);
+        }
+
+
+        //Apply maximum x velocity 
+        if (rb.velocity.x > maxXVelocity)
+        {
+            rb.velocity = new Vector2(maxXVelocity, rb.velocity.y);
+        }
+        if (rb.velocity.x < -maxXVelocity)
+        {
+            rb.velocity = new Vector2(-maxXVelocity, rb.velocity.y);
+        }
+
+
+
+        //Apply drag in x direction when no knockback
+        if (!knockbackReceived)
+        {
+            rb.velocity = new Vector2(rb.velocity.x * xDrag, rb.velocity.y);
+        }
+
+        //Apply drag in y direction
+        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * yDrag);
+
+
+        if (isClimbing)
         {
             rb.gravityScale = 0f;
             rb.velocity = new Vector2(rb.velocity.x, vertical * ladderSpeed * Time.fixedDeltaTime);
         }
         else
         {
-            rb.gravityScale = 5f;
+            rb.gravityScale = startGravity;
         }
-
     }
 
     void Update()
@@ -103,7 +151,8 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
         {
-            rb.velocity = Vector2.up * jumpForce;
+            rb.velocity = new Vector2(rb.velocity.x, 0);
+            rb.AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
             extraJumps--;
             isJumping = true;
             _jumpTime = jumpTime;
@@ -113,8 +162,8 @@ public class PlayerController : MonoBehaviour
         {
             if(_jumpTime > 0)
             {
-                rb.velocity = Vector2.up * jumpForce;
-                _jumpTime -= Time.deltaTime;
+                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                _jumpTime -= Time.fixedDeltaTime;
             }
             else
             {
@@ -147,7 +196,9 @@ public class PlayerController : MonoBehaviour
 
     public void GetKnockback(Vector3 _direction, float _intensity)
     {
-        StartCoroutine(KnockBack(_direction, _intensity, 0));
+        rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
+        knockbackReceived = true;
+        StartCoroutine(DelayedKnockbackDeactivation());
     }
 
     public void GetDamage(int _amount)
@@ -164,21 +215,16 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.KillPlayer();
     }
 
-    private IEnumerator KnockBack(Vector3 _direction, float _intensity, float timer)
-    {
-        timer += Time.fixedDeltaTime;
-        rb.AddForce(new Vector2(_direction.x * _intensity, _direction.y * _intensity / 4) + Vector2.up * _intensity / 8);
-        yield return new WaitForEndOfFrame();
-        if(timer < knockbackDuration)
-        {
-            StartCoroutine(KnockBack(_direction, _intensity, timer));
-        }
-    }
-
     private IEnumerator ReactivateCollision(Collider2D _targetCollider)
     {
         yield return new WaitForSecondsRealtime(.2f);
         Physics2D.IgnoreCollision(_targetCollider, playerCollider, false);
+    }
+
+    private IEnumerator DelayedKnockbackDeactivation()
+    {
+        yield return new WaitForSecondsRealtime(knockbackDuration);
+        knockbackReceived = false;
     }
 
 

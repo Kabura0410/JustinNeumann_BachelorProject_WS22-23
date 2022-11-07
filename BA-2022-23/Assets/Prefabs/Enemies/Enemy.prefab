@@ -206,6 +206,8 @@ MonoBehaviour:
   isClimbing: 0
   ladderJumpHeight: 3650
   attackSpeed: 1
+  knockbackDuration: 0.3
+  knockbackIntensity: 10
   isGrounded: 0
   groundCheck: {fileID: 8454449000018236206}
   checkRadius: 0.3

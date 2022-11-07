@@ -39,6 +39,10 @@ public class Enemy : MonoBehaviour
 
     private bool doMove = true;
 
+    [SerializeField] private float knockbackDuration;
+
+    [SerializeField] private float knockbackIntensity;
+
 
     [Header("Groundcheck")]
     public bool isGrounded;
@@ -230,6 +234,17 @@ public class Enemy : MonoBehaviour
                     break;
                 case FocusType.player:
                     GameManager.instance.player.GetDamage(damage);
+                    float x = (GameManager.instance.player.transform.position - transform.position).normalized.x;
+                    if(x > 0)
+                    {
+                        GameManager.instance.player.rb.velocity = Vector3.zero;
+                        GameManager.instance.player.GetKnockback(new Vector3(1, .5f, 0), knockbackIntensity);
+                    }
+                    else
+                    {
+                        GameManager.instance.player.rb.velocity = Vector3.zero;
+                        GameManager.instance.player.GetKnockback(new Vector3(-1, .5f, 0), knockbackIntensity);
+                    }
                     break;
                 case FocusType.crystal:
                     GameManager.instance.crystal.GetDamage(damage);
@@ -242,6 +257,22 @@ public class Enemy : MonoBehaviour
     public void DoContactDamage()
     {
         GameManager.instance.player.GetDamage(damage);
+    }
+
+    public void GetKnockback(Vector3 _direction, float _intensity)
+    {
+        StartCoroutine(KnockBack(_direction, _intensity, 0));
+    }
+
+    private IEnumerator KnockBack(Vector3 _direction, float _intensity, float timer)
+    {
+        timer += Time.fixedDeltaTime;
+        rb.AddForce(new Vector2(_direction.x * _intensity, _direction.y * _intensity / 4) + Vector2.up * _intensity / 8);
+        yield return new WaitForEndOfFrame();
+        if (timer < knockbackDuration)
+        {
+            StartCoroutine(KnockBack(_direction, _intensity, timer));
+        }
     }
 
     public void ToggleMovement()

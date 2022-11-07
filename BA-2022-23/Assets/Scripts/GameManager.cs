@@ -184,6 +184,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            allWaves[currentWave].waveCompleted = true;
             //LevelCompleted
         }
     }
