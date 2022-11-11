@@ -6037,20 +6037,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 237408385971126771, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 237408385971126771, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 998640071843062097, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 998640071843062097, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1161941470825015159, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161941470825015159, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2707049806425367807, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2707049806425367807, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377049679109905020, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3377049679109905020, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
@@ -6113,16 +6133,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3778007340611789332, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3778007340611789332, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774777907017592937, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5774777907017592937, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6314204436272803913, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6314204436272803913, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8021338630114187861, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+      propertyPath: enemyKnockback
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8021338630114187861, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback

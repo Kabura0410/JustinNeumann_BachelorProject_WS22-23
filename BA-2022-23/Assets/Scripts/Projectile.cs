@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour
 
     public GameObject destroyEffect;
 
+    public float enemyKnockbackIntensity;
+
     
     private void Start()
     {
@@ -26,7 +28,15 @@ public class Projectile : MonoBehaviour
         {
             if(hitInfo.collider.CompareTag("Enemy"))
             {
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                Vector3 direction = hitInfo.transform.position - transform.position;
+                if(direction.x > 0)
+                {
+                    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, new Vector3(1,1,0), enemyKnockbackIntensity);
+                }
+                else
+                {
+                    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, new Vector3(-1, 1, 0), enemyKnockbackIntensity);
+                }
             }
             DestroyProjectile();
         }

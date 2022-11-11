@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour
 
     private bool knockbackReceived;
 
-    [SerializeField] private float knockbackDuration;
+    public float enemyKnockbackDuration;
+    public float weaponKnockbackDuration;
 
     void Start()
     {
@@ -194,11 +195,11 @@ public class PlayerController : MonoBehaviour
         playerSprite.flipX = direction.x > 0 ? false : true;
     }
 
-    public void GetKnockback(Vector3 _direction, float _intensity)
+    public void GetKnockback(Vector3 _direction, float _intensity, float knockbackDuration)
     {
         rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
         knockbackReceived = true;
-        StartCoroutine(DelayedKnockbackDeactivation());
+        StartCoroutine(DelayedKnockbackDeactivation(knockbackDuration));
     }
 
     public void GetDamage(int _amount)
@@ -221,9 +222,9 @@ public class PlayerController : MonoBehaviour
         Physics2D.IgnoreCollision(_targetCollider, playerCollider, false);
     }
 
-    private IEnumerator DelayedKnockbackDeactivation()
+    private IEnumerator DelayedKnockbackDeactivation(float _duration)
     {
-        yield return new WaitForSecondsRealtime(knockbackDuration);
+        yield return new WaitForSecondsRealtime(_duration);
         knockbackReceived = false;
     }
 

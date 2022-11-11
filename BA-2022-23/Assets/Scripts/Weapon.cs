@@ -47,6 +47,7 @@ public class Weapon : MonoBehaviour
                 {
                     GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
                     go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
+                    go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
                 }
                 actualAmmo--;
                 if(actualAmmo <= 0)
@@ -56,7 +57,7 @@ public class Weapon : MonoBehaviour
                 timeBtwShots = startTimeBtwShots;
                 GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
                 GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
-                GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback);
+                GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
             }
         }
         else

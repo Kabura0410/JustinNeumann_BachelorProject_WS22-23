@@ -43,6 +43,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float knockbackIntensity;
 
+    [Range(0f, 1f)] [SerializeField] private float xDrag;
+
 
     [Header("Groundcheck")]
     public bool isGrounded;
@@ -104,7 +106,8 @@ public class Enemy : MonoBehaviour
         {
             DoAttack();
         }
-        
+        rb.velocity = new Vector2(rb.velocity.x * xDrag, rb.velocity.y);
+
     }
 
     private void DoMovement()
@@ -193,11 +196,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 _direction, float _intensity = 0f)
     {
         health -= damage;
         GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity);
         GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
+        GetKnockback(_direction, _intensity);
     }
 
     public void SetStartDirection(Vector3 _direction)
@@ -238,12 +242,12 @@ public class Enemy : MonoBehaviour
                     if(x > 0)
                     {
                         GameManager.instance.player.rb.velocity = Vector3.zero;
-                        GameManager.instance.player.GetKnockback(new Vector3(1, .8f, 0), knockbackIntensity);
+                        GameManager.instance.player.GetKnockback(new Vector3(1, .8f, 0), knockbackIntensity, GameManager.instance.player.enemyKnockbackDuration);
                     }
                     else
                     {
                         GameManager.instance.player.rb.velocity = Vector3.zero;
-                        GameManager.instance.player.GetKnockback(new Vector3(-1, .8f, 0), knockbackIntensity);
+                        GameManager.instance.player.GetKnockback(new Vector3(-1, .8f, 0), knockbackIntensity, GameManager.instance.player.enemyKnockbackDuration);
                     }
                     break;
                 case FocusType.crystal:
@@ -261,18 +265,8 @@ public class Enemy : MonoBehaviour
 
     public void GetKnockback(Vector3 _direction, float _intensity)
     {
-        StartCoroutine(KnockBack(_direction, _intensity, 0));
-    }
-
-    private IEnumerator KnockBack(Vector3 _direction, float _intensity, float timer)
-    {
-        timer += Time.fixedDeltaTime;
-        rb.AddForce(new Vector2(_direction.x * _intensity, _direction.y * _intensity / 4) + Vector2.up * _intensity / 8);
-        yield return new WaitForEndOfFrame();
-        if (timer < knockbackDuration)
-        {
-            StartCoroutine(KnockBack(_direction, _intensity, timer));
-        }
+        print("got knockback");
+        rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
     }
 
     public void ToggleMovement()

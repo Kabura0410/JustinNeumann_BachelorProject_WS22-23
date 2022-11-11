@@ -208,6 +208,7 @@ MonoBehaviour:
   attackSpeed: 1
   knockbackDuration: 0.3
   knockbackIntensity: 20
+  xDrag: 0.97
   isGrounded: 0
   groundCheck: {fileID: 8454449000018236206}
   checkRadius: 0.3
