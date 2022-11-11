@@ -33,6 +33,10 @@ public class EnemyTriggerScript : MonoBehaviour
             enemy.ChangeFocus(Enemy.FocusType.none);
             enemy.ToggleMovement();
         }
+        if (collision.gameObject.tag == "Crystal")
+        {
+            enemy.ToggleMovement();
+        }
     }
 
     private IEnumerator CheckGround()
