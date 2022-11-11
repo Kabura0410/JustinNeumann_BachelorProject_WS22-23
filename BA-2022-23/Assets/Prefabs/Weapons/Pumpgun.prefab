@@ -54,7 +54,7 @@ MonoBehaviour:
   spreadFactor: 16
   bulletAmount: 6
   playerKnockback: 2500
-  enemyKnockback: 0
+  enemyKnockback: 50
   reloadTime: 2
   ammoCapacity: 6
 --- !u!1 &2036013185045105546
