@@ -201,7 +201,7 @@ MonoBehaviour:
   movementSpeed: 2
   rb: {fileID: 0}
   maxYVelocity: 14
-  logicDelay: 4
+  logicDelay: 8
   enemySprite: {fileID: 5383283307089427588}
   isClimbing: 0
   ladderJumpHeight: 3650

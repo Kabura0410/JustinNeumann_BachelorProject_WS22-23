@@ -103,7 +103,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
@@ -139,13 +139,14 @@ MonoBehaviour:
   movementSpeed: 1
   rb: {fileID: 0}
   maxYVelocity: 14
-  logicDelay: 4
+  logicDelay: 8
   enemySprite: {fileID: 3955649257505034567}
   isClimbing: 0
   ladderJumpHeight: 6000
   attackSpeed: 2
   knockbackDuration: 0
   knockbackIntensity: 40
+  xDrag: 0
   isGrounded: 0
   groundCheck: {fileID: 3969502715968780730}
   checkRadius: 0.3
