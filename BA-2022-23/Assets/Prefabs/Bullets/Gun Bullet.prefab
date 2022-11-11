@@ -106,6 +106,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   destroyEffect: {fileID: 3967512539779551259, guid: 3e99ca05ae778ce459db18439b850e6a, type: 3}
+  enemyKnockbackIntensity: 0
+  hitAmount: 5
 --- !u!1 &4941404749390009330
 GameObject:
   m_ObjectHideFlags: 0
