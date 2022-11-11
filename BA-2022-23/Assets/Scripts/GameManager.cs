@@ -152,7 +152,6 @@ public class GameManager : MonoBehaviour
                 possibleBoostedSpawns[r].boosted = true;
                 possibleBoostedSpawns[r].maxSpawnDelay /= allWaves[currentWave].boostMultiplier;
                 possibleBoostedSpawns[r].minSpawnDelay /= allWaves[currentWave].boostMultiplier;
-                print(possibleBoostedSpawns[r].name);
                 possibleBoostedSpawns.RemoveAt(r);
             }
         }

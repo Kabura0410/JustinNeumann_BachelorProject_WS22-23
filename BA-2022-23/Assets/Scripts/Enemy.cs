@@ -265,7 +265,6 @@ public class Enemy : MonoBehaviour
 
     public void GetKnockback(Vector3 _direction, float _intensity)
     {
-        print("got knockback");
         rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
     }
 

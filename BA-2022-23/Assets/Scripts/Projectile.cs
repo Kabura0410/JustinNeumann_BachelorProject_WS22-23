@@ -15,9 +15,11 @@ public class Projectile : MonoBehaviour
 
     public float enemyKnockbackIntensity;
 
+    private Vector3 startPos;
     
     private void Start()
     {
+        startPos = transform.position;
         Invoke("DestroyProjectile", lifeTime);
     }
 
@@ -28,7 +30,7 @@ public class Projectile : MonoBehaviour
         {
             if(hitInfo.collider.CompareTag("Enemy"))
             {
-                Vector3 direction = hitInfo.transform.position - transform.position;
+                Vector3 direction = hitInfo.transform.position - startPos;
                 if(direction.x > 0)
                 {
                     hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, new Vector3(1,1,0), enemyKnockbackIntensity);
@@ -41,7 +43,12 @@ public class Projectile : MonoBehaviour
             DestroyProjectile();
         }
 
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+    }
+
+    private void FixedUpdate()
+    {
+        
+        transform.Translate(Vector2.right * speed * Time.fixedDeltaTime);
     }
 
     void DestroyProjectile()
