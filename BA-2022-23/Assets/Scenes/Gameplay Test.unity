@@ -6046,7 +6046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 998640071843062097, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: enemyKnockback
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 998640071843062097, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
@@ -6054,7 +6054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1161941470825015159, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: enemyKnockback
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 1161941470825015159, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
@@ -6062,7 +6062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2707049806425367807, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: enemyKnockback
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2707049806425367807, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
@@ -6142,7 +6142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5774777907017592937, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: enemyKnockback
-      value: 50
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5774777907017592937, guid: 2de792393c5556243b3506202505c1ac, type: 3}
       propertyPath: playerKnockback
