@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Crystal : MonoBehaviour
 {
-    [SerializeField] private int health;
+    public int maxhealth;
+    public int health;
 
     void Start()
     {

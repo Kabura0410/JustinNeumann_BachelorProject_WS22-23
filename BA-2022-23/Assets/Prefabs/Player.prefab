@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8462ad7624ec2b240bec0ec38d1ce843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 50
   health: 50
   speed: 200
   jumpForce: 4
@@ -241,7 +242,8 @@ MonoBehaviour:
   maxXVelocity: 0
   xDrag: 0.6
   yDrag: 0.98
-  knockbackDuration: 0.2
+  enemyKnockbackDuration: 0
+  weaponKnockbackDuration: 0
 --- !u!114 &3647053674368300137
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<EnemySpawn> allEnemySpawns;
 
     [HideInInspector] public List<Enemy> allSpawnedEnemies;
+
+    [SerializeField] private Image crystalHealthImage;
+    [SerializeField] private Image playerHealthImage;
 
     private void Awake()
     {
@@ -209,6 +213,15 @@ public class GameManager : MonoBehaviour
         {
             return go;
         }
+    }
+
+    public void UpdateHealthBars()
+    {
+        float crystalFillAmount = (float)crystal.health / (float)crystal.maxhealth;
+        float playerFillAmount = (float)player.health / (float)player.maxHealth;
+
+        crystalHealthImage.fillAmount = crystalFillAmount;
+        playerHealthImage.fillAmount = playerFillAmount;
     }
 }
 

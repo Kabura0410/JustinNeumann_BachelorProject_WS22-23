@@ -249,9 +249,11 @@ public class Enemy : MonoBehaviour
                         GameManager.instance.player.rb.velocity = Vector3.zero;
                         GameManager.instance.player.GetKnockback(new Vector3(-1, .8f, 0), knockbackIntensity, GameManager.instance.player.enemyKnockbackDuration);
                     }
+                    GameManager.instance.UpdateHealthBars();
                     break;
                 case FocusType.crystal:
                     GameManager.instance.crystal.GetDamage(damage);
+                    GameManager.instance.UpdateHealthBars();
                     break;
             }
             _attackSpeed = attackSpeed;
