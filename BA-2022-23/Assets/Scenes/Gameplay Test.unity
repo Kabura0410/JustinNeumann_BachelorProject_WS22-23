@@ -2754,7 +2754,7 @@ MonoBehaviour:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
     waveCompleted: 0
-  - totalEnemySpawnAmount: 15
+  - totalEnemySpawnAmount: 20
     boostedSpawns:
     - {fileID: 1874775172}
     maxBoostTime: 10
@@ -2767,7 +2767,7 @@ MonoBehaviour:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
     waveCompleted: 0
-  - totalEnemySpawnAmount: 15
+  - totalEnemySpawnAmount: 25
     boostedSpawns:
     - {fileID: 1277940340}
     - {fileID: 151577743}
@@ -2795,7 +2795,7 @@ MonoBehaviour:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
     waveCompleted: 0
-  - totalEnemySpawnAmount: 20
+  - totalEnemySpawnAmount: 25
     boostedSpawns:
     - {fileID: 1277940340}
     - {fileID: 151577743}
@@ -2809,7 +2809,7 @@ MonoBehaviour:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
     waveCompleted: 0
-  - totalEnemySpawnAmount: 20
+  - totalEnemySpawnAmount: 25
     boostedSpawns:
     - {fileID: 1191517969}
     - {fileID: 1874775172}
@@ -2823,7 +2823,7 @@ MonoBehaviour:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
     waveCompleted: 0
-  - totalEnemySpawnAmount: 25
+  - totalEnemySpawnAmount: 30
     boostedSpawns:
     - {fileID: 1191517969}
     - {fileID: 1277940340}
@@ -2837,7 +2837,7 @@ MonoBehaviour:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
     waveCompleted: 0
-  - totalEnemySpawnAmount: 25
+  - totalEnemySpawnAmount: 30
     boostedSpawns:
     - {fileID: 1874775172}
     - {fileID: 151577743}
@@ -2851,7 +2851,7 @@ MonoBehaviour:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
     waveCompleted: 0
-  - totalEnemySpawnAmount: 40
+  - totalEnemySpawnAmount: 60
     boostedSpawns:
     - {fileID: 1425621494}
     - {fileID: 1891828283}
@@ -2859,6 +2859,22 @@ MonoBehaviour:
     minBoostTime: 5
     _boostTime: 0
     boostMultiplier: 6
+    enemiesOnThisWave:
+    - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
+      probability: 90
+    - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
+      probability: 10
+    waveCompleted: 0
+  - totalEnemySpawnAmount: 200
+    boostedSpawns:
+    - {fileID: 1425621494}
+    - {fileID: 1891828283}
+    - {fileID: 1277940340}
+    - {fileID: 151577743}
+    maxBoostTime: 10
+    minBoostTime: 5
+    _boostTime: 0
+    boostMultiplier: 4
     enemiesOnThisWave:
     - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
       probability: 90
