@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour
             subWaveCount = 1;
             waveCount++;
         }
-        waveText.text = $"Wave: {waveCount}-{subWaveCount}";
+        waveText.text = $"Wave  {waveCount}-{subWaveCount}";
     }
 
     public GameObject GetSpawnObject()
