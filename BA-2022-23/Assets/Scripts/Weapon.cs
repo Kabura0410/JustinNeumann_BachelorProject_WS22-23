@@ -25,15 +25,18 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private float reloadTime;
 
-    [SerializeField] private int ammoCapacity;
-    private int actualAmmo;
+    public int ammoCapacity;
+    [HideInInspector] public int actualAmmo;
 
     [SerializeField] private float chargeTime;
     private float _chargeTime;
+    private void Awake()
+    {
+        actualAmmo = ammoCapacity;
+    }
 
     private void Start()
     {
-        actualAmmo = ammoCapacity;
     }
 
     private void Update()
@@ -63,6 +66,7 @@ public class Weapon : MonoBehaviour
                     GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
                     GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
                     GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
+                    GameManager.instance.UpdateWeaponText();
                 }
                 else
                 {
@@ -86,5 +90,6 @@ public class Weapon : MonoBehaviour
         yield return new WaitForSecondsRealtime(reloadTime);
         _chargeTime = 0;
         actualAmmo = ammoCapacity;
+        GameManager.instance.UpdateWeaponText();
     }
 }

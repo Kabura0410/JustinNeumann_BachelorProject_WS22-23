@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image playerHealthImage;
 
     [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private TextMeshProUGUI weaponText;
 
     private int waveCount = 1;
     private int subWaveCount = 1;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InitializeWave();
+        UpdateWeaponText();
     }
 
     void Update()
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
                 }
 
             }
+            UpdateWeaponText();
         }
 
         CheckWaveCondition();
@@ -235,6 +238,12 @@ public class GameManager : MonoBehaviour
 
         crystalHealthImage.fillAmount = crystalFillAmount;
         playerHealthImage.fillAmount = playerFillAmount;
+    }
+
+    public void UpdateWeaponText()
+    {
+        Weapon weapon = player.GetComponentInChildren<Weapon>();
+        weaponText.text = $"{weapon.gameObject.name}\n {weapon.actualAmmo} / {weapon.ammoCapacity}";
     }
 }
 
