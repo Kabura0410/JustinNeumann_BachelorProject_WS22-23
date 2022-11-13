@@ -98,7 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38ad6affc1b6c143afe78bbf2a60af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 120
+  maxSpeed: 40
+  minSpeed: 40
   lifeTime: 1
   distance: 1
   damage: 100
@@ -106,6 +107,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 768
   destroyEffect: {fileID: 3967512539779551259, guid: 634ce634b1e400e4d844e4e873bf7de2, type: 3}
+  enemyKnockbackIntensity: 0
+  hitAmount: 0
 --- !u!1 &6183225549224464676
 GameObject:
   m_ObjectHideFlags: 0
