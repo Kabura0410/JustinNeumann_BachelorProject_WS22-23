@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Image crystalHealthImage;
     [SerializeField] private Image playerHealthImage;
+
+    [SerializeField] private TextMeshProUGUI waveText;
+
+    private int waveCount = 1;
+    private int subWaveCount = 1;
 
     private void Awake()
     {
@@ -190,6 +196,13 @@ public class GameManager : MonoBehaviour
             allWaves[currentWave].waveCompleted = true;
             //LevelCompleted
         }
+        subWaveCount++;
+        if(subWaveCount == 6)
+        {
+            subWaveCount = 1;
+            waveCount++;
+        }
+        waveText.text = $"Wave: {waveCount}-{subWaveCount}";
     }
 
     public GameObject GetSpawnObject()
