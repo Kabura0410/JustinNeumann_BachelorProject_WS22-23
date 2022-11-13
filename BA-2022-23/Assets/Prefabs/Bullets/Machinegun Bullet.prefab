@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38ad6affc1b6c143afe78bbf2a60af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 40
-  minSpeed: 40
+  maxSpeed: 60
+  minSpeed: 60
   lifeTime: 1
   distance: 0.5
   damage: 10

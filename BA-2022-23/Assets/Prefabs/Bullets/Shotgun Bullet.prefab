@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 2288040545729649526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6262412874587810086}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f38ad6affc1b6c143afe78bbf2a60af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 40
+  maxSpeed: 55
   minSpeed: 35
   lifeTime: 0.25
   distance: 0.5
@@ -192,4 +192,4 @@ MonoBehaviour:
     m_Bits: 768
   destroyEffect: {fileID: 3967512539779551259, guid: 4e5f7f37f8f8b924bafabf188d706494, type: 3}
   enemyKnockbackIntensity: 0
-  hitAmount: 0
+  hitAmount: 2
