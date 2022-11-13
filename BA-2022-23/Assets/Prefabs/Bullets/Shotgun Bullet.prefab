@@ -192,4 +192,4 @@ MonoBehaviour:
     m_Bits: 768
   destroyEffect: {fileID: 3967512539779551259, guid: 4e5f7f37f8f8b924bafabf188d706494, type: 3}
   enemyKnockbackIntensity: 0
-  hitAmount: 2
+  hitAmount: 1
