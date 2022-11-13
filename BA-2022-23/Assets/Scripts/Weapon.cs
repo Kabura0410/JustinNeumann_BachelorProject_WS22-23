@@ -28,6 +28,9 @@ public class Weapon : MonoBehaviour
     [SerializeField] private int ammoCapacity;
     private int actualAmmo;
 
+    [SerializeField] private float chargeTime;
+    private float _chargeTime;
+
     private void Start()
     {
         actualAmmo = ammoCapacity;
@@ -43,22 +46,33 @@ public class Weapon : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                for(int i = 0; i < bulletAmount; i++)
+                if(_chargeTime >= chargeTime)
                 {
-                    GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
-                    go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
-                    go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
+                    for(int i = 0; i < bulletAmount; i++)
+                    {
+                        GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
+                        go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
+                        go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
+                    }
+                    actualAmmo--;
+                    if(actualAmmo <= 0)
+                    {
+                        StartCoroutine(ReloadWeapon());
+                    }
+                    timeBtwShots = startTimeBtwShots;
+                    GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
+                    GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
+                    GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
                 }
-                actualAmmo--;
-                if(actualAmmo <= 0)
+                else
                 {
-                    StartCoroutine(ReloadWeapon());
+                    _chargeTime += Time.deltaTime; 
                 }
-                timeBtwShots = startTimeBtwShots;
-                GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
-                GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
-                GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
             }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            _chargeTime = 0;
         }
         else
         {
@@ -70,6 +84,7 @@ public class Weapon : MonoBehaviour
     private IEnumerator ReloadWeapon()
     {
         yield return new WaitForSecondsRealtime(reloadTime);
-        actualAmmo = ammoCapacity; 
+        _chargeTime = 0;
+        actualAmmo = ammoCapacity;
     }
 }
