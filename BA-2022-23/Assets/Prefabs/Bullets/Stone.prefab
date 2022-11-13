@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8464713069873180076}
   - component: {fileID: 9095766291985080410}
   - component: {fileID: 3772414649652588852}
+  - component: {fileID: -6042665882706644864}
   m_Layer: 0
   m_Name: Stone
   m_TagString: Untagged
@@ -108,3 +109,24 @@ MonoBehaviour:
   destroyEffect: {fileID: 3967512539779551259, guid: f5c0f7aa919a96e4385d5c13b2bc6524, type: 3}
   enemyKnockbackIntensity: 0
   hitAmount: 1
+--- !u!50 &-6042665882706644864
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2288040545729649526}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 4
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

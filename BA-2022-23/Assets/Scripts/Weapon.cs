@@ -52,7 +52,7 @@ public class Weapon : MonoBehaviour
             StartCoroutine(ReloadWeapon());
         }
 
-        if (timeBtwShots <= 0 && actualAmmo > 0)
+        if (timeBtwShots <= 0 && actualAmmo > 0 && !reloading)
         {
             if (Input.GetMouseButton(0))
             {
@@ -89,18 +89,29 @@ public class Weapon : MonoBehaviour
         {
             timeBtwShots -= Time.deltaTime;
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(ReloadWeapon());
+        }
     }
 
     private IEnumerator ReloadWeapon()
     {
-        GameManager.instance.ToggleReloadIndicator();
-        reloading = true;
-        yield return new WaitForSecondsRealtime(reloadTime);
-        _chargeTime = 0;
-        actualAmmo = ammoCapacity;
-        GameManager.instance.UpdateWeaponText();
-        GameManager.instance.ToggleReloadIndicator();
-        reloading = false;
+        if (!reloading)
+        {
+            GameManager.instance.ToggleReloadIndicator();
+            reloading = true;
+            yield return new WaitForSecondsRealtime(reloadTime);
+            _chargeTime = 0;
+            actualAmmo = ammoCapacity;
+            GameManager.instance.UpdateWeaponText();
+            GameManager.instance.ToggleReloadIndicator();
+            reloading = false;
+        }
+        else
+        {
+            yield return null;
+        }
     }
 }
