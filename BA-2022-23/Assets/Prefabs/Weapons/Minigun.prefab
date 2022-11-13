@@ -57,6 +57,7 @@ MonoBehaviour:
   enemyKnockback: 35
   reloadTime: 5
   ammoCapacity: 600
+  chargeTime: 2
 --- !u!1 &1661177946760072703
 GameObject:
   m_ObjectHideFlags: 0
