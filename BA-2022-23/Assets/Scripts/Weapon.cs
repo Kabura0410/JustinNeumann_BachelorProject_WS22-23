@@ -30,6 +30,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private float chargeTime;
     private float _chargeTime;
+
+    [HideInInspector] public bool reloading;
     private void Awake()
     {
         actualAmmo = ammoCapacity;
@@ -45,7 +47,12 @@ public class Weapon : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if(timeBtwShots <= 0 && actualAmmo > 0)
+        if (actualAmmo <= 0 && !reloading)
+        {
+            StartCoroutine(ReloadWeapon());
+        }
+
+        if (timeBtwShots <= 0 && actualAmmo > 0)
         {
             if (Input.GetMouseButton(0))
             {
@@ -87,9 +94,13 @@ public class Weapon : MonoBehaviour
 
     private IEnumerator ReloadWeapon()
     {
+        GameManager.instance.ToggleReloadIndicator();
+        reloading = true;
         yield return new WaitForSecondsRealtime(reloadTime);
         _chargeTime = 0;
         actualAmmo = ammoCapacity;
         GameManager.instance.UpdateWeaponText();
+        GameManager.instance.ToggleReloadIndicator();
+        reloading = false;
     }
 }

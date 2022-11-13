@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
                 {
                     r.SetActive(false);
                     activeWeapon = r;
+                    activeWeapon.GetComponent<Weapon>().reloading = false;
                 }
             }
             if (activeWeapon != null)
@@ -75,6 +76,10 @@ public class GameManager : MonoBehaviour
 
             }
             UpdateWeaponText();
+            if (player.reloadIndicator.gameObject.activeSelf)
+            {
+                ToggleReloadIndicator();
+            }
         }
 
         CheckWaveCondition();
@@ -244,6 +249,11 @@ public class GameManager : MonoBehaviour
     {
         Weapon weapon = player.GetComponentInChildren<Weapon>();
         weaponText.text = $"{weapon.gameObject.name}\n {weapon.actualAmmo} / {weapon.ammoCapacity}";
+    }
+
+    public void ToggleReloadIndicator()
+    {
+        player.reloadIndicator.gameObject.SetActive(!player.reloadIndicator.gameObject.activeSelf);
     }
 }
 

@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour
     public float enemyKnockbackDuration;
     public float weaponKnockbackDuration;
 
+    public SpriteRenderer reloadIndicator;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
