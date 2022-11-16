@@ -20,6 +20,7 @@ public class Crystal : MonoBehaviour
     public void GetDamage(int _amount)
     {
         health -= _amount;
+        GameManager.instance.UpdateHealthBars();
         if(health <= 0)
         {
             GameManager.instance.LoseGame();

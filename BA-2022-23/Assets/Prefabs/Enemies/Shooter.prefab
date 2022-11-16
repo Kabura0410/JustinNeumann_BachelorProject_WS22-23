@@ -214,6 +214,11 @@ MonoBehaviour:
   groundCheck: {fileID: 8454449000018236206}
   checkRadius: 0.3
   focusType: 0
+  weapon: {fileID: 6092792598922331212}
+  raycastLayerForSight:
+    serializedVersion: 2
+    m_Bits: 10496
+  type: 1
 --- !u!61 &8717385540481307546
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -394,3 +399,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3591513317191898330, guid: 951c9f9115945b145ad07645bd7deaf2, type: 3}
   m_PrefabInstance: {fileID: 9081589156595171747}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6092792598922331212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3064061480950302191, guid: 951c9f9115945b145ad07645bd7deaf2, type: 3}
+  m_PrefabInstance: {fileID: 9081589156595171747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abbb3a64c348b74a92a463db615437a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

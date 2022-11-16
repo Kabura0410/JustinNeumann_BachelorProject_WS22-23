@@ -60,6 +60,18 @@ public class Enemy : MonoBehaviour
 
     public FocusType focusType;
 
+    [SerializeField] private EnemyWeapon weapon;
+
+    [SerializeField] private LayerMask raycastLayerForSight;
+
+    public enum EnemyType
+    {
+        melee,
+        ranged
+    }
+
+    public EnemyType type;
+
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(9,9);
@@ -68,6 +80,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        //funcion for ignoring the first obstacle
         if(logicDelay > 0)
         {
             logicDelay -= Time.deltaTime;
@@ -76,6 +89,8 @@ public class Enemy : MonoBehaviour
                 ignoreMovementLogic = false;
             }
         }
+
+        //function for caping the velocity in y direction
         if(Mathf.Abs(rb.velocity.y) > maxYVelocity)
         {
             if(rb.velocity.y < 0)
@@ -87,6 +102,8 @@ public class Enemy : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, maxYVelocity);
             }
         }
+
+        //handle the enemy health and kill if health <= 0
         if(health <= 0)
         {
             GameObject go = Instantiate(deathEffect, transform.position, Quaternion.identity);
@@ -102,10 +119,20 @@ public class Enemy : MonoBehaviour
         CheckWalls();
         DoMovement();
         DoTimer();
-        if (!doMove)
+        switch (type)
         {
-            DoAttack();
+            case EnemyType.melee:
+                if (!doMove)
+                {
+                    DoAttack();
+                }
+                break;
+            case EnemyType.ranged:
+                CheckSight();
+                break;
         }
+
+        //handel the drag in x direction
         rb.velocity = new Vector2(rb.velocity.x * xDrag, rb.velocity.y);
 
     }
@@ -237,17 +264,16 @@ public class Enemy : MonoBehaviour
                 case FocusType.none:
                     break;
                 case FocusType.player:
-                    GameManager.instance.player.GetDamage(damage);
                     float x = (GameManager.instance.player.transform.position - transform.position).normalized.x;
                     if(x > 0)
                     {
                         GameManager.instance.player.rb.velocity = Vector3.zero;
-                        GameManager.instance.player.GetKnockback(new Vector3(1, .8f, 0), knockbackIntensity, GameManager.instance.player.enemyKnockbackDuration);
+                        GameManager.instance.player.GetDamage(damage,new Vector3(1, .8f, 0), knockbackIntensity, GameManager.instance.player.enemyKnockbackDuration);
                     }
                     else
                     {
                         GameManager.instance.player.rb.velocity = Vector3.zero;
-                        GameManager.instance.player.GetKnockback(new Vector3(-1, .8f, 0), knockbackIntensity, GameManager.instance.player.enemyKnockbackDuration);
+                        GameManager.instance.player.GetDamage(damage, new Vector3(-1, .8f, 0), knockbackIntensity, GameManager.instance.player.enemyKnockbackDuration);
                     }
                     GameManager.instance.UpdateHealthBars();
                     break;
@@ -260,11 +286,6 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void DoContactDamage()
-    {
-        GameManager.instance.player.GetDamage(damage);
-    }
-
     public void GetKnockback(Vector3 _direction, float _intensity)
     {
         rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
@@ -273,6 +294,46 @@ public class Enemy : MonoBehaviour
     public void ToggleMovement()
     {
         doMove = !doMove;
+    }
+
+    private void CheckSight()
+    {
+        float playerDistance = Vector2.Distance(transform.position, GameManager.instance.player.transform.position);
+        float crystalDistance = Vector2.Distance(transform.position, GameManager.instance.crystal.transform.position);
+        if(playerDistance < crystalDistance)
+        {
+            RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, .5f,GameManager.instance.player.transform.position - transform.position, playerDistance, raycastLayerForSight);
+            if (hitInfo.collider.CompareTag("Player"))
+            {
+                weapon.targetObject = GameManager.instance.player.gameObject;
+                doMove = false;
+            }
+            else
+            {
+                weapon.targetObject = null;
+                doMove = true;
+                Vector3 difference = GameManager.instance.player.transform.position - transform.position;
+                float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                weapon.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + weapon.offset);
+            }
+        }
+        else
+        {
+            RaycastHit2D hitInfo = Physics2D.CircleCast(transform.position, .5f,GameManager.instance.crystal.transform.position - transform.position, crystalDistance, raycastLayerForSight);
+            if (hitInfo.collider.CompareTag("Crystal"))
+            {
+                weapon.targetObject = GameManager.instance.crystal.gameObject;
+                doMove = false;
+            }
+            else
+            {
+                weapon.targetObject = null;
+                doMove = true;
+                Vector3 difference = GameManager.instance.crystal.transform.position - transform.position;
+                float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                weapon.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + weapon.offset);
+            }
+        }
     }
 
     public IEnumerator ToggleMovementDelayed(float _time)

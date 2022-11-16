@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3591513317191898330}
-  - component: {fileID: 3591513317191898341}
+  - component: {fileID: 3064061480950302191}
   m_Layer: 0
   m_Name: Enemy Blaster
   m_TagString: Untagged
@@ -149,7 +149,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3591513317191898341
+--- !u!114 &3064061480950302191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,20 +158,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3591513317191898331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4e404dab46a0c478e7623a0cb70964, type: 3}
+  m_Script: {fileID: 11500000, guid: 4abbb3a64c348b74a92a463db615437a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
-  projectile: {fileID: 2288040545729649526, guid: 9afa2a276257cdc43a9e6e804bfdccb8, type: 3}
+  projectile: {fileID: 2288040545729649526, guid: f27649c0fbf6e964591aa76fb2239eef, type: 3}
   shotPoint: {fileID: 3591513316624211451}
-  startTimeBtwShots: 0.4
+  startTimeBtwShots: 1
   flashEffect: {fileID: 3967512539779551259, guid: d46ed918bcbd678449b18499d3e22ef6, type: 3}
-  spreadFactor: 2
+  spreadFactor: 0
   bulletAmount: 1
-  playerKnockback: 300
-  enemyKnockback: 50
-  reloadTime: 1
-  ammoCapacity: 8
-  actualAmmo: 0
+  playerKnockback: 100
+  enemyKnockback: 100
   chargeTime: 0
-  reloading: 0
+  targetObject: {fileID: 0}

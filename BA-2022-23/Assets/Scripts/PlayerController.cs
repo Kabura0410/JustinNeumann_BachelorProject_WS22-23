@@ -198,16 +198,18 @@ public class PlayerController : MonoBehaviour
         playerSprite.flipX = direction.x > 0 ? false : true;
     }
 
-    public void GetKnockback(Vector3 _direction, float _intensity, float knockbackDuration)
+    public void GetKnockback(Vector3 _direction, float _intensity, float _knockbackDuration)
     {
         rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
         knockbackReceived = true;
-        StartCoroutine(DelayedKnockbackDeactivation(knockbackDuration));
+        StartCoroutine(DelayedKnockbackDeactivation(_knockbackDuration));
     }
 
-    public void GetDamage(int _amount)
+    public void GetDamage(int _amount, Vector3 _direction, float _intensity, float _knockbackDuration)
     {
         health -= _amount;
+        GameManager.instance.UpdateHealthBars();
+        GetKnockback(_direction, _intensity, _knockbackDuration);
         if(health <= 0)
         {
             Die();

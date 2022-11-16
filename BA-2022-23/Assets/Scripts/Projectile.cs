@@ -18,11 +18,21 @@ public class Projectile : MonoBehaviour
 
     public float enemyKnockbackIntensity;
 
+    public float playerKnockbackIntensity;
+
     private Vector3 startPos;
 
     public int hitAmount;
 
     private List<Enemy> hitEnemies = new List<Enemy>();
+
+    public enum ProjectileType
+    {
+        PlayerBullet,
+        EnemyBullet
+    }
+
+    public ProjectileType projectileType;
     
     private void Start()
     {
@@ -36,36 +46,67 @@ public class Projectile : MonoBehaviour
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.right, distance, whatIsSolid);
         if(hitInfo.collider != null)
         {
-            if(hitInfo.collider.CompareTag("Enemy"))
+            switch (projectileType)
             {
-                if (!hitEnemies.Contains(hitInfo.transform.GetComponent<Enemy>()))
-                {
-                    hitEnemies.Add(hitInfo.transform.gameObject.GetComponent<Enemy>());
-                    Vector3 direction = hitInfo.transform.position - startPos;
-                    if(direction.x > 0)
+                case ProjectileType.EnemyBullet:
+                    if (hitInfo.collider.CompareTag("Player"))
                     {
-                        hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, new Vector3(1,1,0), enemyKnockbackIntensity);
+                        PlayerController player = hitInfo.collider.GetComponent<PlayerController>();
+                        Vector3 direction = hitInfo.transform.position - startPos;
+                        if (direction.x > 0)
+                        {
+                            player.GetDamage(damage, new Vector3(1, 1, 0), enemyKnockbackIntensity, player.enemyKnockbackDuration);
+                        }
+                        else
+                        {
+                            player.GetDamage(damage, new Vector3(-1, 1, 0), enemyKnockbackIntensity, player.enemyKnockbackDuration);
+                        }
+                        DestroyProjectile();
                     }
-                    else
+                    else if (hitInfo.collider.CompareTag("Crystal"))
                     {
-                        hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, new Vector3(-1, 1, 0), enemyKnockbackIntensity);
-                    }
-                    if(hitAmount <= 0)
-                    {
+                        GameManager.instance.crystal.GetDamage(damage);
                         DestroyProjectile();
                     }
                     else
                     {
-                        hitAmount--;
+                        DestroyProjectile();
                     }
-                }
-            }
-            else
-            {
-                DestroyProjectile();
+                    break;
+                case ProjectileType.PlayerBullet:
+                    #region Enemy logic
+                    if (hitInfo.collider.CompareTag("Enemy"))
+                    {
+                        if (!hitEnemies.Contains(hitInfo.transform.GetComponent<Enemy>()))
+                        {
+                            hitEnemies.Add(hitInfo.transform.gameObject.GetComponent<Enemy>());
+                            Vector3 direction = hitInfo.transform.position - startPos;
+                            if (direction.x > 0)
+                            {
+                                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, new Vector3(1, 1, 0), enemyKnockbackIntensity);
+                            }
+                            else
+                            {
+                                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage, new Vector3(-1, 1, 0), enemyKnockbackIntensity);
+                            }
+                            if (hitAmount <= 0)
+                            {
+                                DestroyProjectile();
+                            }
+                            else
+                            {
+                                hitAmount--;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        DestroyProjectile();
+                    }
+                    #endregion
+                    break;
             }
         }
-
     }
 
     private void FixedUpdate()
