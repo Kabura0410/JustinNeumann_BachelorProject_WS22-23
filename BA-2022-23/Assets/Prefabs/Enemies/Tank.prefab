@@ -151,6 +151,45 @@ MonoBehaviour:
   groundCheck: {fileID: 3969502715968780730}
   checkRadius: 0.3
   focusType: 0
+  weapon: {fileID: 0}
+  raycastLayerForSight:
+    serializedVersion: 2
+    m_Bits: 0
+  type: 0
+  moneyFallOff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 10
+      value: 5
+      inSlope: -0.35
+      outSlope: -0.35
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 20
+      value: 3
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  coinPrefab: {fileID: 8314600655030315208, guid: 251dca2047e0b9d449bdbcf444753935, type: 3}
 --- !u!61 &826430100431308940
 BoxCollider2D:
   m_ObjectHideFlags: 0

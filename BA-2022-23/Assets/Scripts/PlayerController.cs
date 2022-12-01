@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = true;
 
+    private int currentCoins;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -233,6 +235,11 @@ public class PlayerController : MonoBehaviour
     public void ToggleMovement()
     {
         canMove = !canMove;
+    }
+
+    public void IncreaseCoins(int _amount)
+    {
+        currentCoins += _amount;
     }
 
     private void Die()

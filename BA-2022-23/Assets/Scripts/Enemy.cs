@@ -72,14 +72,23 @@ public class Enemy : MonoBehaviour
 
     public EnemyType type;
 
+    [SerializeField] private AnimationCurve moneyFallOff;
+
+    private float currentRuntime;
+
+    [SerializeField] private GameObject coinPrefab;
+
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(9,9);
+        Physics2D.IgnoreLayerCollision(9, 14);
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
+        currentRuntime += Time.deltaTime;
+
         //funcion for ignoring the first obstacle
         if(logicDelay > 0)
         {
@@ -109,6 +118,15 @@ public class Enemy : MonoBehaviour
             GameObject go = Instantiate(deathEffect, transform.position, Quaternion.identity);
             GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
             GameManager.instance.allSpawnedEnemies.Remove(this);
+            GameObject go2 = Instantiate(coinPrefab, transform.position, Quaternion.identity);
+            if(currentRuntime > 20f)
+            {
+                go2.GetComponent<Coin>().value = 1;
+            }
+            else
+            {
+                go2.GetComponent<Coin>().value = Mathf.RoundToInt(moneyFallOff.Evaluate(currentRuntime));
+            }
             Destroy(gameObject);
         }
     }

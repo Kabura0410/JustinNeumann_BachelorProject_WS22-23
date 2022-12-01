@@ -36,6 +36,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera shopCam;
     [SerializeField] private Camera mainCam;
 
+    private bool stopWaveCheck;
+
+    public GameObject shopPortal;
+
     private void Awake()
     {
         if(instance == null)
@@ -52,6 +56,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            IncreaseWave();
+        }
         if (Input.GetMouseButtonDown(1))
         {
             int currentIndex = 0;
@@ -85,7 +93,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        CheckWaveCondition();
+        if (!stopWaveCheck)
+        {
+            CheckWaveCondition();
+        }
 
         if (!allWaves[currentWave].waveCompleted)
         {
@@ -106,9 +117,27 @@ public class GameManager : MonoBehaviour
         {
             if(GetRemainingEnemyAmount() <= 0)
             {
-                IncreaseWave();
+                if((currentWave + 1) % 5 == 0)
+                {
+                    StopWaves();
+                    shopPortal.SetActive(true);
+                }
+                else
+                {
+                    IncreaseWave();
+                }
             }
         }
+    }
+
+    private void StopWaves()
+    {
+        stopWaveCheck = true;
+    }
+
+    public void ContinueWaves()
+    {
+        stopWaveCheck = false;
     }
 
     public void LoseGame()
@@ -169,7 +198,7 @@ public class GameManager : MonoBehaviour
         {
             for(int i = 0; i < boostedSpawnAmount; i++)
             {
-                int r = Random.Range(0, possibleBoostedSpawns.Count);
+                int r = Random.Range(0, possibleBoostedSpawns.Count + 1);
                 possibleBoostedSpawns[r].boosted = true;
                 possibleBoostedSpawns[r].maxSpawnDelay /= allWaves[currentWave].boostMultiplier;
                 possibleBoostedSpawns[r].minSpawnDelay /= allWaves[currentWave].boostMultiplier;

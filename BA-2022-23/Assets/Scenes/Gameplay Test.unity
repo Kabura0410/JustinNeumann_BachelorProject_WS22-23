@@ -3044,6 +3044,7 @@ MonoBehaviour:
   weaponText: {fileID: 1295014819}
   shopCam: {fileID: 745190320}
   mainCam: {fileID: 948292115}
+  shopPortal: {fileID: 1496049155}
 --- !u!1001 &594118910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8107,6 +8108,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1496049155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 350429664765555034, guid: 8bff839036713bd46a64048deda447bd, type: 3}
+  m_PrefabInstance: {fileID: 5830900854565271696}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1554227232 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 237408385971126733, guid: 2de792393c5556243b3506202505c1ac, type: 3}
@@ -10065,6 +10071,10 @@ PrefabInstance:
     - target: {fileID: 350429664765555034, guid: 8bff839036713bd46a64048deda447bd, type: 3}
       propertyPath: m_Name
       value: ShopPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 350429664765555034, guid: 8bff839036713bd46a64048deda447bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3646897412920675847, guid: 8bff839036713bd46a64048deda447bd, type: 3}
       propertyPath: m_RootOrder

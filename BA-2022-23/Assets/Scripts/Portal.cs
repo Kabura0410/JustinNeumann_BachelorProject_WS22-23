@@ -43,6 +43,9 @@ public class Portal : MonoBehaviour
         {
             case CameraType.playerCam:
                 GameManager.instance.ChangeToMainCam();
+                GameManager.instance.ContinueWaves();
+                GameManager.instance.shopPortal.SetActive(false);
+                GameManager.instance.IncreaseWave();
                 break;
             case CameraType.shopCam:
                 GameManager.instance.ChangeToShopCam();
