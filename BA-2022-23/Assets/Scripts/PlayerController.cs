@@ -44,6 +44,14 @@ public class PlayerController : MonoBehaviour
 
     private float startGravity;
 
+    public float StartGravity
+    {
+        get
+        {
+            return startGravity;
+        }
+    }
+
     [SerializeField] private float maxYVelocity;
     [SerializeField] private float maxXVelocity;
 
@@ -57,6 +65,8 @@ public class PlayerController : MonoBehaviour
 
     public SpriteRenderer reloadIndicator;
 
+    private bool canMove = true;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -69,76 +79,80 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
 
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        isOnSemiPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadiusForSemiGround, whatIsSemiGround);
-        if (isOnSemiPlatform)
+        if (canMove)
         {
-            if(currentSemiCollider == null)
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
+            isOnSemiPlatform = Physics2D.OverlapCircle(groundCheck.position, checkRadiusForSemiGround, whatIsSemiGround);
+            if (isOnSemiPlatform)
             {
-                currentSemiCollider = Physics2D.OverlapCircle(groundCheck.position, checkRadiusForSemiGround, whatIsSemiGround);
+                if(currentSemiCollider == null)
+                {
+                    currentSemiCollider = Physics2D.OverlapCircle(groundCheck.position, checkRadiusForSemiGround, whatIsSemiGround);
+                }
             }
-        }
-        else
-        {
-            currentSemiCollider = null;
-        }
+            else
+            {
+                currentSemiCollider = null;
+            }
 
-        if (!knockbackReceived)
-        {
-            moveInput = Input.GetAxisRaw("Horizontal");
-            rb.AddForce(new Vector2(moveInput * speed, rb.velocity.y));
-        }
-
+            if (!knockbackReceived)
+            {
+                moveInput = Input.GetAxisRaw("Horizontal");
+                rb.AddForce(new Vector2(moveInput * speed, rb.velocity.y));
+            }
 
 
 
 
-        //Apply maximum y velocity 
-        if(rb.velocity.y > maxYVelocity)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, maxYVelocity);
-        }
-        if (rb.velocity.y < -maxYVelocity)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -maxYVelocity);
-        }
+
+            //Apply maximum y velocity 
+            if(rb.velocity.y > maxYVelocity)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, maxYVelocity);
+            }
+            if (rb.velocity.y < -maxYVelocity)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, -maxYVelocity);
+            }
 
 
-        //Apply maximum x velocity 
-        if (rb.velocity.x > maxXVelocity)
-        {
-            rb.velocity = new Vector2(maxXVelocity, rb.velocity.y);
-        }
-        if (rb.velocity.x < -maxXVelocity)
-        {
-            rb.velocity = new Vector2(-maxXVelocity, rb.velocity.y);
-        }
+            //Apply maximum x velocity 
+            if (rb.velocity.x > maxXVelocity)
+            {
+                rb.velocity = new Vector2(maxXVelocity, rb.velocity.y);
+            }
+            if (rb.velocity.x < -maxXVelocity)
+            {
+                rb.velocity = new Vector2(-maxXVelocity, rb.velocity.y);
+            }
 
 
 
-        //Apply drag in x direction when no knockback
-        if (!knockbackReceived)
-        {
-            rb.velocity = new Vector2(rb.velocity.x * xDrag, rb.velocity.y);
-        }
+            //Apply drag in x direction when no knockback
+            if (!knockbackReceived)
+            {
+                rb.velocity = new Vector2(rb.velocity.x * xDrag, rb.velocity.y);
+            }
 
-        //Apply drag in y direction
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * yDrag);
+            //Apply drag in y direction
+            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * yDrag);
 
 
-        if (isClimbing)
-        {
-            rb.gravityScale = 0f;
-            rb.velocity = new Vector2(rb.velocity.x, vertical * ladderSpeed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            rb.gravityScale = startGravity;
+            if (isClimbing)
+            {
+                rb.gravityScale = 0f;
+                rb.velocity = new Vector2(rb.velocity.x, vertical * ladderSpeed * Time.fixedDeltaTime);
+            }
+            else
+            {
+                rb.gravityScale = startGravity;
+            }
         }
     }
 
     void Update()
     {
+        if (!canMove) return;
         CheckFlip();
         if(isGrounded == true)
         {
@@ -214,6 +228,11 @@ public class PlayerController : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void ToggleMovement()
+    {
+        canMove = !canMove;
     }
 
     private void Die()

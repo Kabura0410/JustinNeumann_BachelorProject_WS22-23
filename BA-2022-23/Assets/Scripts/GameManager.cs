@@ -33,6 +33,9 @@ public class GameManager : MonoBehaviour
     private int waveCount = 1;
     private int subWaveCount = 1;
 
+    [SerializeField] private Camera shopCam;
+    [SerializeField] private Camera mainCam;
+
     private void Awake()
     {
         if(instance == null)
@@ -211,6 +214,18 @@ public class GameManager : MonoBehaviour
             waveCount++;
         }
         waveText.text = $"Wave  {waveCount}-{subWaveCount}";
+    }
+
+    public void ChangeToShopCam()
+    {
+        shopCam.gameObject.SetActive(true);
+        mainCam.gameObject.SetActive(false);
+    }
+
+    public void ChangeToMainCam()
+    {
+        shopCam.gameObject.SetActive(false);
+        mainCam.gameObject.SetActive(true);
     }
 
     public GameObject GetSpawnObject()
