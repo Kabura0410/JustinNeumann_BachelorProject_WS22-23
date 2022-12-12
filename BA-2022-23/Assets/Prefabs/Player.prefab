@@ -159,7 +159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 18
   m_Sprite: {fileID: 21300000, guid: def71ea04db4874408450e442003c93f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -242,7 +242,7 @@ MonoBehaviour:
   maxYVelocity: 20
   maxXVelocity: 0
   xDrag: 0.6
-  yDrag: 0.98
+  yDrag: 0.999
   enemyKnockbackDuration: 0
   weaponKnockbackDuration: 0
   reloadIndicator: {fileID: 5412735854627327501}
