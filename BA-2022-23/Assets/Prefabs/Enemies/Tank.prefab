@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_Sprite: {fileID: 290582591, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -141,7 +141,9 @@ MonoBehaviour:
   rb: {fileID: 0}
   maxYVelocity: 14
   logicDelay: 8
-  enemySprite: {fileID: 3955649257505034567}
+  enemySprites:
+  - {fileID: 5289119711302323557}
+  - {fileID: 3955649257505034567}
   isClimbing: 0
   ladderJumpHeight: 4000
   attackSpeed: 2
@@ -292,7 +294,7 @@ SpriteRenderer:
   m_SortingOrder: 6
   m_Sprite: {fileID: -1134615844, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2, y: 1}

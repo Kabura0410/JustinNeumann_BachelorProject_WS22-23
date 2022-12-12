@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private float logicDelay;
 
-    [SerializeField] private SpriteRenderer enemySprite;
+    [SerializeField] private SpriteRenderer[] enemySprites;
 
     public bool isClimbing;
 
@@ -252,7 +252,10 @@ public class Enemy : MonoBehaviour
     public void SetStartDirection(Vector3 _direction)
     {
         direction = _direction;
-        enemySprite.flipX = direction.x > 0 ? false : true;
+        foreach(var r in enemySprites)
+        {
+            r.flipX = direction.x < 0 ? false : true;
+        }
     }
 
     public void ChangeDirection()
@@ -265,7 +268,10 @@ public class Enemy : MonoBehaviour
         {
             direction = Vector3.right;
         }
-        enemySprite.flipX = direction.x > 0 ? false : true;
+        foreach (var r in enemySprites)
+        {
+            r.flipX = direction.x < 0 ? false : true;
+        }
     }
 
     public void ChangeFocus(FocusType _focusType)

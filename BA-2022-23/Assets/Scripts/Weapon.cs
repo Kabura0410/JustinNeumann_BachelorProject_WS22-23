@@ -32,9 +32,12 @@ public class Weapon : MonoBehaviour
     private float _chargeTime;
 
     [HideInInspector] public bool reloading;
+
+    [SerializeField] private SpriteRenderer weaponSprite; 
     private void Awake()
     {
         actualAmmo = ammoCapacity;
+        weaponSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -46,6 +49,10 @@ public class Weapon : MonoBehaviour
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+
+        weaponSprite.flipY = difference.x < 0 ? true : false;
+
+
 
         if (actualAmmo <= 0 && !reloading)
         {

@@ -27,6 +27,13 @@ public class EnemyWeapon : MonoBehaviour
 
     public GameObject targetObject;
 
+    [HideInInspector] private SpriteRenderer weaponSprite;
+
+    private void Awake()
+    {
+        weaponSprite = GetComponentInChildren<SpriteRenderer>();
+    }
+
     private void Update()
     {
         if(targetObject != null)
@@ -34,6 +41,8 @@ public class EnemyWeapon : MonoBehaviour
             Vector3 difference = targetObject.transform.position - transform.position;
             float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+
+            weaponSprite.flipY = difference.x < 0 ? true : false;
 
             if (timeBtwShots <= 0)
             {

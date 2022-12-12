@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
         {
             for(int i = 0; i < boostedSpawnAmount; i++)
             {
-                int r = Random.Range(0, possibleBoostedSpawns.Count + 1);
+                int r = Random.Range(0, possibleBoostedSpawns.Count);
                 possibleBoostedSpawns[r].boosted = true;
                 possibleBoostedSpawns[r].maxSpawnDelay /= allWaves[currentWave].boostMultiplier;
                 possibleBoostedSpawns[r].minSpawnDelay /= allWaves[currentWave].boostMultiplier;
