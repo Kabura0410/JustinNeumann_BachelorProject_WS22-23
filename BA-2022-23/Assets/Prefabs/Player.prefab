@@ -223,7 +223,7 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   speed: 200
-  jumpForce: 4
+  jumpForce: 2
   rb: {fileID: 0}
   groundCheck: {fileID: 3647053673753622625}
   checkRadius: 0.3
@@ -237,7 +237,7 @@ MonoBehaviour:
   extraJumpsValue: 1
   playerSprite: {fileID: 3647053674368300143}
   playerCollider: {fileID: 0}
-  jumpTime: 0.2
+  jumpTime: 0.4
   ladderSpeed: 500
   maxYVelocity: 20
   maxXVelocity: 0
