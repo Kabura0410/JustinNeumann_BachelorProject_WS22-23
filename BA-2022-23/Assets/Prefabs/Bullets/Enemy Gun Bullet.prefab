@@ -105,7 +105,7 @@ MonoBehaviour:
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 10496
-  destroyEffect: {fileID: 3967512539779551259, guid: 3e99ca05ae778ce459db18439b850e6a, type: 3}
+  destroyEffect: {fileID: 3967512539779551259, guid: a25acadf789a5b640aeb9dff60822506, type: 3}
   enemyKnockbackIntensity: 0
   playerKnockbackIntensity: 0
   hitAmount: 1
