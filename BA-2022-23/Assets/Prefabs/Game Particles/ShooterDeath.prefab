@@ -1540,7 +1540,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -867301131, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    - sprite: {fileID: 1113271745, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -9810,7 +9810,7 @@ GameObject:
   - component: {fileID: 3967512539779551269}
   - component: {fileID: 3967512539779551258}
   m_Layer: 0
-  m_Name: EnemyDeath
+  m_Name: ShooterDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

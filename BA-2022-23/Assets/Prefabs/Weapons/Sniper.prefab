@@ -176,6 +176,7 @@ MonoBehaviour:
   actualAmmo: 0
   chargeTime: 0
   reloading: 0
+  weaponSprite: {fileID: 0}
 --- !u!1 &3837198506779957115
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,8 +202,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837198506779957115}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.2, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 0.08, z: 1}
+  m_LocalPosition: {x: 32, y: -0.04, z: 0}
+  m_LocalScale: {x: 60, y: 0.08, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2503126606668829556}
@@ -248,9 +249,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.8301887, g: 0.07362046, b: 0.10949839, a: 0.4117647}
+  m_Color: {r: 0.8301887, g: 0.07362046, b: 0.10949839, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
