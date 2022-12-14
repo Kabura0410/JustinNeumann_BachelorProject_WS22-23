@@ -223,7 +223,7 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   speed: 200
-  jumpForce: 2
+  jumpForce: 1
   rb: {fileID: 0}
   groundCheck: {fileID: 3647053673753622625}
   checkRadius: 0.3
