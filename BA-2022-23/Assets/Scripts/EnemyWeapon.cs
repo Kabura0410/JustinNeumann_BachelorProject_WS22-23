@@ -55,7 +55,7 @@ public class EnemyWeapon : MonoBehaviour
                         go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
                     }
                     timeBtwShots = startTimeBtwShots;
-                    GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.identity);
+                    GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
                     GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
                 }
                 else
