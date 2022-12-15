@@ -149,6 +149,19 @@ public class PlayerController : MonoBehaviour
             {
                 rb.gravityScale = startGravity;
             }
+
+            if(Input.GetKey(KeyCode.Space) && isJumping)
+            {
+                if(_jumpTime > 0)
+                {
+                    rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                    _jumpTime -= Time.fixedDeltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }
+            }
         }
     }
 
@@ -178,18 +191,6 @@ public class PlayerController : MonoBehaviour
             _jumpTime = jumpTime;
         }
 
-        if(Input.GetKey(KeyCode.Space) && isJumping)
-        {
-            if(_jumpTime > 0)
-            {
-                rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-                _jumpTime -= Time.fixedDeltaTime;
-            }
-            else
-            {
-                isJumping = false;
-            }
-        }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
