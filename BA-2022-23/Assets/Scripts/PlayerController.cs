@@ -69,6 +69,14 @@ public class PlayerController : MonoBehaviour
 
     private int currentCoins;
 
+    public int CurrentCoins
+    {
+        get
+        {
+            return currentCoins;
+        }
+    }
+
     void Start()
     {
         extraJumps = extraJumpsValue;

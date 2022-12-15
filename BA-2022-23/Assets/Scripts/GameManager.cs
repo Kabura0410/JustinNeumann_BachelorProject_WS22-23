@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Image playerHealthImage;
 
     [SerializeField] private TextMeshProUGUI waveText;
+    [SerializeField] private TextMeshProUGUI coinText;
     [SerializeField] private TextMeshProUGUI weaponText;
 
     private int waveCount = 1;
@@ -56,6 +57,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        coinText.text = player.CurrentCoins.ToString();
+
         if (Input.GetKeyDown(KeyCode.L))
         {
             IncreaseWave();
