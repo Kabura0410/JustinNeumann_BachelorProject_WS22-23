@@ -49,7 +49,7 @@ MonoBehaviour:
   offset: 0
   projectile: {fileID: 2288040545729649526, guid: f4b1b3ad8abffa445bafbe88c94e89d2, type: 3}
   shotPoint: {fileID: 6759176273311287377}
-  startTimeBtwShots: 0.5
+  startTimeBtwShots: 0.4
   flashEffect: {fileID: 3967512539779551259, guid: d36d09a4593a9b0419fa9b8b1c2e6e0e, type: 3}
   spreadFactor: 2
   bulletAmount: 1
@@ -58,8 +58,9 @@ MonoBehaviour:
   reloadTime: 1
   ammoCapacity: 1
   actualAmmo: 0
-  chargeTime: 0.5
+  chargeTime: 0.4
   reloading: 0
+  weaponSprite: {fileID: 0}
 --- !u!1 &6759176273095191398
 GameObject:
   m_ObjectHideFlags: 0
