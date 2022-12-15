@@ -19,11 +19,6 @@ public class EnemyTriggerScript : MonoBehaviour
             enemy.DoAttack();
             enemy.ToggleMovement();
         }
-        if(collision.gameObject.tag == "Crystal")
-        {
-            enemy.ChangeFocus(Enemy.FocusType.crystal);
-            StartCoroutine(CheckGround());
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -33,24 +28,6 @@ public class EnemyTriggerScript : MonoBehaviour
             enemy.ChangeFocus(Enemy.FocusType.none);
             enemy.ToggleMovement();
         }
-        if (collision.gameObject.tag == "Crystal")
-        {
-            enemy.ToggleMovement();
-        }
-    }
-
-    private IEnumerator CheckGround()
-    {
-        yield return new WaitForEndOfFrame();
-        if (enemy.isGrounded)
-        {
-            enemy.DoAttack();
-            float r = Random.Range(0.2f, 1f);
-            StartCoroutine(enemy.ToggleMovementDelayed(r));
-        }
-        else
-        {
-            StartCoroutine(CheckGround());
-        }
+        
     }
 }
