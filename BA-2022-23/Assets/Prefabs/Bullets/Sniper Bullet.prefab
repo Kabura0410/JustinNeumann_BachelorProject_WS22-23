@@ -101,7 +101,7 @@ MonoBehaviour:
   maxSpeed: 60
   minSpeed: 60
   lifeTime: 1
-  distance: 1
+  distance: 0.2
   damage: 200
   whatIsSolid:
     serializedVersion: 2
