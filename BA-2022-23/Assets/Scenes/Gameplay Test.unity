@@ -17843,6 +17843,10 @@ MonoBehaviour:
     enemiesOnThisWave:
     - enemyObj: {fileID: 1774662281695260430, guid: 8c252bbf971cb2848b0f1fea85288c61, type: 3}
       probability: 10
+    - enemyObj: {fileID: 5383283307089427593, guid: 35f588769ce08fc44a74a690f229a206, type: 3}
+      probability: 70
+    - enemyObj: {fileID: 5383283307089427593, guid: fa53fd96e10945c48afa9f7dc7e9ae9c, type: 3}
+      probability: 20
     waveCompleted: 0
   - totalEnemySpawnAmount: 8
     boostedSpawns:
