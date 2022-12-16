@@ -32284,6 +32284,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1223327148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d7a3ef7354585da4aa547cee52b8c384, type: 3}
+  m_PrefabInstance: {fileID: 1861024242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1228649061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4044264868285635969, guid: 80eb7f53470c3c041b0fb28d347f6bf0, type: 3}
@@ -68372,6 +68377,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d7a3ef7354585da4aa547cee52b8c384, type: 3}
   m_PrefabInstance: {fileID: 1861024242}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2121625533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223327148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &2139280654
 GameObject:
   m_ObjectHideFlags: 0
