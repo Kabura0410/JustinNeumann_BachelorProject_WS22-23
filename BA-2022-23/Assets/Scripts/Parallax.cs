@@ -18,6 +18,6 @@ public class Parallax : MonoBehaviour
     {
         float xDist = (player.transform.position.x * parallaxEffect);
         float yDist = (player.transform.position.y * parallaxEffect / 2);
-        transform.position = new Vector3(startpos.x + (-xDist), transform.position.y + (-yDist), transform.position.z);
+        transform.position = new Vector3(startpos.x + (-xDist), startpos.y + (-yDist), transform.position.z);
     }
 }
