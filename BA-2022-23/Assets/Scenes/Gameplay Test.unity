@@ -20641,6 +20641,7 @@ GameObject:
   - component: {fileID: 1023762486}
   - component: {fileID: 1023762488}
   - component: {fileID: 1023762487}
+  - component: {fileID: 1023762489}
   m_Layer: 0
   m_Name: Bg mountains 2
   m_TagString: Untagged
@@ -30946,6 +30947,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1023762489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023762485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df633fc45e779146aedb66bbad056a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1408406815}
+  parallaxEffect: 0.05
 --- !u!1 &1027513290
 GameObject:
   m_ObjectHideFlags: 0
@@ -42035,6 +42050,7 @@ GameObject:
   - component: {fileID: 1325821139}
   - component: {fileID: 1325821141}
   - component: {fileID: 1325821140}
+  - component: {fileID: 1325821142}
   m_Layer: 0
   m_Name: Bg trees 2
   m_TagString: Untagged
@@ -48676,6 +48692,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1325821142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325821138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df633fc45e779146aedb66bbad056a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1408406815}
+  parallaxEffect: 0.15
 --- !u!1 &1356949555
 GameObject:
   m_ObjectHideFlags: 0
@@ -49087,6 +49117,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1408406815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3647053674368300131, guid: 2de792393c5556243b3506202505c1ac, type: 3}
+  m_PrefabInstance: {fileID: 1307576459}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1423679382
 GameObject:
   m_ObjectHideFlags: 0
@@ -49532,6 +49567,7 @@ GameObject:
   - component: {fileID: 1494526416}
   - component: {fileID: 1494526418}
   - component: {fileID: 1494526417}
+  - component: {fileID: 1494526419}
   m_Layer: 0
   m_Name: Bg trees 1
   m_TagString: Untagged
@@ -57499,6 +57535,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1494526419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494526415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df633fc45e779146aedb66bbad056a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1408406815}
+  parallaxEffect: 0.2
 --- !u!1 &1496049155 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 350429664765555034, guid: 8bff839036713bd46a64048deda447bd, type: 3}
@@ -57515,6 +57565,7 @@ GameObject:
   - component: {fileID: 1497849831}
   - component: {fileID: 1497849833}
   - component: {fileID: 1497849832}
+  - component: {fileID: 1497849834}
   m_Layer: 0
   m_Name: Bg mountains 1
   m_TagString: Untagged
@@ -62284,6 +62335,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1497849834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497849830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df633fc45e779146aedb66bbad056a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1408406815}
+  parallaxEffect: 0.1
 --- !u!1 &1525115346
 GameObject:
   m_ObjectHideFlags: 0
@@ -64397,7 +64462,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3647053674368300130, guid: 2de792393c5556243b3506202505c1ac, type: 3}
   m_PrefabInstance: {fileID: 1307576459}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1408406815}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8462ad7624ec2b240bec0ec38d1ce843, type: 3}
