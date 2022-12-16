@@ -20389,6 +20389,7 @@ GameObject:
   - component: {fileID: 948292114}
   - component: {fileID: 948292113}
   - component: {fileID: 948292117}
+  - component: {fileID: 948292118}
   m_Layer: 0
   m_Name: Pixel Camera
   m_TagString: MainCamera
@@ -20503,6 +20504,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &948292118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948292112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b61c1212c41d664e838c7e448ec0e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &977128827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: d7a3ef7354585da4aa547cee52b8c384, type: 3}

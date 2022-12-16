@@ -71,6 +71,7 @@ public class Weapon : MonoBehaviour
                         go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
                         go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
                     }
+                    CameraShake.instance.DoCameraShake();
                     actualAmmo--;
                     if(actualAmmo <= 0)
                     {

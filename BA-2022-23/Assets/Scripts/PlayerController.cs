@@ -235,7 +235,8 @@ public class PlayerController : MonoBehaviour
         health -= _amount;
         GameManager.instance.UpdateHealthBars();
         GetKnockback(_direction, _intensity, _knockbackDuration);
-        if(health <= 0)
+        CameraShake.instance.DoCameraShake();
+        if (health <= 0)
         {
             Die();
         }
