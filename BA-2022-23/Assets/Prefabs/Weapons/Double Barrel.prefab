@@ -50,8 +50,8 @@ MonoBehaviour:
   projectile: {fileID: 2288040545729649526, guid: f2f3a0f2419ae594eadb8c02704a86b9, type: 3}
   shotPoint: {fileID: 7294811622491501336}
   startTimeBtwShots: 0.25
-  flashEffect: {fileID: 3967512539779551259, guid: d46ed918bcbd678449b18499d3e22ef6, type: 3}
-  spreadFactor: 16
+  flashEffect: {fileID: 3967512539779551259, guid: 09d2ac571c11efe4094a9fe939e0f698, type: 3}
+  spreadFactor: 14
   bulletAmount: 4
   playerKnockback: 1500
   enemyKnockback: 10
@@ -60,6 +60,7 @@ MonoBehaviour:
   actualAmmo: 0
   chargeTime: 0
   reloading: 0
+  weaponSprite: {fileID: 0}
 --- !u!1 &7294811622491501337
 GameObject:
   m_ObjectHideFlags: 0

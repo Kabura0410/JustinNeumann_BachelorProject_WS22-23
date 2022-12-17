@@ -79,7 +79,7 @@ public class Weapon : MonoBehaviour
                     }
                     timeBtwShots = startTimeBtwShots;
                     GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
-                    GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 2));
+                    GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
                     GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
                     GameManager.instance.UpdateWeaponText();
                 }
