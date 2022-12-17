@@ -295,7 +295,7 @@ public class GameManager : MonoBehaviour
     public void UpdateWeaponText()
     {
         Weapon weapon = player.GetComponentInChildren<Weapon>();
-        weaponText.text = $"{weapon.gameObject.name}\n {weapon.actualAmmo} / {weapon.ammoCapacity}";
+        weaponText.text = $"{weapon.actualAmmo} / {weapon.ammoCapacity}\n {weapon.gameObject.name}";
     }
 
     public void ToggleReloadIndicator()
