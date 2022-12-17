@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 400
-  deathEffect: {fileID: 3967512539779551259, guid: fbd6cc941108ce64aa563a3c4b001caa, type: 3}
+  deathEffect: {fileID: 3967512539779551259, guid: f44b3701f7d3bd146a35bec94ede4dec, type: 3}
   damageEffect: {fileID: 3967512539779551259, guid: ff3b7d81079e95c43b28cfc4f9104fa4, type: 3}
   damage: 10
   leftRayPos: {fileID: 3559019381264398688}

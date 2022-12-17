@@ -116,7 +116,7 @@ public class Enemy : MonoBehaviour
         if(health <= 0)
         {
             GameObject go = Instantiate(deathEffect, transform.position, Quaternion.identity);
-            GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 5));
+            GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 15));
             GameManager.instance.allSpawnedEnemies.Remove(this);
             GameObject go2 = Instantiate(coinPrefab, transform.position, Quaternion.identity);
             if(currentRuntime > 20f)
