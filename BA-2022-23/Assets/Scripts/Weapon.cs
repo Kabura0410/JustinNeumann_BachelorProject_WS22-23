@@ -34,11 +34,13 @@ public class Weapon : MonoBehaviour
 
     [HideInInspector] public bool reloading;
 
-    [SerializeField] private SpriteRenderer weaponSprite; 
+    [SerializeField] private AudioSource gunshotSound;
+
+    [SerializeField] private Animator anim;
+
     private void Awake()
     {
         actualAmmo = ammoCapacity;
-        weaponSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Start()
@@ -72,6 +74,8 @@ public class Weapon : MonoBehaviour
                     }
                     CameraShake.instance.DoCameraShake();
                     actualAmmo--;
+                    gunshotSound.Play();
+                    anim.SetTrigger("shot");
                     if(actualAmmo <= 0)
                     {
                         StartCoroutine(ReloadWeapon());

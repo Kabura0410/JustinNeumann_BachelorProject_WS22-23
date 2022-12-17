@@ -240,6 +240,7 @@ public class PlayerController : MonoBehaviour
         CameraShake.instance.DoCameraShake();
         GameObject newParticle = Instantiate(playerDamageEffect, transform.position, Quaternion.identity);
         GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
+        SoundManager.instance.PlayHitChickenSound();
         if (health <= 0)
         {
             Die();

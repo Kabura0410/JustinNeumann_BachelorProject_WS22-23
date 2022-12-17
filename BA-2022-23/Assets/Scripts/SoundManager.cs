@@ -14,6 +14,16 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
+    [SerializeField] private AudioSource[] hitChickenSounds;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
     void Start()
     {
         if (PlayerPrefs.HasKey("MusicSliderValue"))
@@ -101,5 +111,10 @@ public class SoundManager : MonoBehaviour
             audioMixer.SetFloat("Master", Mathf.Log10(_sliderValue) * 20);
         }
         PlayerPrefs.SetFloat("MasterSliderValue", masterSlider.value);
+    }
+
+    public void PlayHitChickenSound()
+    {
+        hitChickenSounds[Random.Range(0, hitChickenSounds.Length)].Play();
     }
 }
