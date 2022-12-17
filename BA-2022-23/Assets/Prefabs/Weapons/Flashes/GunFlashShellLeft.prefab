@@ -9869,7 +9869,7 @@ GameObject:
   - component: {fileID: 3967512539779551269}
   - component: {fileID: 3967512539779551258}
   m_Layer: 0
-  m_Name: ShotgunFlash
+  m_Name: GunFlashShellLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16279,7 +16279,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 1455956608, guid: 7296818a0c6bd96478b9ea35ae895fb2, type: 3}
+    - sprite: {fileID: -653819329, guid: 7296818a0c6bd96478b9ea35ae895fb2, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

@@ -50,7 +50,8 @@ MonoBehaviour:
   projectile: {fileID: 2288040545729649526, guid: 872c1490c291af44bbba87976921bb0f, type: 3}
   shotPoint: {fileID: 1661177947475776989}
   startTimeBtwShots: 0.02
-  flashEffect: {fileID: 3967512539779551259, guid: 9719243505c89f041a7f2a9e12f51409, type: 3}
+  flashEffectRight: {fileID: 3967512539779551259, guid: 884b0953377abb2468548181a70c919f, type: 3}
+  flashEffectLeft: {fileID: 3967512539779551259, guid: 9719243505c89f041a7f2a9e12f51409, type: 3}
   spreadFactor: 8
   bulletAmount: 1
   playerKnockback: 100

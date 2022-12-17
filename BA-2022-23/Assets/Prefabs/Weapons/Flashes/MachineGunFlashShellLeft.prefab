@@ -9869,7 +9869,7 @@ GameObject:
   - component: {fileID: 3967512539779551269}
   - component: {fileID: 3967512539779551258}
   m_Layer: 0
-  m_Name: GunFlash
+  m_Name: MachineGunFlashShellLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10836,9 +10836,9 @@ ParticleSystem:
       time: 0
       countCurve:
         serializedVersion: 2
-        minMaxState: 0
+        minMaxState: 3
         scalar: 1
-        minScalar: 30
+        minScalar: 0
         maxCurve:
           serializedVersion: 2
           m_Curve:
@@ -15759,7 +15759,7 @@ ParticleSystem:
           m_RotationOrder: 4
       cycleCount: 1
       repeatInterval: 0.01
-      probability: 1
+      probability: 0.5
   SizeModule:
     enabled: 1
     curve:
