@@ -21814,11 +21814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3646897412920675847, guid: 8bff839036713bd46a64048deda447bd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3646897412920675847, guid: 8bff839036713bd46a64048deda447bd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3646897412920675847, guid: 8bff839036713bd46a64048deda447bd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28608,6 +28608,7 @@ MonoBehaviour:
   shopCam: {fileID: 745190320}
   mainCam: {fileID: 948292115}
   shopPortal: {fileID: 1496049155}
+  wavesUntilShop: 3
 --- !u!1001 &594118910
 PrefabInstance:
   m_ObjectHideFlags: 0
