@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private GameObject playerDamageEffect;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -236,6 +238,8 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.UpdateHealthBars();
         GetKnockback(_direction, _intensity, _knockbackDuration);
         CameraShake.instance.DoCameraShake();
+        GameObject newParticle = Instantiate(playerDamageEffect, transform.position, Quaternion.identity);
+        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
         if (health <= 0)
         {
             Die();

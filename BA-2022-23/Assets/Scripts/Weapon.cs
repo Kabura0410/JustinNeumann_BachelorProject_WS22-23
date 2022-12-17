@@ -13,7 +13,8 @@ public class Weapon : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
 
-    public GameObject flashEffect;
+    public GameObject flashEffectRight;
+    public GameObject flashEffectLeft;
 
     [SerializeField] private float spreadFactor;
 
@@ -76,8 +77,16 @@ public class Weapon : MonoBehaviour
                         StartCoroutine(ReloadWeapon());
                     }
                     timeBtwShots = startTimeBtwShots;
-                    GameObject newParticle = Instantiate(flashEffect, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
-                    GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
+                    if(difference.x < 0)
+                    {
+                        GameObject newParticle = Instantiate(flashEffectRight, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
+                        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
+                    }
+                    else
+                    {
+                        GameObject newParticle = Instantiate(flashEffectLeft, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
+                        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
+                    }
                     GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
                     GameManager.instance.UpdateWeaponText();
                 }

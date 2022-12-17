@@ -246,6 +246,7 @@ MonoBehaviour:
   enemyKnockbackDuration: 0
   weaponKnockbackDuration: 0
   reloadIndicator: {fileID: 5412735854627327501}
+  playerDamageEffect: {fileID: 7914770878453694400, guid: 480b9b90648eec54f85433507284f638, type: 3}
 --- !u!114 &3647053674368300137
 MonoBehaviour:
   m_ObjectHideFlags: 0
