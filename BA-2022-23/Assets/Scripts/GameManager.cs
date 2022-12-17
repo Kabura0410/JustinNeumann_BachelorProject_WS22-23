@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject shopPortal;
 
+    [SerializeField] private int wavesUntilShop;
+
     private void Awake()
     {
         if(instance == null)
@@ -120,7 +122,7 @@ public class GameManager : MonoBehaviour
         {
             if(GetRemainingEnemyAmount() <= 0)
             {
-                if((currentWave + 1) % 5 == 0)
+                if((currentWave + 1) % wavesUntilShop == 0)
                 {
                     StopWaves();
                     shopPortal.SetActive(true);
@@ -240,7 +242,7 @@ public class GameManager : MonoBehaviour
             //LevelCompleted
         }
         subWaveCount++;
-        if(subWaveCount == 6)
+        if(subWaveCount == wavesUntilShop + 1)
         {
             subWaveCount = 1;
             waveCount++;
