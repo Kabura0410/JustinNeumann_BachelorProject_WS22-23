@@ -78,6 +78,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private GameObject coinPrefab;
 
+    private bool receivedKnockback;
+
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(9,9);
@@ -87,6 +89,14 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (receivedKnockback)
+        {
+            if (isGrounded)
+            {
+                receivedKnockback = false;
+            }
+        }
+
         currentRuntime += Time.deltaTime;
 
         //funcion for ignoring the first obstacle
@@ -312,7 +322,15 @@ public class Enemy : MonoBehaviour
 
     public void GetKnockback(Vector3 _direction, float _intensity)
     {
-        rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
+        if (!receivedKnockback)
+        {
+            rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
+            receivedKnockback = true;
+        }
+        else
+        {
+            rb.AddForce(_direction * (_intensity/10), ForceMode2D.Impulse);
+        }
     }
 
     public void ToggleMovement()
