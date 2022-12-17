@@ -135757,7 +135757,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8c1a73a96f77d8c42bb23a0aa2fd42f0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -139678,6 +139678,10 @@ PrefabInstance:
       propertyPath: masterSlider
       value: 
       objectReference: {fileID: 1840671303}
+    - target: {fileID: 4647935914326837146, guid: ad2f64e3639cce74cb4b2aaf7e78dbfe, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad2f64e3639cce74cb4b2aaf7e78dbfe, type: 3}
 --- !u!1001 &4044264867620933193
