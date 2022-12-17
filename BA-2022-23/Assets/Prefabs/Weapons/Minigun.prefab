@@ -50,7 +50,7 @@ MonoBehaviour:
   offset: 0
   projectile: {fileID: 2288040545729649526, guid: 872c1490c291af44bbba87976921bb0f, type: 3}
   shotPoint: {fileID: 1661177947475776989}
-  startTimeBtwShots: 0.02
+  startTimeBtwShots: 0.05
   flashEffectRight: {fileID: 3967512539779551259, guid: 884b0953377abb2468548181a70c919f, type: 3}
   flashEffectLeft: {fileID: 3967512539779551259, guid: 9719243505c89f041a7f2a9e12f51409, type: 3}
   spreadFactor: 8
@@ -76,7 +76,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2737749788925223483, guid: ca81cd8efd1f9dc40a1eef58325e42f2, type: 2}
   m_audioClip: {fileID: 8300000, guid: 910cf7b86c3fbcb4bbb808ea0301340f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
