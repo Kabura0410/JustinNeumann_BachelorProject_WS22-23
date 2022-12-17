@@ -42,7 +42,7 @@ public class EnemyWeapon : MonoBehaviour
             float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-            weaponSprite.flipY = difference.x < 0 ? true : false;
+            transform.localScale = difference.x < 0 ? new Vector3(transform.localScale.x, -1, transform.localScale.z) : new Vector3(transform.localScale.x, 1, transform.localScale.z);
 
             if (timeBtwShots <= 0)
             {
