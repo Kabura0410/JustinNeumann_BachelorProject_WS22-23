@@ -79,6 +79,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject playerDamageEffect;
 
+    private IInteractable closestInteractable;
+
+    [SerializeField] private GameObject interactIndicator;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -179,6 +183,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
         CheckFlip();
+        SearchForClosestInteractable();
+        CheckForInteraction();
         if(isGrounded == true)
         {
             extraJumps = extraJumpsValue;
@@ -199,6 +205,14 @@ public class PlayerController : MonoBehaviour
             extraJumps--;
             isJumping = true;
             _jumpTime = jumpTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(closestInteractable != null)
+            {
+                closestInteractable.Interact();
+            }
         }
 
 
@@ -230,6 +244,61 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(_direction * _intensity, ForceMode2D.Impulse);
         knockbackReceived = true;
         StartCoroutine(DelayedKnockbackDeactivation(_knockbackDuration));
+    }
+
+    private void SearchForClosestInteractable()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1);
+        bool foundInteractable = false;
+        foreach(var r in hits)
+        {
+            if(closestInteractable == null)
+            {
+                IInteractable i = r.GetComponent<IInteractable>();
+                if(i != null)
+                {
+                    closestInteractable = i;
+                    foundInteractable = true;
+                }
+                
+            }
+            else
+            {
+                IInteractable i = r.GetComponent<IInteractable>();
+                if(i != null && i != closestInteractable)
+                {
+                    closestInteractable = i;
+                    foundInteractable = true;
+                }
+                else if(i == closestInteractable)
+                {
+                    foundInteractable = true;
+                }
+            }
+        }
+        if (!foundInteractable)
+        {
+            closestInteractable = null;
+        }
+    }
+
+    private void CheckForInteraction()
+    {
+        if(closestInteractable != null)
+        {
+            if (closestInteractable.PlayerInTrigger)
+            {
+                interactIndicator.SetActive(true);
+            }
+            else
+            {
+                interactIndicator.SetActive(false);
+            }
+        }
+        else
+        {
+            interactIndicator.SetActive(false);
+        }
     }
 
     public void GetDamage(int _amount, Vector3 _direction, float _intensity, float _knockbackDuration)

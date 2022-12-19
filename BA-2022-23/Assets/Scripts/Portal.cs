@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public class Portal : MonoBehaviour, IInteractable
 {
     [SerializeField] private Transform portPosition;
     [SerializeField] private Transform portalPosition;
@@ -18,6 +18,10 @@ public class Portal : MonoBehaviour
     }
 
     [SerializeField] private CameraType cameraType;
+
+    public bool PlayerInTrigger { get => playerInTrigger; set => playerInTrigger = value; }
+
+    private bool playerInTrigger;
 
     private void Update()
     {
@@ -61,7 +65,28 @@ public class Portal : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            PlayerInTrigger = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            PlayerInTrigger = false;
+        }
+    }
+
+    public void Interact()
+    {
+        if (PlayerInTrigger)
+        {
             TeleportPlayer();
         }
+    }
+
+    public void ShowOutline()
+    {
+        //Not used for portal
     }
 }
