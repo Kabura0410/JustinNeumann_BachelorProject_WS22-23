@@ -33,6 +33,8 @@ public class Weapon : MonoBehaviour
     private float _chargeTime;
 
     [HideInInspector] public bool reloading;
+    private float currentReloadTime;
+
 
     [SerializeField] private AudioSource gunshotSound;
 
@@ -109,10 +111,17 @@ public class Weapon : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && actualAmmo != ammoCapacity)
         {
             StartCoroutine(ReloadWeapon());
         }
+
+        if (reloading)
+        {
+            currentReloadTime += Time.deltaTime;
+            GameManager.instance.player.reloadFillImage.fillAmount = currentReloadTime / reloadTime;
+        }
+
     }
 
     private IEnumerator ReloadWeapon()
@@ -127,6 +136,7 @@ public class Weapon : MonoBehaviour
             GameManager.instance.UpdateWeaponText();
             GameManager.instance.ToggleReloadIndicator();
             reloading = false;
+            currentReloadTime = 0;
         }
         else
         {
