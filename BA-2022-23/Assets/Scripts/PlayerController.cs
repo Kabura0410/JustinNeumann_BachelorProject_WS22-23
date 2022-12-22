@@ -289,7 +289,7 @@ public class PlayerController : MonoBehaviour
     {
         if(closestInteractable != null)
         {
-            if (closestInteractable.PlayerInTrigger)
+            if (closestInteractable.PlayerInTrigger && closestInteractable.CanInteract)
             {
                 interactIndicator.SetActive(true);
             }
@@ -322,6 +322,19 @@ public class PlayerController : MonoBehaviour
     public void ToggleMovement()
     {
         canMove = !canMove;
+    }
+
+    public void Heal(int _amount)
+    {
+        if (health + _amount > maxHealth)
+        {
+            health = maxHealth;
+        }
+        else
+        {
+            health += _amount;
+        }
+        GameManager.instance.UpdateHealthBars();
     }
 
     public void IncreaseCoins(int _amount)

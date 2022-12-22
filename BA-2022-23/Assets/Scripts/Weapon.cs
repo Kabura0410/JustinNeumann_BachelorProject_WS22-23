@@ -40,6 +40,8 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private Animator anim;
 
+    private bool unlocked;
+
     private void Awake()
     {
         actualAmmo = ammoCapacity;
@@ -122,6 +124,11 @@ public class Weapon : MonoBehaviour
             GameManager.instance.player.reloadFillImage.fillAmount = currentReloadTime / reloadTime;
         }
 
+    }
+
+    public void UnlockWeapon()
+    {
+        unlocked = true;
     }
 
     private IEnumerator ReloadWeapon()

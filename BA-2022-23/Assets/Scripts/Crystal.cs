@@ -26,4 +26,17 @@ public class Crystal : MonoBehaviour
             GameManager.instance.LoseGame();
         }
     }
+
+    public void Heal(int _amount)
+    {
+        if(health + _amount > maxhealth)
+        {
+            health = maxhealth;
+        }
+        else
+        {
+            health += _amount;
+        }
+        GameManager.instance.UpdateHealthBars();
+    }
 }

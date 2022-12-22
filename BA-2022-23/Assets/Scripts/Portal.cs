@@ -20,6 +20,7 @@ public class Portal : MonoBehaviour, IInteractable
     [SerializeField] private CameraType cameraType;
 
     public bool PlayerInTrigger { get => playerInTrigger; set => playerInTrigger = value; }
+    public bool CanInteract { get => true; set => CanInteract = true; }
 
     private bool playerInTrigger;
 
@@ -53,6 +54,7 @@ public class Portal : MonoBehaviour, IInteractable
                 break;
             case CameraType.shopCam:
                 GameManager.instance.ChangeToShopCam();
+                ShopManager.instance.InstantiateShop();
                 break;
         }
         GameManager.instance.player.transform.position = portPosition.position;
