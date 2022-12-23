@@ -78,6 +78,10 @@ public class PlayerController : MonoBehaviour
         {
             return currentCoins;
         }
+        set
+        {
+            currentCoins = value;
+        }
     }
 
     [SerializeField] private GameObject playerDamageEffect;
@@ -85,6 +89,8 @@ public class PlayerController : MonoBehaviour
     private IInteractable closestInteractable;
 
     [SerializeField] private GameObject interactIndicator;
+
+    [HideInInspector] public List<Weapon> currentSelectedWeapons;
 
     void Start()
     {

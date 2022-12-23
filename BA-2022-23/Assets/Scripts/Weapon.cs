@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
     public float offset;
 
     public GameObject projectile;
@@ -27,6 +26,8 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float reloadTime;
 
     public int ammoCapacity;
+    public int maxAmmo;
+    public int currentAmmo;
     [HideInInspector] public int actualAmmo;
 
     [SerializeField] private float chargeTime;
@@ -42,9 +43,12 @@ public class Weapon : MonoBehaviour
 
     private bool unlocked;
 
+    public bool useAmmo;
+
     private void Awake()
     {
         actualAmmo = ammoCapacity;
+        currentAmmo = maxAmmo;
     }
 
     private void Start()
@@ -59,7 +63,7 @@ public class Weapon : MonoBehaviour
 
         transform.localScale = difference.x < 0 ? new Vector3(transform.localScale.x, -1, transform.localScale.z) : new Vector3(transform.localScale.x, 1, transform.localScale.z);
 
-        if (actualAmmo <= 0 && !reloading)
+        if (actualAmmo <= 0 && !reloading && currentAmmo > 0)
         {
             StartCoroutine(ReloadWeapon());
         }
@@ -80,7 +84,7 @@ public class Weapon : MonoBehaviour
                     actualAmmo--;
                     gunshotSound.Play();
                     anim.SetTrigger("shot");
-                    if(actualAmmo <= 0)
+                    if(actualAmmo <= 0 && currentAmmo > 0)
                     {
                         StartCoroutine(ReloadWeapon());
                     }
@@ -113,7 +117,7 @@ public class Weapon : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && actualAmmo != ammoCapacity)
+        if (Input.GetKeyDown(KeyCode.R) && actualAmmo != ammoCapacity && currentAmmo > 0)
         {
             StartCoroutine(ReloadWeapon());
         }
@@ -139,7 +143,23 @@ public class Weapon : MonoBehaviour
             reloading = true;
             yield return new WaitForSecondsRealtime(reloadTime);
             _chargeTime = 0;
-            actualAmmo = ammoCapacity;
+            if (useAmmo)
+            {
+                if(ammoCapacity <= currentAmmo)
+                {
+                    currentAmmo -= (ammoCapacity - actualAmmo);
+                    actualAmmo = ammoCapacity;
+                }
+                else
+                {
+                    actualAmmo = currentAmmo;
+                    currentAmmo = 0;
+                }
+            }
+            else
+            {
+                actualAmmo = ammoCapacity;
+            }
             GameManager.instance.UpdateWeaponText();
             GameManager.instance.ToggleReloadIndicator();
             reloading = false;

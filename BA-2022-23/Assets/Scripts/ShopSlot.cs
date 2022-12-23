@@ -9,21 +9,11 @@ public class ShopSlot : MonoBehaviour, IInteractable
 
     private ShopItem item;
 
-    public SpriteRenderer renderer;
+    public SpriteRenderer ren;
 
     public TextMeshProUGUI descriptionText;
 
     private bool canInteract;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,7 +44,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
     public void SetShopItem(ShopItem _item)
     {
         item = _item;
-        renderer.sprite = _item.sprite;
+        ren.sprite = _item.sprite;
         descriptionText.text = _item.description;
         canInteract = true;
     }
@@ -81,7 +71,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
     private void ClearSlot(ShopSlot _slot)
     {
         _slot.descriptionText.text = "";
-        _slot.renderer.sprite = default;
+        _slot.ren.sprite = default;
         _slot.item = null;
         canInteract = false;
     }
