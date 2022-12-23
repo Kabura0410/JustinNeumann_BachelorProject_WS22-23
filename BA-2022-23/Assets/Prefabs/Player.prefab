@@ -433,6 +433,8 @@ MonoBehaviour:
   reloadFillImage: {fileID: 1498849855}
   playerDamageEffect: {fileID: 7914770878453694400, guid: 480b9b90648eec54f85433507284f638, type: 3}
   interactIndicator: {fileID: 2490439805902541787}
+  currentSelectedWeapons: []
+  currentSelectedWeapon: {fileID: 0}
 --- !u!114 &1158337907312717845
 MonoBehaviour:
   m_ObjectHideFlags: 0
