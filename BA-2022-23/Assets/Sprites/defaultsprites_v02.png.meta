@@ -1178,12 +1178,12 @@ TextureImporter:
       name: wrevolver
       rect:
         serializedVersion: 2
-        x: 120
-        y: 24
-        width: 18
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 119
+        y: 23
+        width: 20
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1199,12 +1199,12 @@ TextureImporter:
       name: wpumpgun
       rect:
         serializedVersion: 2
-        x: 144
-        y: 24
-        width: 21
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 143
+        y: 23
+        width: 23
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1224,8 +1224,8 @@ TextureImporter:
         y: 24
         width: 26
         height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1241,12 +1241,12 @@ TextureImporter:
       name: wsmg
       rect:
         serializedVersion: 2
-        x: 196
-        y: 24
-        width: 26
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 195
+        y: 23
+        width: 27
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1262,12 +1262,12 @@ TextureImporter:
       name: wvoidgun
       rect:
         serializedVersion: 2
-        x: 228
-        y: 25
-        width: 18
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 227
+        y: 24
+        width: 20
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1283,12 +1283,12 @@ TextureImporter:
       name: wdeagle
       rect:
         serializedVersion: 2
-        x: 120
-        y: 12
-        width: 17
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 119
+        y: 11
+        width: 19
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1304,12 +1304,12 @@ TextureImporter:
       name: wdoublebarrel
       rect:
         serializedVersion: 2
-        x: 145
-        y: 12
-        width: 21
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 144
+        y: 11
+        width: 23
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1325,12 +1325,12 @@ TextureImporter:
       name: wautosniper
       rect:
         serializedVersion: 2
-        x: 168
-        y: 12
-        width: 26
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 167
+        y: 11
+        width: 28
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1346,12 +1346,12 @@ TextureImporter:
       name: wminigun
       rect:
         serializedVersion: 2
-        x: 196
-        y: 9
-        width: 31
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 195
+        y: 8
+        width: 33
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1367,12 +1367,12 @@ TextureImporter:
       name: wcharger
       rect:
         serializedVersion: 2
-        x: 238
-        y: 12
-        width: 26
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 237
+        y: 11
+        width: 28
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1388,12 +1388,12 @@ TextureImporter:
       name: wslingshot
       rect:
         serializedVersion: 2
-        x: 265
-        y: 12
-        width: 11
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 264
+        y: 11
+        width: 13
+        height: 16
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1416,7 +1416,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bulletstonebig: -1761408961
+      defaultsprites_v02_19: 641379116
       ammo1: 232439206
       defaultsprites_v02_2: -137893765
       defaultsprites_v02_1: -689410008
@@ -1593,7 +1593,7 @@ TextureImporter:
       uiweapon: 831567454
       defaultsprites_v02_21: 351012573
       defaultsprites_v02_174: 92781407
-      defaultsprites_v02_19: 641379116
+      bulletstonebig: -1761408961
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

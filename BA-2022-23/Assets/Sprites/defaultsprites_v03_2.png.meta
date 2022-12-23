@@ -43,7 +43,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -9335,10 +9335,10 @@ TextureImporter:
     nameFileIdTable:
       defaultsprites_v03_2_72: 1239438706
       defaultsprites_v03_2_298: -1366810059
-      defaultsprites_v03_2_375: 942650053
+      defaultsprites_v03_2_27: 101154719
       defaultsprites_v03_2_300: -1251800506
-      defaultsprites_v03_2_416: 1856221059
       defaultsprites_v03_2_196: -571559521
+      defaultsprites_v03_2_250: -48917415
       defaultsprites_v03_2_199: 163025150
       defaultsprites_v03_2_254: 1381766254
       defaultsprites_v03_2_51: -627157972
@@ -9373,9 +9373,9 @@ TextureImporter:
       defaultsprites_v03_2_285: -143398148
       defaultsprites_v03_2_260: -1947555490
       defaultsprites_v03_2_53: 93735118
-      defaultsprites_v03_2_67: -341846368
       defaultsprites_v03_2_103: -2045723639
       defaultsprites_v03_2_118: -427449766
+      defaultsprites_v03_2_67: -341846368
       defaultsprites_v03_2_354: 948582676
       defaultsprites_v03_2_336: 1971758749
       defaultsprites_v03_2_405: -1763783970
@@ -9401,11 +9401,11 @@ TextureImporter:
       defaultsprites_v03_2_323: -1477544386
       defaultsprites_v03_2_49: 276030698
       defaultsprites_v03_2_222: 376271128
-      defaultsprites_v03_2_328: 1035022649
       defaultsprites_v03_2_330: 1735939257
       defaultsprites_v03_2_39: 781454438
-      defaultsprites_v03_2_278: -1312126441
+      defaultsprites_v03_2_328: 1035022649
       defaultsprites_v03_2_431: 570449730
+      defaultsprites_v03_2_278: -1312126441
       defaultsprites_v03_2_279: -1101703325
       defaultsprites_v03_2_302: 374356323
       defaultsprites_v03_2_17: 690277113
@@ -9468,8 +9468,8 @@ TextureImporter:
       defaultsprites_v03_2_1: 251011479
       defaultsprites_v03_2_3: 1338227273
       defaultsprites_v03_2_312: -2093120248
-      defaultsprites_v03_2_347: 44838857
       defaultsprites_v03_2_387: 970752827
+      defaultsprites_v03_2_347: 44838857
       defaultsprites_v03_2_268: 1582013651
       defaultsprites_v03_2_9: 221400414
       defaultsprites_v03_2_127: 2062964048
@@ -9768,10 +9768,10 @@ TextureImporter:
       defaultsprites_v03_2_193: -103998155
       defaultsprites_v03_2_343: 54686050
       defaultsprites_v03_2_65: 1218430748
-      defaultsprites_v03_2_27: 101154719
-      defaultsprites_v03_2_250: -48917415
-      defaultsprites_v03_2_170: -1005114661
       defaultsprites_v03_2_119: 570454003
+      defaultsprites_v03_2_170: -1005114661
+      defaultsprites_v03_2_416: 1856221059
+      defaultsprites_v03_2_375: 942650053
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
