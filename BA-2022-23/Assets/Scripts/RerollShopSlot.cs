@@ -20,12 +20,18 @@ public class RerollShopSlot : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerInTrigger = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerInTrigger = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        PlayerInTrigger = false;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerInTrigger = false;
+        }
     }
 
     public void Interact()
