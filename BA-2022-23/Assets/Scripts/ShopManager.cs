@@ -16,6 +16,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private ShopSlot playerHealSlot;
     [SerializeField] private ShopSlot artefactHealSlot;
 
+    public List<GameObject> objectsToDespawn;
+
 
     private void Awake()
     {
@@ -36,5 +38,15 @@ public class ShopManager : MonoBehaviour
 
         int t = Random.Range(0, allArtefactHealItemToBuy.Count);
         artefactHealSlot.SetShopItem(allArtefactHealItemToBuy[t]);
+    }
+
+    public void DeleteAllObsoleteObjects()
+    {
+        for(int i = 0; i < objectsToDespawn.Count; i++)
+        {
+            GameObject go = objectsToDespawn[i];
+            Destroy(go);
+        }
+        objectsToDespawn.Clear();
     }
 }

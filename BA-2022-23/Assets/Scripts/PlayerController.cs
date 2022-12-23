@@ -92,6 +92,8 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector] public List<Weapon> currentSelectedWeapons;
 
+    public Weapon currentSelectedWeapon;
+
     void Start()
     {
         extraJumps = extraJumpsValue;

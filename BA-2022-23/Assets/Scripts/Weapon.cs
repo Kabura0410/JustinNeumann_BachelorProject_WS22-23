@@ -135,6 +135,12 @@ public class Weapon : MonoBehaviour
         unlocked = true;
     }
 
+    public void RefillWeapon()
+    {
+        currentAmmo = maxAmmo;
+        actualAmmo = ammoCapacity;
+    }
+
     private IEnumerator ReloadWeapon()
     {
         if (!reloading)
