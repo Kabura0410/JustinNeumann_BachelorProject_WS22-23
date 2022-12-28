@@ -83,14 +83,14 @@ public class GameManager : MonoBehaviour
             }
             if (allBoughtWeapons != null)
             {
-                currentIndex = allWeapons.IndexOf(activeWeapon);
-                if (currentIndex == allWeapons.Count - 1)
+                currentIndex = allBoughtWeapons.IndexOf(activeWeapon);
+                if (currentIndex == allBoughtWeapons.Count - 1)
                 {
-                    allWeapons[0].SetActive(true);
+                    allBoughtWeapons[0].SetActive(true);
                 }
                 else
                 {
-                    allWeapons[currentIndex + 1].SetActive(true);
+                    allBoughtWeapons[currentIndex + 1].SetActive(true);
                 }
 
             }
