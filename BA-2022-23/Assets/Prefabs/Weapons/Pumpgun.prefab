@@ -59,7 +59,7 @@ MonoBehaviour:
   enemyKnockback: 10
   reloadTime: 2
   ammoCapacity: 6
-  maxAmmo: 0
+  maxAmmo: 60
   currentAmmo: 0
   actualAmmo: 0
   chargeTime: 0
@@ -80,7 +80,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 2737749788925223483, guid: ca81cd8efd1f9dc40a1eef58325e42f2, type: 2}
   m_audioClip: {fileID: 8300000, guid: f48a48028a089d14fba893ce460f539a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

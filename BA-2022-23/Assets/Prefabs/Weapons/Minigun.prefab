@@ -57,15 +57,16 @@ MonoBehaviour:
   bulletAmount: 1
   playerKnockback: 100
   enemyKnockback: 35
-  reloadTime: 5
+  reloadTime: 4
   ammoCapacity: 600
-  maxAmmo: 0
+  maxAmmo: 1200
   currentAmmo: 0
   actualAmmo: 0
   chargeTime: 2
   reloading: 0
   gunshotSound: {fileID: -8960069334096663297}
   anim: {fileID: 7027632468937390985}
+  unlocked: 0
   useAmmo: 0
 --- !u!82 &-8960069334096663297
 AudioSource:

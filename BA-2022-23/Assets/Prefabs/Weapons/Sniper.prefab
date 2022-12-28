@@ -187,22 +187,23 @@ MonoBehaviour:
   offset: 0
   projectile: {fileID: 2288040545729649526, guid: 02fc5d260cbb906418408dc3575f3a4e, type: 3}
   shotPoint: {fileID: 2503126604935416189}
-  startTimeBtwShots: 2
+  startTimeBtwShots: 1
   flashEffectRight: {fileID: 3967512539779551259, guid: ba70060e818ed084fb3f0123a290245c, type: 3}
   flashEffectLeft: {fileID: 3967512539779551259, guid: 9719243505c89f041a7f2a9e12f51409, type: 3}
   spreadFactor: 0
   bulletAmount: 1
   playerKnockback: 2000
   enemyKnockback: 70
-  reloadTime: 4
-  ammoCapacity: 10
-  maxAmmo: 0
+  reloadTime: 2
+  ammoCapacity: 8
+  maxAmmo: 80
   currentAmmo: 0
   actualAmmo: 0
   chargeTime: 0
   reloading: 0
   gunshotSound: {fileID: 3918713602881517579}
   anim: {fileID: 6763544747724831439}
+  unlocked: 0
   useAmmo: 0
 --- !u!82 &3918713602881517579
 AudioSource:

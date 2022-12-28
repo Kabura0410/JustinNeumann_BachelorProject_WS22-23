@@ -59,13 +59,14 @@ MonoBehaviour:
   enemyKnockback: 40
   reloadTime: 1
   ammoCapacity: 6
-  maxAmmo: 0
+  maxAmmo: 120
   currentAmmo: 0
   actualAmmo: 0
   chargeTime: 0
   reloading: 0
   gunshotSound: {fileID: -2421976596177518514}
   anim: {fileID: 5203544489162713814}
+  unlocked: 0
   useAmmo: 0
 --- !u!82 &-2421976596177518514
 AudioSource:
