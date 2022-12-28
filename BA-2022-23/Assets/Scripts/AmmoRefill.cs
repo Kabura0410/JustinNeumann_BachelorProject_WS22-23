@@ -13,7 +13,8 @@ public class AmmoRefill : MonoBehaviour, IInteractable
 
     void Start()
     {
-        Physics2D.IgnoreLayerCollision(15,15);
+        Physics2D.IgnoreLayerCollision(16,16);
+        Physics2D.IgnoreLayerCollision(11, 16);
         CanInteract = true;
     }
 
