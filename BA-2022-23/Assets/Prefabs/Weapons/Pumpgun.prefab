@@ -66,6 +66,7 @@ MonoBehaviour:
   reloading: 0
   gunshotSound: {fileID: -4051669506030443765}
   anim: {fileID: 77764509426998933}
+  unlocked: 0
   useAmmo: 0
 --- !u!82 &-4051669506030443765
 AudioSource:
@@ -77,7 +78,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 2737749788925223483, guid: ca81cd8efd1f9dc40a1eef58325e42f2, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 172bfaada08f179419e9e6c501223142, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f48a48028a089d14fba893ce460f539a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1
