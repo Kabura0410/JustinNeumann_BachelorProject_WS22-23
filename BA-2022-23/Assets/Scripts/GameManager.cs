@@ -34,14 +34,16 @@ public class GameManager : MonoBehaviour
     private int waveCount = 1;
     private int subWaveCount = 1;
 
-    [SerializeField] private Camera shopCam;
-    [SerializeField] private Camera mainCam;
+    public Camera shopCam;
+    public Camera mainCam;
 
     private bool stopWaveCheck;
 
     public GameObject shopPortal;
 
     [SerializeField] private int wavesUntilShop;
+
+    [HideInInspector] public bool inShop;
 
     private void Awake()
     {
@@ -69,7 +71,8 @@ public class GameManager : MonoBehaviour
         {
             int currentIndex = 0;
             GameObject activeWeapon = null;
-            foreach (var r in allWeapons)
+            List<GameObject> allBoughtWeapons = allWeapons.Where(r => r.GetComponent<Weapon>().unlocked).ToList();
+            foreach (var r in allBoughtWeapons)
             {
                 if (r.activeSelf)
                 {
@@ -78,7 +81,7 @@ public class GameManager : MonoBehaviour
                     activeWeapon.GetComponent<Weapon>().reloading = false;
                 }
             }
-            if (activeWeapon != null)
+            if (allBoughtWeapons != null)
             {
                 currentIndex = allWeapons.IndexOf(activeWeapon);
                 if (currentIndex == allWeapons.Count - 1)

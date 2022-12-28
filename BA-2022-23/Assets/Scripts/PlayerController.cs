@@ -317,7 +317,14 @@ public class PlayerController : MonoBehaviour
         health -= _amount;
         GameManager.instance.UpdateHealthBars();
         GetKnockback(_direction, _intensity, _knockbackDuration);
-        CameraShake.instance.DoCameraShake();
+        if (GameManager.instance.inShop)
+        {
+            GameManager.instance.shopCam.GetComponent<CameraShake>().DoCameraShake();
+        }
+        else
+        {
+            GameManager.instance.mainCam.GetComponent<CameraShake>().DoCameraShake();
+        }
         GameObject newParticle = Instantiate(playerDamageEffect, transform.position, Quaternion.identity);
         GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
         SoundManager.instance.PlayHitChickenSound();

@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] private Animator anim;
 
-    private bool unlocked;
+    public bool unlocked;
 
     public bool useAmmo;
 
@@ -80,7 +80,14 @@ public class Weapon : MonoBehaviour
                         go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
                         go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
                     }
-                    CameraShake.instance.DoCameraShake();
+                    if (GameManager.instance.inShop)
+                    {
+                        GameManager.instance.shopCam.GetComponent<CameraShake>().DoCameraShake();
+                    }
+                    else
+                    {
+                        GameManager.instance.mainCam.GetComponent<CameraShake>().DoCameraShake();
+                    }
                     actualAmmo--;
                     gunshotSound.Play();
                     anim.SetTrigger("shot");

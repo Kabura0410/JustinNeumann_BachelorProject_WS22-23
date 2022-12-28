@@ -51,10 +51,12 @@ public class Portal : MonoBehaviour, IInteractable
                 GameManager.instance.ContinueWaves();
                 GameManager.instance.shopPortal.SetActive(false);
                 GameManager.instance.IncreaseWave();
+                GameManager.instance.inShop = false;
                 ShopManager.instance.DeleteAllObsoleteObjects();
                 break;
             case CameraType.shopCam:
                 GameManager.instance.ChangeToShopCam();
+                GameManager.instance.inShop = true;
                 ShopManager.instance.InstantiateShop();
                 break;
         }
