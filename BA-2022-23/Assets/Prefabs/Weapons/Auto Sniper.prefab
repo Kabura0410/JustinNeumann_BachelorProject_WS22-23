@@ -60,11 +60,14 @@ MonoBehaviour:
   enemyKnockback: 40
   reloadTime: 4
   ammoCapacity: 12
+  maxAmmo: 0
+  currentAmmo: 0
   actualAmmo: 0
   chargeTime: 0
   reloading: 0
   gunshotSound: {fileID: -4011514455427753186}
   anim: {fileID: 1701191164625381402}
+  useAmmo: 0
 --- !u!82 &-4011514455427753186
 AudioSource:
   m_ObjectHideFlags: 0
@@ -234,7 +237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 18
   m_Sprite: {fileID: 1849414990, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

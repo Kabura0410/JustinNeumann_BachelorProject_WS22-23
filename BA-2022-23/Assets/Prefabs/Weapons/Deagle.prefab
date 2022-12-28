@@ -104,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 18
   m_Sprite: {fileID: 174424191, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -196,11 +196,13 @@ MonoBehaviour:
   reloadTime: 1
   ammoCapacity: 8
   maxAmmo: 150
+  currentAmmo: 0
   actualAmmo: 0
   chargeTime: 0
   reloading: 0
   gunshotSound: {fileID: -8534669622821503610}
   anim: {fileID: 4909921698284440223}
+  useAmmo: 0
 --- !u!82 &-8534669622821503610
 AudioSource:
   m_ObjectHideFlags: 0
