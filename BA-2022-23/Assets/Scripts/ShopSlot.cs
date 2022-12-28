@@ -15,6 +15,8 @@ public class ShopSlot : MonoBehaviour, IInteractable
 
     private bool canInteract;
 
+    [SerializeField] private SpriteRenderer glow;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -53,6 +55,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
         ren.sprite = _item.sprite;
         descriptionText.text = _item.description;
         canInteract = true;
+        glow.gameObject.SetActive(true);
     }
 
     private void BuyItem()
@@ -80,8 +83,8 @@ public class ShopSlot : MonoBehaviour, IInteractable
         _slot.ren.sprite = default;
         _slot.item = null;
         canInteract = false;
+        glow.gameObject.SetActive(false);
     }
-
 }
 
 [System.Serializable]
