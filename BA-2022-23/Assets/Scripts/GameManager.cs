@@ -87,10 +87,12 @@ public class GameManager : MonoBehaviour
                 if (currentIndex == allBoughtWeapons.Count - 1)
                 {
                     allBoughtWeapons[0].SetActive(true);
+                    player.currentSelectedWeapon = allBoughtWeapons[0].GetComponent<Weapon>();
                 }
                 else
                 {
                     allBoughtWeapons[currentIndex + 1].SetActive(true);
+                    player.currentSelectedWeapon = allBoughtWeapons[currentIndex + 1].GetComponent<Weapon>();
                 }
 
             }
@@ -313,6 +315,25 @@ public class GameManager : MonoBehaviour
     public void ToggleReloadIndicator()
     {
         player.reloadIndicator.gameObject.SetActive(!player.reloadIndicator.gameObject.activeSelf);
+    }
+
+    public List<GameObject> GetAllBoughtWeapons()
+    {
+        return allWeapons.Where(r => r.GetComponent<Weapon>().unlocked).ToList();
+    }
+
+    public void SelectWeapon(GameObject targetWeapon)
+    {
+        List<GameObject> allBoughtWeapons = allWeapons.Where(r => r.GetComponent<Weapon>().unlocked).ToList();
+        foreach (var r in allBoughtWeapons)
+        {
+            if (r.activeSelf)
+            {
+                r.SetActive(false);
+            }
+        }
+        targetWeapon.SetActive(true);
+        player.currentSelectedWeapon = targetWeapon.GetComponent<Weapon>();
     }
 }
 

@@ -45,6 +45,8 @@ public class Weapon : MonoBehaviour
 
     public bool useAmmo;
 
+    public bool isStartWeapon;
+
     private void Awake()
     {
         actualAmmo = ammoCapacity;
@@ -140,6 +142,12 @@ public class Weapon : MonoBehaviour
     public void UnlockWeapon()
     {
         unlocked = true;
+    }
+
+    public void LockWeapon()
+    {
+        unlocked = false;
+        gameObject.SetActive(false);
     }
 
     public void RefillWeapon()

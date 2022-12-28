@@ -7,7 +7,7 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
 
-    [SerializeField] private List<WeaponItem> allWeaponItemsToBuy;
+    public List<WeaponItem> allWeaponItemsToBuy;
     [SerializeField] private List<HealItemForPlayer> allPlayerHealItemsToBuy;
     [SerializeField] private List<HealItemForArtefact> allArtefactHealItemToBuy;
     [SerializeField] private ShopItem blankItem;
