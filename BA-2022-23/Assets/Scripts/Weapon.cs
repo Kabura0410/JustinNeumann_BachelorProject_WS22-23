@@ -53,10 +53,6 @@ public class Weapon : MonoBehaviour
         currentAmmo = maxAmmo;
     }
 
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;

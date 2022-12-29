@@ -49,4 +49,45 @@ public class ShopManager : MonoBehaviour
         }
         objectsToDespawn.Clear();
     }
+
+    public void RerollShopSlots()
+    {
+        if(weaponSlot.item != null)
+        {
+            List<WeaponItem> allAvailableWeapons = allWeaponItemsToBuy.Where(r => !r.bought).ToList();
+            int r = Random.Range(0, allAvailableWeapons.Count);
+            weaponSlot.SetShopItem(allAvailableWeapons[r]);
+        }
+
+        if (weaponSlot.item != null)
+        {
+            int s = Random.Range(0, allPlayerHealItemsToBuy.Count);
+            playerHealSlot.SetShopItem(allPlayerHealItemsToBuy[s]);
+        }
+
+        if (weaponSlot.item != null)
+        {
+            int t = Random.Range(0, allArtefactHealItemToBuy.Count);
+            artefactHealSlot.SetShopItem(allArtefactHealItemToBuy[t]);
+        }
+    }
+
+    public bool CheckShopSlotState()
+    {
+        bool canReroll = false;
+        if(weaponSlot.item != null)
+        {
+            canReroll = true;
+        }
+        if (artefactHealSlot.item != null)
+        {
+            canReroll = true;
+        }
+        if (playerHealSlot.item != null)
+        {
+            canReroll = true;
+        }
+
+        return canReroll;
+    }
 }

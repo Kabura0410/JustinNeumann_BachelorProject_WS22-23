@@ -8,7 +8,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
 {
     private bool playerInTrigger;
 
-    private ShopItem item;
+    public ShopItem item;
 
     public SpriteRenderer ren;
 
@@ -70,6 +70,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
                     weaponItem.objectToUnlock.gameObject.GetComponent<Weapon>().UnlockWeapon();
                     weaponItem.bought = true;
                     GameManager.instance.SelectWeapon(weaponItem.objectToUnlock);
+                    GameManager.instance.UpdateWeaponText();
                     ClearSlot(this);
                 }
                 else
@@ -86,6 +87,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
                         weaponItem.objectToUnlock.gameObject.GetComponent<Weapon>().UnlockWeapon();
                         weaponItem.bought = true;
                         GameManager.instance.SelectWeapon(weaponItem.objectToUnlock);
+                        GameManager.instance.UpdateWeaponText();
                         ClearSlot(this);
                     }
                     else
