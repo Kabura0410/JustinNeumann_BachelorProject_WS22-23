@@ -95,6 +95,8 @@ public class PlayerController : MonoBehaviour
 
     public Weapon currentSelectedWeapon;
 
+    [SerializeField] private Animator anim;
+
     void Start()
     {
         extraJumps = extraJumpsValue;
@@ -129,12 +131,35 @@ public class PlayerController : MonoBehaviour
                 rb.AddForce(new Vector2(moveInput * speed, rb.velocity.y));
             }
 
+            if(moveInput != 0)
+            {
+                anim.SetBool("isWalking", true);
+            }
+            else
+            {
+                anim.SetBool("isWalking", false);
+            }
 
+            if (rb.velocity.y > 0)
+            {
+                anim.SetBool("isJumping", true);
+                anim.SetBool("isFalling", false);
+            }
+            else if(rb.velocity.y < 0)
+            {
+                anim.SetBool("isFalling", true);
+                anim.SetBool("isJumping", false);
+            }
+            else if(rb.velocity.y == 0)
+            {
+                anim.SetBool("isFalling", false);
+                anim.SetBool("isJumping", false);
+            }
 
 
 
             //Apply maximum y velocity 
-            if(rb.velocity.y > maxYVelocity)
+            if (rb.velocity.y > maxYVelocity)
             {
                 rb.velocity = new Vector2(rb.velocity.x, maxYVelocity);
             }
@@ -335,6 +360,10 @@ public class PlayerController : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            anim.SetTrigger("gotDamage");
+        }
     }
 
     public void ToggleMovement()
@@ -362,6 +391,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        anim.SetTrigger("isDead");
         GameManager.instance.KillPlayer();
     }
 
@@ -394,7 +424,4 @@ public class PlayerController : MonoBehaviour
             isClimbing = false;
         }
     }
-
 }
-
-    
