@@ -67,7 +67,8 @@ MonoBehaviour:
   gunshotSound: {fileID: -5221775428440423243}
   anim: {fileID: 6236479409674788524}
   unlocked: 0
-  useAmmo: 0
+  useAmmo: 1
+  isStartWeapon: 0
 --- !u!82 &-5221775428440423243
 AudioSource:
   m_ObjectHideFlags: 0

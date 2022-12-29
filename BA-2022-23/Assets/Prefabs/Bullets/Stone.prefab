@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 40
   minSpeed: 40
-  lifeTime: 1
+  lifeTime: 4
   distance: 0.2
   damage: 100
   whatIsSolid:
