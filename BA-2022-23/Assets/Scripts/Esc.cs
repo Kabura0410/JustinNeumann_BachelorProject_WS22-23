@@ -9,8 +9,8 @@ public class Esc : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
-            //SceneManager.LoadScene(0);
+            //Application.Quit();
+            SceneManager.LoadScene(0);
         }
     }
 
