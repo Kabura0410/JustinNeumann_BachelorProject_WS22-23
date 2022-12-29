@@ -18,6 +18,18 @@ public class RerollShopSlot : MonoBehaviour, IInteractable
         CanInteract = true;
     }
 
+    private void Update()
+    {
+        if (!ShopManager.instance.CheckShopSlotState())
+        {
+            canInteract = false;
+        }
+        else
+        {
+            canInteract = true;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -40,7 +52,7 @@ public class RerollShopSlot : MonoBehaviour, IInteractable
         {
             if(GameManager.instance.player.CurrentCoins >= cost)
             {
-                ShopManager.instance.InstantiateShop();
+                ShopManager.instance.RerollShopSlots();
                 GameManager.instance.player.CurrentCoins -= cost;
             }
         }
