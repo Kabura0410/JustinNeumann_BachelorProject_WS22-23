@@ -12,11 +12,13 @@ public class ShopSlot : MonoBehaviour, IInteractable
 
     public SpriteRenderer ren;
 
-    public TextMeshProUGUI descriptionText;
+    public TextMeshProUGUI priceText;
 
     private bool canInteract;
 
     [SerializeField] private SpriteRenderer glow;
+
+    [SerializeField] private Canvas canvas;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -53,7 +55,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
     {
         item = _item;
         ren.sprite = _item.sprite;
-        descriptionText.text = _item.description;
+        priceText.text = _item.cost.ToString();
         canInteract = true;
         glow.gameObject.SetActive(true);
     }
@@ -111,11 +113,23 @@ public class ShopSlot : MonoBehaviour, IInteractable
 
     private void ClearSlot(ShopSlot _slot)
     {
-        _slot.descriptionText.text = "";
+        _slot.priceText.text = "";
         _slot.ren.sprite = default;
         _slot.item = null;
         canInteract = false;
         glow.gameObject.SetActive(false);
+    }
+
+    public void ToggleCanvas()
+    {
+        if (canvas.isActiveAndEnabled)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            canvas.gameObject.SetActive(true);
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class RerollShopSlot : MonoBehaviour, IInteractable
@@ -13,9 +14,14 @@ public class RerollShopSlot : MonoBehaviour, IInteractable
     public bool PlayerInTrigger { get => playerInTrigger; set => playerInTrigger = value; }
     public bool CanInteract { get => canInteract; set => canInteract = value; }
 
+    public Canvas canvas;
+
+    public TextMeshProUGUI priceText;
+
     void Start()
     {
         CanInteract = true;
+        priceText.text = cost.ToString();
     }
 
     private void Update()
@@ -61,5 +67,17 @@ public class RerollShopSlot : MonoBehaviour, IInteractable
     public void ShowOutline()
     {
         //Not in use
+    }
+
+    public void ToggleCanvas()
+    {
+        if (canvas.isActiveAndEnabled)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            canvas.gameObject.SetActive(true);
+        }
     }
 }

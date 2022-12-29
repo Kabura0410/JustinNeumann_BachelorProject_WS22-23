@@ -53,11 +53,13 @@ public class Portal : MonoBehaviour, IInteractable
                 GameManager.instance.IncreaseWave();
                 GameManager.instance.inShop = false;
                 ShopManager.instance.DeleteAllObsoleteObjects();
+                ShopManager.instance.ToggleShopSlotCanvases();
                 break;
             case CameraType.shopCam:
                 GameManager.instance.ChangeToShopCam();
                 GameManager.instance.inShop = true;
                 ShopManager.instance.InstantiateShop();
+                ShopManager.instance.ToggleShopSlotCanvases();
                 break;
         }
         GameManager.instance.player.transform.position = portPosition.position;

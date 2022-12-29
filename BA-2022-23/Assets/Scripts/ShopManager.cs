@@ -16,6 +16,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private ShopSlot playerHealSlot;
     [SerializeField] private ShopSlot artefactHealSlot;
 
+    [SerializeField] private RerollShopSlot reroll;
+
     public List<GameObject> objectsToDespawn;
 
 
@@ -89,5 +91,13 @@ public class ShopManager : MonoBehaviour
         }
 
         return canReroll;
+    }
+
+    public void ToggleShopSlotCanvases()
+    {
+        weaponSlot.ToggleCanvas();
+        playerHealSlot.ToggleCanvas();
+        artefactHealSlot.ToggleCanvas();
+        reroll.ToggleCanvas();
     }
 }
