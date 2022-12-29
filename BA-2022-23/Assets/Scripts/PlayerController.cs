@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
     }
 
     [SerializeField] private GameObject playerDamageEffect;
+    [SerializeField] private GameObject playerJumpEffect;
 
     private IInteractable closestInteractable;
 
@@ -216,6 +217,8 @@ public class PlayerController : MonoBehaviour
             extraJumps--;
             isJumping = true;
             _jumpTime = jumpTime;
+            GameObject newParticle = Instantiate(playerJumpEffect, transform.position, Quaternion.identity);
+            GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 5));
         }
 
         if (Input.GetKeyDown(KeyCode.E))
