@@ -61,13 +61,13 @@ public class ShopManager : MonoBehaviour
             weaponSlot.SetShopItem(allAvailableWeapons[r]);
         }
 
-        if (weaponSlot.item != null)
+        if (playerHealSlot.item != null)
         {
             int s = Random.Range(0, allPlayerHealItemsToBuy.Count);
             playerHealSlot.SetShopItem(allPlayerHealItemsToBuy[s]);
         }
 
-        if (weaponSlot.item != null)
+        if (artefactHealSlot.item != null)
         {
             int t = Random.Range(0, allArtefactHealItemToBuy.Count);
             artefactHealSlot.SetShopItem(allArtefactHealItemToBuy[t]);
@@ -89,7 +89,6 @@ public class ShopManager : MonoBehaviour
         {
             canReroll = true;
         }
-
         return canReroll;
     }
 

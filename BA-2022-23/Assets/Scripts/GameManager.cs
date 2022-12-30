@@ -325,6 +325,8 @@ public class GameManager : MonoBehaviour
     public void SelectWeapon(GameObject targetWeapon)
     {
         List<GameObject> allBoughtWeapons = allWeapons.Where(r => r.GetComponent<Weapon>().unlocked).ToList();
+        player.currentSelectedWeapon.reloading = false;
+        player.reloadIndicator.SetActive(false);
         foreach (var r in allBoughtWeapons)
         {
             if (r.activeSelf)

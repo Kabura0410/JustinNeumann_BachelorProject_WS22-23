@@ -52,14 +52,10 @@ MonoBehaviour:
   masterSlider: {fileID: 0}
   musicSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
-  hitChickenSounds:
-  - {fileID: 4647935914326837146}
-  jumpChickenSounds:
-  - {fileID: 5956872330332459520}
-  hitEnemySounds:
-  - {fileID: 8427154142489147527}
-  coinSounds:
-  - {fileID: 4668318545830158923}
+  jumpChickenSound: {fileID: 5956872330332459520}
+  hitChickenSound: {fileID: 4647935914326837146}
+  hitEnemySound: {fileID: 8427154142489147527}
+  coinSound: {fileID: 4668318545830158923}
 --- !u!82 &4647935914326837146
 AudioSource:
   m_ObjectHideFlags: 0

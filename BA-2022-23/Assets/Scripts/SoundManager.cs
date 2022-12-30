@@ -14,10 +14,10 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
-    [SerializeField] private AudioSource[] hitChickenSounds;
-    [SerializeField] private AudioSource[] jumpChickenSounds;
-    [SerializeField] private AudioSource[] hitEnemySounds;
-    [SerializeField] private AudioSource[] coinSounds;
+    [SerializeField] private AudioSource jumpChickenSound;
+    [SerializeField] private AudioSource hitChickenSound;
+    [SerializeField] private AudioSource hitEnemySound;
+    [SerializeField] private AudioSource coinSound;
 
     private void Awake()
     {
@@ -118,21 +118,21 @@ public class SoundManager : MonoBehaviour
 
     public void PlayHitChickenSound()
     {
-        hitChickenSounds[Random.Range(0, hitChickenSounds.Length)].Play();
+        hitChickenSound.Play();
     }
 
     public void PlayHitEnemySound()
     {
-        hitEnemySounds[Random.Range(0, hitEnemySounds.Length)].Play();
+        hitEnemySound.Play();
     }
 
     public void PlayCoinSound()
     {
-        coinSounds[Random.Range(0, coinSounds.Length)].Play();
+        coinSound.Play();
     }
 
     public void PlayJumpChickenSound()
     {
-        jumpChickenSounds[Random.Range(0, jumpChickenSounds.Length)].Play();
+        jumpChickenSound.Play();
     }
 }
