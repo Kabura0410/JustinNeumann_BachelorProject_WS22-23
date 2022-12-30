@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject playerDamageEffect;
     [SerializeField] private GameObject playerJumpEffect;
+    [SerializeField] private GameObject playerWalkEffect;
 
     private IInteractable closestInteractable;
 

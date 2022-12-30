@@ -129,7 +129,8 @@ public class Enemy : MonoBehaviour
             GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 15));
             GameManager.instance.allSpawnedEnemies.Remove(this);
             GameObject go2 = Instantiate(coinPrefab, transform.position, Quaternion.identity);
-            if(currentRuntime > 20f)
+            SoundManager.instance.PlayHitEnemySound();
+            if (currentRuntime > 20f)
             {
                 go2.GetComponent<Coin>().value = 1;
             }

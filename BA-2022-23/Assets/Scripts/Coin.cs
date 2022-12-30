@@ -10,6 +10,7 @@ public class Coin : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            SoundManager.instance.PlayCoinSound();
             GameManager.instance.player.IncreaseCoins(value);
             Destroy(gameObject);
         }
