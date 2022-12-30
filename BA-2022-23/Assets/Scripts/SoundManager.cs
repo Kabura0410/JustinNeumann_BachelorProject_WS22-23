@@ -15,6 +15,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Slider sfxSlider;
 
     [SerializeField] private AudioSource[] hitChickenSounds;
+    [SerializeField] private AudioSource[] jumpChickenSounds;
     [SerializeField] private AudioSource[] hitEnemySounds;
     [SerializeField] private AudioSource[] coinSounds;
 
@@ -128,5 +129,10 @@ public class SoundManager : MonoBehaviour
     public void PlayCoinSound()
     {
         coinSounds[Random.Range(0, coinSounds.Length)].Play();
+    }
+
+    public void PlayJumpChickenSound()
+    {
+        jumpChickenSounds[Random.Range(0, jumpChickenSounds.Length)].Play();
     }
 }

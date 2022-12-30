@@ -243,6 +243,7 @@ public class PlayerController : MonoBehaviour
             extraJumps--;
             isJumping = true;
             _jumpTime = jumpTime;
+            SoundManager.instance.PlayJumpChickenSound();
             GameObject newParticle = Instantiate(playerJumpEffect, transform.position, Quaternion.identity);
             GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 5));
         }
