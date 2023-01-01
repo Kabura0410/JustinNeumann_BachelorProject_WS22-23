@@ -43,7 +43,7 @@ public class IntroText : MonoBehaviour
         StartIntro();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (Input.anyKey && !skipButton.activeSelf)
         {
