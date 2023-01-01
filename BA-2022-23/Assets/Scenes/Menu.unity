@@ -20145,65 +20145,65 @@ MonoBehaviour:
   introText: {fileID: 470295417}
   allIntroParts:
   - content: LONG AGO...
-    speed: 0.01
+    speed: 0.1
     showDuration: 2
-    delay: 0.8
+    delay: 0.5
   - content: ...OUR PLANET WAS RULED BY A POWERFUL AND DOMINANT SPECIES.
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: ...OUR PLANET WAS RULED BY A POWERFUL AND DOMINANT SPECIES.
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: THEY WERE KNOWN BY THEIR ADVANCED TECHNOLOGY...
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
-    delay: 0.8
+    delay: 0.5
   - content: ...AS WELL AS THEIR ABILITY TO CONSTRUCT POWERFUL ARTIFACTS.
-    speed: 0.2
+    speed: 0.1
     showDuration: 4
     delay: 0.8
   - content: HOWEVER, THEY EVENTUALLY LEFT OUR WORLD...
-    speed: 0.2
+    speed: 0.1
+    showDuration: 3
+    delay: 0.5
+  - content: ...LEAVING US TO FEND FOR OURSELVES.
+    speed: 0.1
     showDuration: 3
     delay: 0.8
-  - content: ...LEAVING US TO FEND FOR OURSELVES.
-    speed: 0.2
-    showDuration: 3
-    delay: 1.6
   - content: BUT WE WERE NOT ALONE FOR LONG.
-    speed: 0.2
-    showDuration: 3
+    speed: 0.1
+    showDuration: 2.5
     delay: 0.8
   - content: 'SOON, A NEW THREAT EMERGED FROM THE DEPTHS OF OUTER SPACE:'
-    speed: 0.2
+    speed: 0.1
     showDuration: 4
-    delay: 0.8
+    delay: 0.5
   - content: 'WE CALL THEM: "THE VOID CREATURES".'
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: 'THESE MALEVOLENT CREATURES CAME TO OUR PLANET WITH ONLY ONE GOAL IN
       MIND:'
-    speed: 0.2
-    showDuration: 5
-    delay: 0.8
+    speed: 0.1
+    showDuration: 4
+    delay: 0.5
   - content: THEY CAME TO DESTROY AND TO FEED.
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: NOW IT IS UP TO US TO DEFEND OUR HOME...
-    speed: 0.2
+    speed: 0.1
+    showDuration: 3
+    delay: 0.5
+  - content: ...AS WELL AS THE LAST REMAINING ARTIFACTS.
+    speed: 0.1
     showDuration: 3
     delay: 0.8
-  - content: ...AS WELL AS THE LAST REMAINING ARTIFACTS.
-    speed: 0.2
-    showDuration: 3
-    delay: 1.6
   - content: ARE YOU READY TO JOIN THE FIGHT?
-    speed: 0.2
-    showDuration: 4
+    speed: 0.1
+    showDuration: 2
     delay: 0.8
 --- !u!114 &470295417
 MonoBehaviour:
@@ -20252,8 +20252,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0.1
@@ -32979,65 +32979,65 @@ MonoBehaviour:
   introText: {fileID: 1678787136}
   allIntroParts:
   - content: LONG AGO...
-    speed: 0.01
+    speed: 0.1
     showDuration: 2
-    delay: 0.8
+    delay: 0.5
   - content: ...OUR PLANET WAS RULED BY A POWERFUL AND DOMINANT SPECIES.
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: ...OUR PLANET WAS RULED BY A POWERFUL AND DOMINANT SPECIES.
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: THEY WERE KNOWN BY THEIR ADVANCED TECHNOLOGY...
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
-    delay: 0.8
+    delay: 0.5
   - content: ...AS WELL AS THEIR ABILITY TO CONSTRUCT POWERFUL ARTIFACTS.
-    speed: 0.2
+    speed: 0.1
     showDuration: 4
     delay: 0.8
   - content: HOWEVER, THEY EVENTUALLY LEFT OUR WORLD...
-    speed: 0.2
+    speed: 0.1
+    showDuration: 3
+    delay: 0.5
+  - content: ...LEAVING US TO FEND FOR OURSELVES.
+    speed: 0.1
     showDuration: 3
     delay: 0.8
-  - content: ...LEAVING US TO FEND FOR OURSELVES.
-    speed: 0.2
-    showDuration: 3
-    delay: 1.6
   - content: BUT WE WERE NOT ALONE FOR LONG.
-    speed: 0.2
-    showDuration: 3
+    speed: 0.1
+    showDuration: 2.5
     delay: 0.8
   - content: 'SOON, A NEW THREAT EMERGED FROM THE DEPTHS OF OUTER SPACE:'
-    speed: 0.2
+    speed: 0.1
     showDuration: 4
-    delay: 0.8
+    delay: 0.5
   - content: 'WE CALL THEM: "THE VOID CREATURES".'
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: 'THESE MALEVOLENT CREATURES CAME TO OUR PLANET WITH ONLY ONE GOAL IN
       MIND:'
-    speed: 0.2
-    showDuration: 5
-    delay: 0.8
+    speed: 0.1
+    showDuration: 4
+    delay: 0.5
   - content: THEY CAME TO DESTROY AND TO FEED.
-    speed: 0.2
+    speed: 0.1
     showDuration: 3
     delay: 0.8
   - content: NOW IT IS UP TO US TO DEFEND OUR HOME...
-    speed: 0.2
+    speed: 0.1
+    showDuration: 3
+    delay: 0.5
+  - content: ...AS WELL AS THE LAST REMAINING ARTIFACTS.
+    speed: 0.1
     showDuration: 3
     delay: 0.8
-  - content: ...AS WELL AS THE LAST REMAINING ARTIFACTS.
-    speed: 0.2
-    showDuration: 3
-    delay: 1.6
   - content: ARE YOU READY TO JOIN THE FIGHT?
-    speed: 0.2
-    showDuration: 4
+    speed: 0.1
+    showDuration: 2
     delay: 0.8
 --- !u!114 &1678787136
 MonoBehaviour:
@@ -33086,8 +33086,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 0.1
