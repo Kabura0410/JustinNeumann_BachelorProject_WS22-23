@@ -45,6 +45,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
         {
             BuyItem();
         }
+       
     }
 
     public void ShowOutline()
@@ -74,6 +75,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
                     GameManager.instance.SelectWeapon(weaponItem.objectToUnlock);
                     GameManager.instance.UpdateWeaponText();
                     ClearSlot(this);
+                    SoundManager.instance.PlayMoneySound();
                 }
                 else
                 {
@@ -91,10 +93,11 @@ public class ShopSlot : MonoBehaviour, IInteractable
                         GameManager.instance.SelectWeapon(weaponItem.objectToUnlock);
                         GameManager.instance.UpdateWeaponText();
                         ClearSlot(this);
+                        SoundManager.instance.PlayMoneySound();
                     }
                     else
                     {
-                        //Indicator for player that weapon cant be bought 
+                        SoundManager.instance.PlayWrongSound();
                     }
                 }
                 break;

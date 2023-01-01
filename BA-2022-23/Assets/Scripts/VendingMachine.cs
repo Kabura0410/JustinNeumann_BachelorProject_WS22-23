@@ -47,6 +47,11 @@ public class VendingMachine : MonoBehaviour, IInteractable
         {
             SpawnContent();
             GameManager.instance.player.CurrentCoins -= cost;
+            SoundManager.instance.PlayLowMoneySound();
+        }
+        else
+        {
+            SoundManager.instance.PlayWrongSound();
         }
     }
 

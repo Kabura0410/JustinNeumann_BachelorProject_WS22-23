@@ -18,6 +18,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource hitChickenSound;
     [SerializeField] private AudioSource hitEnemySound;
     [SerializeField] private AudioSource coinSound;
+    [SerializeField] private AudioSource moneySound;
+    [SerializeField] private AudioSource lowMoneySound;
+    [SerializeField] private AudioSource wrongSound;
 
     private void Awake()
     {
@@ -134,5 +137,20 @@ public class SoundManager : MonoBehaviour
     public void PlayJumpChickenSound()
     {
         jumpChickenSound.Play();
+    }
+
+    public void PlayMoneySound()
+    {
+        moneySound.Play();
+    }
+
+    public void PlayLowMoneySound()
+    {
+        lowMoneySound.Play();
+    }
+
+    public void PlayWrongSound()
+    {
+        wrongSound.Play();
     }
 }
