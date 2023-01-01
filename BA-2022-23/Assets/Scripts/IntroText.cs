@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IntroText : MonoBehaviour
 {
     public static IntroText instance;
 
-    private bool start = false;
+    private bool start = true;
 
     private bool stop;
 
@@ -20,6 +21,15 @@ public class IntroText : MonoBehaviour
 
     [SerializeField] private List<IntroEntry> allIntroParts;
 
+    [SerializeField] private GameObject mainPanel;
+
+    [SerializeField] private GameObject skipButton;
+
+    [SerializeField] private Animator anim;
+
+    [SerializeField] private Image[] allMenuImages;
+    [SerializeField] private float menuFadeSpeed;
+
     private void Awake()
     {
         if(instance == null)
@@ -28,16 +38,16 @@ public class IntroText : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
-        
+        StartIntro();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.anyKey && !skipButton.activeSelf)
         {
-            StartIntro();
+            skipButton.SetActive(true);
         }
 
         if(start && fadeIn && !stop)
@@ -58,6 +68,14 @@ public class IntroText : MonoBehaviour
                 fadeOut = false;
             }
         }
+
+        if(stop && allMenuImages[0].color.a <= 1)
+        {
+            foreach(var r in allMenuImages)
+            {
+                r.color = new Color(r.color.r, r.color.g, r.color.b, r.color.a + Time.fixedDeltaTime * menuFadeSpeed);
+            }
+        }
     }
 
     public void StartIntro()
@@ -65,7 +83,6 @@ public class IntroText : MonoBehaviour
         start = true;
         introText.color = new Color(introText.color.r, introText.color.g, introText.color.b, 0);
         introText.text = allIntroParts[currentText].content;
-        currentText++;
         fadeIn = true;
     }
 
@@ -77,11 +94,26 @@ public class IntroText : MonoBehaviour
         {
             introText.text = allIntroParts[allIntroParts.Count - 1].content;
             stop = true;
+            mainPanel.SetActive(true);
+            skipButton.SetActive(false);
+            anim.SetTrigger("skip");
         }
         else
         {
             introText.text = allIntroParts[currentText].content;
         }
+    }
+
+    public void SkipIntro()
+    {
+        mainPanel.SetActive(true);
+        stop = true;
+        fadeIn = false;
+        fadeOut = false;
+        start = false;
+        introText.text = "";
+        skipButton.SetActive(false);
+        anim.SetTrigger("skip");
     }
 
     private IEnumerator SelectNextTextDelayed(float _time)
@@ -95,7 +127,6 @@ public class IntroText : MonoBehaviour
         yield return new WaitForSecondsRealtime(_time);
         fadeOut = true;
     }
-
 }
 
 [System.Serializable]
