@@ -7,6 +7,8 @@ public class Crystal : MonoBehaviour
     public int maxhealth;
     public int health;
 
+    [SerializeField] private GameObject artifactDamageEffect;
+
     void Start()
     {
         
@@ -21,7 +23,9 @@ public class Crystal : MonoBehaviour
     {
         health -= _amount;
         GameManager.instance.UpdateHealthBars();
-        if(health <= 0)
+        GameObject newParticle = Instantiate(artifactDamageEffect, transform.position, Quaternion.identity);
+        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 4));
+        if (health <= 0)
         {
             GameManager.instance.LoseGame();
         }
