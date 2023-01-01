@@ -45,7 +45,7 @@ public class IntroText : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.anyKey && !skipButton.activeSelf)
+        if (Input.anyKey && !skipButton.activeSelf && !stop)
         {
             skipButton.SetActive(true);
         }
