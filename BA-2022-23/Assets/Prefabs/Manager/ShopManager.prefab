@@ -47,85 +47,103 @@ MonoBehaviour:
   allWeaponItemsToBuy:
   - description: Deagle
     cost: 120
-    sprite: {fileID: 174424191, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: -119185699, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: -1287514643, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: Slingshot
     cost: 80
-    sprite: {fileID: -203915735, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: -125791985, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: -303870682, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: Pumpgun
     cost: 140
-    sprite: {fileID: 741977681, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: -1886115901, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 1550242183, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: DoubleBarrel
     cost: 140
-    sprite: {fileID: -1913770576, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: 276767891, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 2116112216, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: SMG
     cost: 160
-    sprite: {fileID: -2022631599, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: -1157039041, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: -1580919183, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: Minigun
     cost: 200
-    sprite: {fileID: -66293331, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: 527632705, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: -1203518396, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: Sniper
     cost: 160
-    sprite: {fileID: 1718675063, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: -1614085190, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: -2107300425, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: Auto Sniper
     cost: 160
-    sprite: {fileID: 1849414990, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: 2130526959, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 1046067430, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   - description: Revolver
     cost: 100
-    sprite: {fileID: -174940449, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    itemSprite: {fileID: 261525923, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 1615026517, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
   allPlayerHealItemsToBuy:
   - description: Bandages
     cost: 50
-    sprite: {fileID: 397436879, guid: 7da9ce9c2ead72c4d937dda262de13e9, type: 3}
+    itemSprite: {fileID: 1793797887, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 1614110967, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 2
     healAmount: 25
   - description: Medikit
     cost: 100
-    sprite: {fileID: -154060037, guid: 7da9ce9c2ead72c4d937dda262de13e9, type: 3}
+    itemSprite: {fileID: -73448480, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 1805416261, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 2
     healAmount: 50
   allArtefactHealItemToBuy:
   - description: Super Glue
     cost: 100
-    sprite: {fileID: -52017943, guid: 7da9ce9c2ead72c4d937dda262de13e9, type: 3}
+    itemSprite: {fileID: -1080309644, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 812397384, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 1
     healAmount: 500
   - description: Duck Tape
     cost: 200
-    sprite: {fileID: 1701670484, guid: 7da9ce9c2ead72c4d937dda262de13e9, type: 3}
+    itemSprite: {fileID: 745866120, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: -926799470, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 1
     healAmount: 1000
   blankItem:
     description: 'This slot is empty '
     cost: 0
-    sprite: {fileID: -1227717157, guid: 7296818a0c6bd96478b9ea35ae895fb2, type: 3}
+    itemSprite: {fileID: 0}
+    itemNameSprite: {fileID: 0}
     type: 0
   weaponSlot: {fileID: 0}
   playerHealSlot: {fileID: 0}
   artefactHealSlot: {fileID: 0}
+  reroll: {fileID: 0}
+  cokeVending: {fileID: 0}
+  ammoVending: {fileID: 0}
+  objectsToDespawn: []

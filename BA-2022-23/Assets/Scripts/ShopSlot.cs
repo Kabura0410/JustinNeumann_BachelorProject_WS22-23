@@ -12,6 +12,8 @@ public class ShopSlot : MonoBehaviour, IInteractable
 
     public SpriteRenderer ren;
 
+    public SpriteRenderer nameRen;
+
     public TextMeshProUGUI priceText;
 
     private bool canInteract;
@@ -55,7 +57,8 @@ public class ShopSlot : MonoBehaviour, IInteractable
     public void SetShopItem(ShopItem _item)
     {
         item = _item;
-        ren.sprite = _item.sprite;
+        ren.sprite = _item.itemSprite;
+        nameRen.sprite = _item.itemNameSprite;
         priceText.text = _item.cost.ToString();
         canInteract = true;
         glow.gameObject.SetActive(true);
@@ -63,30 +66,15 @@ public class ShopSlot : MonoBehaviour, IInteractable
 
     private void BuyItem()
     {
-        switch (item.type)
+        if(GameManager.instance.player.CurrentCoins >= item.cost)
         {
-            case ShopItemType.weapon:
-                List<GameObject> allBoughtWeapons = GameManager.instance.GetAllBoughtWeapons();
-                if(allBoughtWeapons.Count < 3)
-                {
-                    WeaponItem weaponItem = item as WeaponItem;
-                    weaponItem.objectToUnlock.gameObject.GetComponent<Weapon>().UnlockWeapon();
-                    weaponItem.bought = true;
-                    GameManager.instance.SelectWeapon(weaponItem.objectToUnlock);
-                    GameManager.instance.UpdateWeaponText();
-                    ClearSlot(this);
-                    SoundManager.instance.PlayMoneySound();
-                }
-                else
-                {
-                    if (!GameManager.instance.player.currentSelectedWeapon.isStartWeapon)
+            GameManager.instance.player.CurrentCoins -= item.cost;
+            switch (item.type)
+            {
+                case ShopItemType.weapon:
+                    List<GameObject> allBoughtWeapons = GameManager.instance.GetAllBoughtWeapons();
+                    if(allBoughtWeapons.Count < 3)
                     {
-                        List<WeaponItem> temp = ShopManager.instance.allWeaponItemsToBuy.Where(r => r.objectToUnlock.GetComponent<Weapon>() == GameManager.instance.player.currentSelectedWeapon).ToList();
-                        GameManager.instance.player.currentSelectedWeapon.LockWeapon();
-                        foreach(var r in temp)
-                        {
-                            r.bought = false;
-                        }
                         WeaponItem weaponItem = item as WeaponItem;
                         weaponItem.objectToUnlock.gameObject.GetComponent<Weapon>().UnlockWeapon();
                         weaponItem.bought = true;
@@ -97,22 +85,45 @@ public class ShopSlot : MonoBehaviour, IInteractable
                     }
                     else
                     {
-                        SoundManager.instance.PlayWrongSound();
+                        if (!GameManager.instance.player.currentSelectedWeapon.isStartWeapon)
+                        {
+                            List<WeaponItem> temp = ShopManager.instance.allWeaponItemsToBuy.Where(r => r.objectToUnlock.GetComponent<Weapon>() == GameManager.instance.player.currentSelectedWeapon).ToList();
+                            GameManager.instance.player.currentSelectedWeapon.LockWeapon();
+                            foreach(var r in temp)
+                            {
+                                r.bought = false;
+                            }
+                            WeaponItem weaponItem = item as WeaponItem;
+                            weaponItem.objectToUnlock.gameObject.GetComponent<Weapon>().UnlockWeapon();
+                            weaponItem.bought = true;
+                            GameManager.instance.SelectWeapon(weaponItem.objectToUnlock);
+                            GameManager.instance.UpdateWeaponText();
+                            ClearSlot(this);
+                            SoundManager.instance.PlayMoneySound();
+                        }
+                        else
+                        {
+                            SoundManager.instance.PlayWrongSound();
+                        }
                     }
-                }
-                break;
-            case ShopItemType.artefact:
-                HealItemForArtefact artefactItem = item as HealItemForArtefact;
-                GameManager.instance.crystal.Heal(artefactItem.healAmount);
-                ClearSlot(this);
-                SoundManager.instance.PlayMoneySound();
-                break;
-            case ShopItemType.player:
-                HealItemForPlayer playerItem = item as HealItemForPlayer;
-                GameManager.instance.player.Heal(playerItem.healAmount);
-                ClearSlot(this);
-                SoundManager.instance.PlayMoneySound();
-                break;
+                    break;
+                case ShopItemType.artefact:
+                    HealItemForArtefact artefactItem = item as HealItemForArtefact;
+                    GameManager.instance.crystal.Heal(artefactItem.healAmount);
+                    ClearSlot(this);
+                    SoundManager.instance.PlayMoneySound();
+                    break;
+                case ShopItemType.player:
+                    HealItemForPlayer playerItem = item as HealItemForPlayer;
+                    GameManager.instance.player.Heal(playerItem.healAmount);
+                    ClearSlot(this);
+                    SoundManager.instance.PlayMoneySound();
+                    break;
+            }
+        }
+        else
+        {
+            SoundManager.instance.PlayWrongSound();
         }
     }
 
@@ -120,6 +131,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
     {
         _slot.priceText.text = "";
         _slot.ren.sprite = default;
+        _slot.nameRen.sprite = default;
         _slot.item = null;
         canInteract = false;
         glow.gameObject.SetActive(false);
@@ -143,7 +155,8 @@ public class ShopItem
 {
     public string description;
     public int cost;
-    public Sprite sprite;
+    public Sprite itemSprite;
+    public Sprite itemNameSprite;
     public ShopItemType type;
 }
 

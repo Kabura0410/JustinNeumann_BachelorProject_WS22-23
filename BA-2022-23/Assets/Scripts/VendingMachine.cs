@@ -20,6 +20,8 @@ public class VendingMachine : MonoBehaviour, IInteractable
     public bool PlayerInTrigger { get => playerInTrigger; set => playerInTrigger = value; }
     public bool CanInteract { get => canInteract; set => canInteract = value; }
 
+    [SerializeField] private GameObject canvas;
+
     void Start()
     {
         CanInteract = true;
@@ -65,5 +67,10 @@ public class VendingMachine : MonoBehaviour, IInteractable
         GameObject go = Instantiate(spawnObject, spawnPos.position, Quaternion.identity);
         go.GetComponent<Rigidbody2D>().AddForce((directionPos.position - transform.position).normalized * intensity);
         ShopManager.instance.objectsToDespawn.Add(go);
+    }
+
+    public void ToggleCanvas()
+    {
+        canvas.SetActive(!canvas.activeSelf);
     }
 }

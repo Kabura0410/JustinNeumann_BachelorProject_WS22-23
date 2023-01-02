@@ -18,6 +18,9 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private RerollShopSlot reroll;
 
+    [SerializeField] private VendingMachine cokeVending;
+    [SerializeField] private VendingMachine ammoVending;
+
     public List<GameObject> objectsToDespawn;
 
 
@@ -98,5 +101,7 @@ public class ShopManager : MonoBehaviour
         playerHealSlot.ToggleCanvas();
         artefactHealSlot.ToggleCanvas();
         reroll.ToggleCanvas();
+        cokeVending.ToggleCanvas();
+        ammoVending.ToggleCanvas();
     }
 }
