@@ -47,6 +47,8 @@ public class Weapon : MonoBehaviour
 
     public bool isStartWeapon;
 
+    public Sprite uiSprite;
+
     private void Awake()
     {
         actualAmmo = ammoCapacity;
@@ -189,5 +191,15 @@ public class Weapon : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    public bool CheckForAmmoLeft()
+    {
+        bool ammoLeft = true;
+        if(currentAmmo == 0 && actualAmmo == 0)
+        {
+            ammoLeft = false;
+        }
+        return ammoLeft;
     }
 }

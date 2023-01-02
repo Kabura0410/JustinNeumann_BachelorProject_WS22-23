@@ -51,6 +51,16 @@ public class GameManager : MonoBehaviour
 
     public bool paused;
 
+
+    [Header("Weapon UI")]
+    [SerializeField] private SpriteRenderer goldenRevolverSprite;
+    [SerializeField] private SpriteRenderer weapon2Sprite;
+    [SerializeField] private SpriteRenderer weapon3Sprite;
+
+    [SerializeField] private SpriteRenderer lowOnAmmo1;
+    [SerializeField] private SpriteRenderer lowOnAmmo2;
+    [SerializeField] private SpriteRenderer lowOnAmmo3;
+
     private void Awake()
     {
         if(instance == null)
@@ -375,6 +385,53 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             paused = true;
         }
+    }
+
+    public void UpdateWeaponUI()
+    {
+        List<GameObject> allBoughtWeapons = GetAllBoughtWeapons();
+        int i = 0;
+        foreach(var r in allBoughtWeapons)
+        {
+            Weapon weapon = r.GetComponent<Weapon>();
+            switch (i)
+            {
+                case 0:
+                    goldenRevolverSprite.sprite = weapon.uiSprite;
+                    if (weapon.CheckForAmmoLeft())
+                    {
+                        lowOnAmmo1.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lowOnAmmo1.gameObject.SetActive(true);
+                    }
+                    break;
+                case 1:
+                    weapon2Sprite.sprite = weapon.uiSprite;
+                    if (weapon.CheckForAmmoLeft())
+                    {
+                        lowOnAmmo2.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lowOnAmmo2.gameObject.SetActive(true);
+                    }
+                    break;
+                case 2:
+                    weapon3Sprite.sprite = weapon.uiSprite;
+                    if (weapon.CheckForAmmoLeft())
+                    {
+                        lowOnAmmo3.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lowOnAmmo3.gameObject.SetActive(true);
+                    }
+                    break;
+            }
+        }
+        
     }
 }
 

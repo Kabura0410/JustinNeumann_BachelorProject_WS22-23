@@ -82,6 +82,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
                         GameManager.instance.UpdateWeaponText();
                         ClearSlot(this);
                         SoundManager.instance.PlayMoneySound();
+                        GameManager.instance.UpdateWeaponUI();
                     }
                     else
                     {
@@ -100,6 +101,7 @@ public class ShopSlot : MonoBehaviour, IInteractable
                             GameManager.instance.UpdateWeaponText();
                             ClearSlot(this);
                             SoundManager.instance.PlayMoneySound();
+                            GameManager.instance.UpdateWeaponUI();
                         }
                         else
                         {
