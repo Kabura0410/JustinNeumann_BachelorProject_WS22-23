@@ -72,8 +72,6 @@ public class Enemy : MonoBehaviour
 
     public EnemyType type;
 
-    [SerializeField] private AnimationCurve moneyFallOff;
-
     private float currentRuntime;
 
     [SerializeField] private GameObject coinPrefab;
@@ -130,14 +128,6 @@ public class Enemy : MonoBehaviour
             GameManager.instance.allSpawnedEnemies.Remove(this);
             GameObject go2 = Instantiate(coinPrefab, transform.position, Quaternion.identity);
             SoundManager.instance.PlayHitEnemySound();
-            if (currentRuntime > 20f)
-            {
-                go2.GetComponent<Coin>().value = 1;
-            }
-            else
-            {
-                go2.GetComponent<Coin>().value = Mathf.RoundToInt(moneyFallOff.Evaluate(currentRuntime));
-            }
             Destroy(gameObject);
         }
     }
