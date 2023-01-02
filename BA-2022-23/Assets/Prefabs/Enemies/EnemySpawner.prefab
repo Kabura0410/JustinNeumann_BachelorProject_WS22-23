@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   minSpawnDelay: 2
-  maxSpawnDelay: 15
+  maxSpawnDelay: 8
   boosted: 0
