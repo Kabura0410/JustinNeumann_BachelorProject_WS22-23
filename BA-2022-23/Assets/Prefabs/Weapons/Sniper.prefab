@@ -206,6 +206,7 @@ MonoBehaviour:
   unlocked: 0
   useAmmo: 1
   isStartWeapon: 0
+  uiSprite: {fileID: -1614085190, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
 --- !u!82 &3918713602881517579
 AudioSource:
   m_ObjectHideFlags: 0
