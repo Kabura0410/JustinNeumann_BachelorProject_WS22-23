@@ -378,40 +378,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 10496
   type: 1
-  moneyFallOff:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 8
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 10
-      value: 4
-      inSlope: -0.3
-      outSlope: -0.3
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 20
-      value: 2
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  coinPrefab: {fileID: 8314600655030315208, guid: 251dca2047e0b9d449bdbcf444753935, type: 3}
+  coinPrefab: {fileID: 8314600655030315208, guid: 86a5f792efd42db41a97bc8e0a799989, type: 3}
 --- !u!61 &8717385540481307546
 BoxCollider2D:
   m_ObjectHideFlags: 0
