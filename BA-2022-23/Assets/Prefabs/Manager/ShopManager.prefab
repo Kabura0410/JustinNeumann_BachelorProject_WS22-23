@@ -45,6 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allWeaponItemsToBuy:
+  - description: Revolver
+    cost: 100
+    itemSprite: {fileID: 261525923, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
+    itemNameSprite: {fileID: 1615026517, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
+    type: 0
+    objectToUnlock: {fileID: 0}
+    bought: 0
   - description: Deagle
     cost: 120
     itemSprite: {fileID: -119185699, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
@@ -101,13 +108,6 @@ MonoBehaviour:
     type: 0
     objectToUnlock: {fileID: 0}
     bought: 0
-  - description: Revolver
-    cost: 100
-    itemSprite: {fileID: 261525923, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
-    itemNameSprite: {fileID: 1615026517, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
-    type: 0
-    objectToUnlock: {fileID: 0}
-    bought: 0
   allPlayerHealItemsToBuy:
   - description: Bandages
     cost: 50
@@ -127,13 +127,13 @@ MonoBehaviour:
     itemSprite: {fileID: -1080309644, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
     itemNameSprite: {fileID: 812397384, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 1
-    healAmount: 500
+    healAmount: 250
   - description: Duck Tape
     cost: 200
     itemSprite: {fileID: 745866120, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
     itemNameSprite: {fileID: -926799470, guid: dcf3d16ffd610944887290aeda1ed71d, type: 3}
     type: 1
-    healAmount: 1000
+    healAmount: 500
   blankItem:
     description: 'This slot is empty '
     cost: 0
