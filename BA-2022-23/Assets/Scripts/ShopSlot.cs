@@ -105,11 +105,13 @@ public class ShopSlot : MonoBehaviour, IInteractable
                 HealItemForArtefact artefactItem = item as HealItemForArtefact;
                 GameManager.instance.crystal.Heal(artefactItem.healAmount);
                 ClearSlot(this);
+                SoundManager.instance.PlayMoneySound();
                 break;
             case ShopItemType.player:
                 HealItemForPlayer playerItem = item as HealItemForPlayer;
                 GameManager.instance.player.Heal(playerItem.healAmount);
                 ClearSlot(this);
+                SoundManager.instance.PlayMoneySound();
                 break;
         }
     }

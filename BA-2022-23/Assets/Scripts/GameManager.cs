@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
                 {
                     StopWaves();
                     shopPortal.SetActive(true);
+                    SoundManager.instance.PlayPortalSound();
                 }
                 else
                 {
