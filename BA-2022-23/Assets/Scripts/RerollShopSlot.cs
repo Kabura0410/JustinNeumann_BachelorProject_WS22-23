@@ -60,12 +60,16 @@ public class RerollShopSlot : MonoBehaviour, IInteractable
             {
                 ShopManager.instance.RerollShopSlots();
                 GameManager.instance.player.CurrentCoins -= cost;
-                SoundManager.instance.PlayMoneySound();
+                SoundManager.instance.PlayLowMoneySound();
             }
             else
             {
                 SoundManager.instance.PlayWrongSound();
             }
+        }
+        else
+        {
+            SoundManager.instance.PlayWrongSound();
         }
     }
 
