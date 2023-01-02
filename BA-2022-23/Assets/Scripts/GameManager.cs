@@ -361,7 +361,7 @@ public class GameManager : MonoBehaviour
         player.currentSelectedWeapon = targetWeapon.GetComponent<Weapon>();
     }
 
-    private void TogglePause()
+    public void TogglePause()
     {
         if (pauseScreen.activeSelf)
         {

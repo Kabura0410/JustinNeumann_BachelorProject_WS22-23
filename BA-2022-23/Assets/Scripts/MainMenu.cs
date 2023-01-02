@@ -7,11 +7,13 @@ public class MainMenu : MonoBehaviour
 {
     public void Play ()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
     }
 
     public void BackToMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
