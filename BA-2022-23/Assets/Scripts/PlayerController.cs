@@ -219,6 +219,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.paused) return;
         if (!canMove) return;
         CheckFlip();
         SearchForClosestInteractable();

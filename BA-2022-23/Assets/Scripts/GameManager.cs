@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public bool inShop;
 
+    [SerializeField] private GameObject winScreen;
+    [SerializeField] private GameObject loseScreen;
+    [SerializeField] private GameObject pauseScreen;
+
+    public bool paused;
+
     private void Awake()
     {
         if(instance == null)
@@ -61,12 +67,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        coinText.text = player.CurrentCoins.ToString();
-
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            IncreaseWave();
+            TogglePause();
         }
+
+        coinText.text = player.CurrentCoins.ToString();
         if (Input.GetMouseButtonDown(1))
         {
             int currentIndex = 0;
@@ -129,9 +135,16 @@ public class GameManager : MonoBehaviour
             {
                 if((currentWave + 1) % wavesUntilShop == 0)
                 {
-                    StopWaves();
-                    shopPortal.SetActive(true);
-                    SoundManager.instance.PlayPortalSound();
+                    if(currentWave >= allWaves.Count - 1)
+                    {
+                        WinGame();
+                    }
+                    else
+                    {
+                        StopWaves();
+                        shopPortal.SetActive(true);
+                        SoundManager.instance.PlayPortalSound();
+                    }
                 }
                 else
                 {
@@ -153,7 +166,16 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        loseScreen.SetActive(true);
+        paused = true;
+        Time.timeScale = 0;
+    }
+
+    public void WinGame()
+    {
+        winScreen.SetActive(true);
+        paused = true;
+        Time.timeScale = 0;
     }
 
     public void KillPlayer()
@@ -245,7 +267,7 @@ public class GameManager : MonoBehaviour
         else
         {
             allWaves[currentWave].waveCompleted = true;
-            //LevelCompleted
+            WinGame();
         }
         subWaveCount++;
         if(subWaveCount == wavesUntilShop + 1)
@@ -337,6 +359,22 @@ public class GameManager : MonoBehaviour
         }
         targetWeapon.SetActive(true);
         player.currentSelectedWeapon = targetWeapon.GetComponent<Weapon>();
+    }
+
+    private void TogglePause()
+    {
+        if (pauseScreen.activeSelf)
+        {
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1;
+            paused = false;
+        }
+        else
+        {
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0;
+            paused = true;
+        }
     }
 }
 

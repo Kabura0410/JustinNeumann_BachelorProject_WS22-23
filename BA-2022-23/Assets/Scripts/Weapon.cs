@@ -55,82 +55,85 @@ public class Weapon : MonoBehaviour
 
     private void Update()
     {
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-
-        transform.localScale = difference.x < 0 ? new Vector3(transform.localScale.x, -1, transform.localScale.z) : new Vector3(transform.localScale.x, 1, transform.localScale.z);
-
-        if (actualAmmo <= 0 && !reloading && currentAmmo > 0)
+        if (!GameManager.instance.paused)
         {
-            StartCoroutine(ReloadWeapon());
-        }
+            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if (timeBtwShots <= 0 && actualAmmo > 0 && !reloading)
-        {
-            if (Input.GetMouseButton(0))
+            transform.localScale = difference.x < 0 ? new Vector3(transform.localScale.x, -1, transform.localScale.z) : new Vector3(transform.localScale.x, 1, transform.localScale.z);
+
+            if (actualAmmo <= 0 && !reloading && currentAmmo > 0)
             {
-                if(_chargeTime >= chargeTime)
+                StartCoroutine(ReloadWeapon());
+            }
+
+            if (timeBtwShots <= 0 && actualAmmo > 0 && !reloading)
+            {
+                if (Input.GetMouseButton(0))
                 {
-                    for(int i = 0; i < bulletAmount; i++)
+                    if(_chargeTime >= chargeTime)
                     {
-                        GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
-                        go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
-                        go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
-                    }
-                    if (GameManager.instance.inShop)
-                    {
-                        GameManager.instance.shopCam.GetComponent<CameraShake>().DoCameraShake();
+                        for(int i = 0; i < bulletAmount; i++)
+                        {
+                            GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
+                            go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
+                            go.GetComponent<Projectile>().enemyKnockbackIntensity = enemyKnockback;
+                        }
+                        if (GameManager.instance.inShop)
+                        {
+                            GameManager.instance.shopCam.GetComponent<CameraShake>().DoCameraShake();
+                        }
+                        else
+                        {
+                            GameManager.instance.mainCam.GetComponent<CameraShake>().DoCameraShake();
+                        }
+                        actualAmmo--;
+                        gunshotSound.Play();
+                        anim.SetTrigger("shot");
+                        if(actualAmmo <= 0 && currentAmmo > 0)
+                        {
+                            StartCoroutine(ReloadWeapon());
+                        }
+                        timeBtwShots = startTimeBtwShots;
+                        if(difference.x < 0)
+                        {
+                            GameObject newParticle = Instantiate(flashEffectRight, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
+                            GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
+                        }
+                        else
+                        {
+                            GameObject newParticle = Instantiate(flashEffectLeft, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
+                            GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
+                        }
+                        GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
+                        GameManager.instance.UpdateWeaponText();
                     }
                     else
                     {
-                        GameManager.instance.mainCam.GetComponent<CameraShake>().DoCameraShake();
+                        _chargeTime += Time.deltaTime; 
                     }
-                    actualAmmo--;
-                    gunshotSound.Play();
-                    anim.SetTrigger("shot");
-                    if(actualAmmo <= 0 && currentAmmo > 0)
-                    {
-                        StartCoroutine(ReloadWeapon());
-                    }
-                    timeBtwShots = startTimeBtwShots;
-                    if(difference.x < 0)
-                    {
-                        GameObject newParticle = Instantiate(flashEffectRight, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
-                        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
-                    }
-                    else
-                    {
-                        GameObject newParticle = Instantiate(flashEffectLeft, shotPoint.position, Quaternion.Euler(0f, 0f, rotZ + offset));
-                        GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 8));
-                    }
-                    GameManager.instance.player.GetKnockback(-difference.normalized, playerKnockback, GameManager.instance.player.weaponKnockbackDuration);
-                    GameManager.instance.UpdateWeaponText();
-                }
-                else
-                {
-                    _chargeTime += Time.deltaTime; 
                 }
             }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            _chargeTime = 0;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
-        }
+            if (Input.GetMouseButtonUp(0))
+            {
+                _chargeTime = 0;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
 
-        if (Input.GetKeyDown(KeyCode.R) && actualAmmo != ammoCapacity && currentAmmo > 0)
-        {
-            StartCoroutine(ReloadWeapon());
-        }
+            if (Input.GetKeyDown(KeyCode.R) && actualAmmo != ammoCapacity && currentAmmo > 0)
+            {
+                StartCoroutine(ReloadWeapon());
+            }
 
-        if (reloading)
-        {
-            currentReloadTime += Time.deltaTime;
-            GameManager.instance.player.reloadFillImage.fillAmount = currentReloadTime / reloadTime;
+            if (reloading)
+            {
+                currentReloadTime += Time.deltaTime;
+                GameManager.instance.player.reloadFillImage.fillAmount = currentReloadTime / reloadTime;
+            }
         }
 
     }
