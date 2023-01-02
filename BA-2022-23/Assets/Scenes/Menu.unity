@@ -20143,7 +20143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -33172,6 +33172,7 @@ MonoBehaviour:
   - {fileID: 1261922779}
   - {fileID: 1623097114}
   menuFadeSpeed: 0.5
+  textOutline: {fileID: 470295414}
 --- !u!114 &1678787136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33186,7 +33187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

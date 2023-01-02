@@ -30,6 +30,8 @@ public class IntroText : MonoBehaviour
     [SerializeField] private Image[] allMenuImages;
     [SerializeField] private float menuFadeSpeed;
 
+    [SerializeField] private GameObject textOutline;
+
     private void Awake()
     {
         if(instance == null)
@@ -75,6 +77,11 @@ public class IntroText : MonoBehaviour
             {
                 r.color = new Color(r.color.r, r.color.g, r.color.b, r.color.a + Time.fixedDeltaTime * menuFadeSpeed);
             }
+        }
+        else if(stop && allMenuImages[0].color.a >= 1)
+        {
+            Destroy(textOutline);
+            Destroy(this.gameObject);
         }
     }
 
