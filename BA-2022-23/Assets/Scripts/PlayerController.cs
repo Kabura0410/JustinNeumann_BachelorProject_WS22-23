@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour
     public Weapon currentSelectedWeapon;
 
     [SerializeField] private Animator anim;
+    public Animator animPortal;
 
     void Start()
     {
@@ -219,11 +220,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        SearchForClosestInteractable();
+        CheckForInteraction();
         if (GameManager.instance.paused) return;
         if (!canMove) return;
         CheckFlip();
-        SearchForClosestInteractable();
-        CheckForInteraction();
         if(isGrounded == true)
         {
             extraJumps = extraJumpsValue;
