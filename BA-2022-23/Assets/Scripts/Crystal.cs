@@ -6,6 +6,7 @@ public class Crystal : MonoBehaviour
 {
     public int maxhealth;
     public int health;
+    public GameObject explosionEffect;
 
     [SerializeField] private GameObject artifactDamageEffect;
 
@@ -27,6 +28,8 @@ public class Crystal : MonoBehaviour
         GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(newParticle, 4));
         if (health <= 0)
         {
+            GameObject go = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 10));
             GameManager.instance.LoseGame();
         }
     }
