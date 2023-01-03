@@ -53,13 +53,17 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Weapon UI")]
-    [SerializeField] private SpriteRenderer goldenRevolverSprite;
-    [SerializeField] private SpriteRenderer weapon2Sprite;
-    [SerializeField] private SpriteRenderer weapon3Sprite;
+    [SerializeField] private Image goldenRevolverSprite;
+    [SerializeField] private Image weapon2Sprite;
+    [SerializeField] private Image weapon3Sprite;
 
-    [SerializeField] private SpriteRenderer lowOnAmmo1;
-    [SerializeField] private SpriteRenderer lowOnAmmo2;
-    [SerializeField] private SpriteRenderer lowOnAmmo3;
+    [SerializeField] private Image lowOnAmmo1;
+    [SerializeField] private Image lowOnAmmo2;
+    [SerializeField] private Image lowOnAmmo3;
+
+    [SerializeField] private Image frame1;
+    [SerializeField] private Image frame2;
+    [SerializeField] private Image frame3;
 
     private void Awake()
     {
@@ -113,6 +117,7 @@ public class GameManager : MonoBehaviour
 
             }
             UpdateWeaponText();
+            UpdateWeaponUI();
             if (player.reloadIndicator.gameObject.activeSelf)
             {
                 ToggleReloadIndicator();
@@ -397,10 +402,13 @@ public class GameManager : MonoBehaviour
             {
                 weapon2Sprite.gameObject.SetActive(true);
                 weapon3Sprite.gameObject.SetActive(true);
+                frame2.gameObject.SetActive(true);
+                frame3.gameObject.SetActive(true);
             }
             else
             {
                 weapon2Sprite.gameObject.SetActive(true);
+                frame2.gameObject.SetActive(true);
             }
         }
         foreach(var r in allBoughtWeapons)
@@ -444,7 +452,35 @@ public class GameManager : MonoBehaviour
             }
             i++;
         }
-        
+        int j = 0;
+        for (int f = 0; f < allBoughtWeapons.Count; f++)
+        {
+            if(allBoughtWeapons[f] == player.currentSelectedWeapon.gameObject)
+            {
+                j = f;
+            }
+        }
+        goldenRevolverSprite.color = new Color(goldenRevolverSprite.color.r, goldenRevolverSprite.color.g, goldenRevolverSprite.color.b, .5f);
+        weapon2Sprite.color = new Color(weapon2Sprite.color.r, weapon2Sprite.color.g, weapon2Sprite.color.b, .5f);
+        weapon3Sprite.color = new Color(weapon3Sprite.color.r, weapon3Sprite.color.g, weapon3Sprite.color.b, .5f);
+        frame1.color = new Color(frame1.color.r, frame1.color.g, frame1.color.b, .5f);
+        frame2.color = new Color(frame2.color.r, frame2.color.g, frame2.color.b, .5f);
+        frame3.color = new Color(frame3.color.r, frame3.color.g, frame3.color.b, .5f);
+        switch (j)
+        {
+            case 0:
+                goldenRevolverSprite.color = new Color(goldenRevolverSprite.color.r, goldenRevolverSprite.color.g, goldenRevolverSprite.color.b, 1);
+                frame1.color = new Color(frame1.color.r, frame1.color.g, frame1.color.b, 1);
+                break;
+            case 1:
+                weapon2Sprite.color = new Color(weapon2Sprite.color.r, weapon2Sprite.color.g, weapon2Sprite.color.b, 1);
+                frame2.color = new Color(frame2.color.r, frame2.color.g, frame2.color.b, 1);
+                break;
+            case 2:
+                weapon3Sprite.color = new Color(weapon3Sprite.color.r, weapon3Sprite.color.g, weapon3Sprite.color.b, 1);
+                frame3.color = new Color(frame3.color.r, frame3.color.g, frame3.color.b, 1);
+                break;
+        }
     }
 }
 
