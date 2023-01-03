@@ -93,6 +93,7 @@ public class Weapon : MonoBehaviour
                         actualAmmo--;
                         gunshotSound.Play();
                         anim.SetTrigger("shot");
+                        GameManager.instance.UpdateWeaponUI();
                         if(actualAmmo <= 0 && currentAmmo > 0)
                         {
                             StartCoroutine(ReloadWeapon());

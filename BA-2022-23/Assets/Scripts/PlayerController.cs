@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canMove = true;
 
-    private int currentCoins;
+    public int currentCoins;
 
     public int CurrentCoins
     {

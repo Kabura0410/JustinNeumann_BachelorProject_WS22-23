@@ -267,7 +267,6 @@ GameObject:
   - component: {fileID: 1158337907312717840}
   - component: {fileID: 1158337907312717841}
   - component: {fileID: 1158337907312717854}
-  - component: {fileID: 1158337907312717845}
   - component: {fileID: 2761855905241892779}
   m_Layer: 11
   m_Name: Player
@@ -424,6 +423,7 @@ MonoBehaviour:
   weaponKnockbackDuration: 0
   reloadIndicator: {fileID: 1816659240}
   reloadFillImage: {fileID: 1498849855}
+  currentCoins: 0
   playerDamageEffect: {fileID: 7914770878453694400, guid: 480b9b90648eec54f85433507284f638, type: 3}
   playerJumpEffect: {fileID: 189772489203802487, guid: cb9d21bf7ab2cf542b9a1dee683e8102, type: 3}
   playerWalkEffect: {fileID: 189772489203802487, guid: c8f17d4b184e0564093397003944a7a7, type: 3}
@@ -431,18 +431,6 @@ MonoBehaviour:
   currentSelectedWeapons: []
   currentSelectedWeapon: {fileID: 2433246057128068495}
   anim: {fileID: 5968139717317109065}
---- !u!114 &1158337907312717845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1158337907312717855}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c199dd7089eff2841b63af3a3f2f3512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2761855905241892779
 Animator:
   serializedVersion: 4
@@ -1734,6 +1722,10 @@ PrefabInstance:
       propertyPath: maxAmmo
       value: 250000
       objectReference: {fileID: 0}
+    - target: {fileID: 7113662209947657189, guid: b124745b167aa5b4689285fa8c8036aa, type: 3}
+      propertyPath: uiSprite
+      value: 
+      objectReference: {fileID: -508406166, guid: 1efa5c00cbd58d8468d3e292cd5fb1df, type: 3}
     - target: {fileID: 7113662209947657189, guid: b124745b167aa5b4689285fa8c8036aa, type: 3}
       propertyPath: unlocked
       value: 1

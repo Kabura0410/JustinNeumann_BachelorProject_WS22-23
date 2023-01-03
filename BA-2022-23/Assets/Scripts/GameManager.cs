@@ -391,6 +391,18 @@ public class GameManager : MonoBehaviour
     {
         List<GameObject> allBoughtWeapons = GetAllBoughtWeapons();
         int i = 0;
+        if(allBoughtWeapons.Count > 1)
+        {
+            if(allBoughtWeapons.Count >= 3)
+            {
+                weapon2Sprite.gameObject.SetActive(true);
+                weapon3Sprite.gameObject.SetActive(true);
+            }
+            else
+            {
+                weapon2Sprite.gameObject.SetActive(true);
+            }
+        }
         foreach(var r in allBoughtWeapons)
         {
             Weapon weapon = r.GetComponent<Weapon>();
@@ -430,6 +442,7 @@ public class GameManager : MonoBehaviour
                     }
                     break;
             }
+            i++;
         }
         
     }
@@ -444,9 +457,7 @@ public class Wave
     public float minBoostTime;
     [HideInInspector] public float _boostTime;
     public float boostMultiplier;
-
     public List<EnemyEntry> enemiesOnThisWave;
-
     public bool waveCompleted;
 }
 
