@@ -99,6 +99,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator anim;
     public Animator animPortal;
 
+    public enum CharacterType
+    {
+        Herbert,
+        Luis
+    }
+
+    public CharacterType character;
+
+
     void Start()
     {
         extraJumps = extraJumpsValue;

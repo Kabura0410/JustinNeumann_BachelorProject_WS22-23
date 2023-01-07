@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class VendingMachine : MonoBehaviour, IInteractable
@@ -21,6 +22,8 @@ public class VendingMachine : MonoBehaviour, IInteractable
     public bool CanInteract { get => canInteract; set => canInteract = value; }
 
     [SerializeField] private GameObject canvas;
+
+    public bool shouldPay = true;
 
     void Start()
     {
@@ -45,15 +48,26 @@ public class VendingMachine : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (canInteract && playerInTrigger && GameManager.instance.player.CurrentCoins >= cost)
+        if (canInteract && playerInTrigger)
         {
-            SpawnContent();
-            GameManager.instance.player.CurrentCoins -= cost;
-            SoundManager.instance.PlayLowMoneySound();
-        }
-        else
-        {
-            SoundManager.instance.PlayWrongSound();
+            if (shouldPay)
+            {
+                if(GameManager.instance.player.CurrentCoins >= cost)
+                {
+                    SpawnContent();
+                    GameManager.instance.player.CurrentCoins -= cost;
+                    SoundManager.instance.PlayLowMoneySound();
+                }
+                else
+                {
+                    SoundManager.instance.PlayWrongSound();
+                }
+            }
+            else
+            {
+                SpawnContent();
+                SoundManager.instance.PlayLowMoneySound();
+            }
         }
     }
 
@@ -73,4 +87,10 @@ public class VendingMachine : MonoBehaviour, IInteractable
     {
         canvas.SetActive(!canvas.activeSelf);
     }
+
+    public void ApplyArtefactBoost()
+    {
+        canvas.GetComponentInChildren<TextMeshProUGUI>().text = "Free";
+    }
+
 }

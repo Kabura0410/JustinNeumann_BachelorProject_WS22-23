@@ -51,6 +51,9 @@ public class GameManager : MonoBehaviour
 
     public bool paused;
 
+    public GameObject[] allArtefacts;
+    public PlayerController[] allPlayer;
+
 
     [Header("Weapon UI")]
     [SerializeField] private Image goldenRevolverSprite;
@@ -75,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        InitializePreSelection();
         InitializeWave();
         UpdateWeaponText();
     }
@@ -480,6 +484,47 @@ public class GameManager : MonoBehaviour
                 weapon3Sprite.color = new Color(weapon3Sprite.color.r, weapon3Sprite.color.g, weapon3Sprite.color.b, 1);
                 frame3.color = new Color(frame3.color.r, frame3.color.g, frame3.color.b, 1);
                 break;
+        }
+    }
+
+    private void InitializePreSelection()
+    {
+        if(PreSelection.instance != null)
+        {
+
+            switch (PreSelection.instance.character)
+            {
+                case PreSelection.Character.Herbert:
+                    player = allPlayer.Where(r => r.character == PlayerController.CharacterType.Herbert).First();
+                    break;
+                case PreSelection.Character.Luis:
+                    player = allPlayer.Where(r => r.character == PlayerController.CharacterType.Luis).First();
+                    break;
+            }
+            player.gameObject.SetActive(true);
+
+
+            switch (PreSelection.instance.artefact)
+            {
+                case PreSelection.Artefact.Cube:
+                    allArtefacts[0].SetActive(true);
+                    player.maxHealth = Mathf.RoundToInt(player.maxHealth * 1.5f);
+                    player.health = player.maxHealth;
+                    break;
+                case PreSelection.Artefact.Ball:
+                    allArtefacts[1].SetActive(true);
+                    player.CurrentCoins += 25;
+                    break;
+                case PreSelection.Artefact.Ramen:
+                    allArtefacts[2].SetActive(true);
+                    player.extraJumpsValue++;
+                    break;
+                case PreSelection.Artefact.Coke:
+                    allArtefacts[3].SetActive(true);
+                    ShopManager.instance.cokeVending.shouldPay = false;
+                    ShopManager.instance.cokeVending.ApplyArtefactBoost();
+                    break;
+            }
         }
     }
 }

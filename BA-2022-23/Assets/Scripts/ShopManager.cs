@@ -18,7 +18,7 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private RerollShopSlot reroll;
 
-    [SerializeField] private VendingMachine cokeVending;
+    public VendingMachine cokeVending;
     [SerializeField] private VendingMachine ammoVending;
 
     public List<GameObject> objectsToDespawn;
