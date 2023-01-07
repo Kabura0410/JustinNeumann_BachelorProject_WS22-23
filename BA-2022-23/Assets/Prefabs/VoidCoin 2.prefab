@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 7
-  m_Sprite: {fileID: -207149652, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+  m_Sprite: {fileID: -1427171208, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -192,7 +192,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 8
-  m_Sprite: {fileID: -130715050, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+  m_Sprite: {fileID: 1590978844, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
   m_Color: {r: 0.054901965, g: 0.027450982, b: 0.10588236, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -319,7 +319,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -951,7 +951,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.2
+      value: 1.5
       mode: 0
       spread: 0
       speed:
@@ -1688,6 +1688,7 @@ ParticleSystem:
     - sprite: {fileID: -1183812243, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
     - sprite: {fileID: 615824663, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
     - sprite: {fileID: -1097473061, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
+    - sprite: {fileID: -130715050, guid: 8c664081c204031499be382f14bd5ccf, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -5091,7 +5092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c49e41a092468a40b2d63a31ea6c726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 2
+  value: 3
   despawnTime: 10
 --- !u!61 &7701431497791060002
 BoxCollider2D:
@@ -5165,7 +5166,7 @@ Transform:
   m_GameObject: {fileID: 9156312459608724411}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8712551424530203046}
