@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource lowMoneySound;
     [SerializeField] private AudioSource wrongSound;
     [SerializeField] private AudioSource portalSound;
+ 
 
     private void Awake()
     {
@@ -159,4 +160,6 @@ public class SoundManager : MonoBehaviour
     {
         portalSound.Play();
     }
+
+    
 }
