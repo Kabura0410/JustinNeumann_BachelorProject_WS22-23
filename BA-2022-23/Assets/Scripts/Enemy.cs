@@ -78,6 +78,8 @@ public class Enemy : MonoBehaviour
 
     private bool receivedKnockback;
 
+    [SerializeField] private float dmgDelayTime;
+
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(9,9);
@@ -245,6 +247,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage, Vector3 _direction, float _intensity = 0f)
     {
         health -= damage;
+        enemySprites[0].enabled = false;
+        StartCoroutine(DmgFrameDelay());
         GameObject go = Instantiate(damageEffect, transform.position, Quaternion.identity);
         GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 2));
         GetKnockback(_direction, _intensity);
@@ -374,4 +378,11 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSecondsRealtime(_time);
         ToggleMovement();
     }
+
+    private IEnumerator DmgFrameDelay()
+    {
+        yield return new WaitForSeconds(dmgDelayTime);
+        enemySprites[0].enabled = true;
+    }
+
 }

@@ -361,8 +361,8 @@ MonoBehaviour:
   maxYVelocity: 14
   logicDelay: 8
   enemySprites:
-  - {fileID: 302727408218762497}
   - {fileID: 5383283307089427588}
+  - {fileID: 302727408218762497}
   isClimbing: 0
   ladderJumpHeight: 3650
   attackSpeed: 1
@@ -379,6 +379,7 @@ MonoBehaviour:
     m_Bits: 10496
   type: 1
   coinPrefab: {fileID: 8314600655030315208, guid: 86a5f792efd42db41a97bc8e0a799989, type: 3}
+  dmgDelayTime: 0.1
 --- !u!61 &8717385540481307546
 BoxCollider2D:
   m_ObjectHideFlags: 0
