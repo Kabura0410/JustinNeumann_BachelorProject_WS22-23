@@ -9919,6 +9919,8 @@ GameObject:
   - component: {fileID: 133169270}
   - component: {fileID: 133169269}
   - component: {fileID: 133169268}
+  - component: {fileID: 133169272}
+  - component: {fileID: 133169271}
   m_Layer: 5
   m_Name: player1
   m_TagString: Untagged
@@ -9977,7 +9979,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: -661293035, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -9986,7 +9988,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 133169269}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -9994,6 +9996,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PreSelection, Assembly-CSharp
         m_MethodName: SelectCharacter
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 133169272}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -10040,6 +10054,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133169266}
   m_CullTransparentMesh: 1
+--- !u!114 &133169271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133169266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c07a7c0b213584ebf3c87ef0dab281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCustomButtons:
+  - {fileID: 133169272}
+  - {fileID: 222621115}
+--- !u!114 &133169272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133169266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 372409465, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: -661293035, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 133169268}
+  isDefault: 1
+  group: {fileID: 0}
 --- !u!1 &164528841
 GameObject:
   m_ObjectHideFlags: 0
@@ -14992,6 +15038,7 @@ GameObject:
   - component: {fileID: 222621114}
   - component: {fileID: 222621113}
   - component: {fileID: 222621112}
+  - component: {fileID: 222621115}
   m_Layer: 5
   m_Name: player2
   m_TagString: Untagged
@@ -15050,7 +15097,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: -617382562, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -15059,7 +15106,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 222621113}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -15071,6 +15118,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 222621115}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -15113,6 +15172,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222621110}
   m_CullTransparentMesh: 1
+--- !u!114 &222621115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222621110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 1434714697, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: -617382562, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 222621112}
+  isDefault: 0
+  group: {fileID: 0}
 --- !u!1 &256708728
 GameObject:
   m_ObjectHideFlags: 0
@@ -20077,6 +20153,7 @@ GameObject:
   - component: {fileID: 425450661}
   - component: {fileID: 425450660}
   - component: {fileID: 425450659}
+  - component: {fileID: 425450662}
   m_Layer: 5
   m_Name: billiardball
   m_TagString: Untagged
@@ -20135,7 +20212,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 76471297, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -20144,7 +20221,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 425450660}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -20156,6 +20233,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 425450662}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -20198,6 +20287,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425450657}
   m_CullTransparentMesh: 1
+--- !u!114 &425450662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425450657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 37841495, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: 76471297, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 425450659}
+  isDefault: 0
+  group: {fileID: 0}
 --- !u!1 &448423214
 GameObject:
   m_ObjectHideFlags: 0
@@ -25864,6 +25970,7 @@ GameObject:
   - component: {fileID: 818692102}
   - component: {fileID: 818692101}
   - component: {fileID: 818692100}
+  - component: {fileID: 818692103}
   m_Layer: 5
   m_Name: map2
   m_TagString: Untagged
@@ -25922,7 +26029,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 441665462, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -25931,7 +26038,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 818692101}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -25943,6 +26050,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 818692103}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -25985,6 +26104,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818692098}
   m_CullTransparentMesh: 1
+--- !u!114 &818692103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818692098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: -70996820, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: 441665462, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 818692100}
+  isDefault: 0
+  group: {fileID: 0}
 --- !u!1 &830435635
 GameObject:
   m_ObjectHideFlags: 0
@@ -36257,6 +36393,7 @@ GameObject:
   - component: {fileID: 1168130181}
   - component: {fileID: 1168130180}
   - component: {fileID: 1168130179}
+  - component: {fileID: 1168130182}
   m_Layer: 5
   m_Name: voidcoke
   m_TagString: Untagged
@@ -36315,7 +36452,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: -1480680873, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -36324,7 +36461,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1168130180}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -36336,6 +36473,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1168130182}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -36378,6 +36527,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168130177}
   m_CullTransparentMesh: 1
+--- !u!114 &1168130182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168130177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 1354725964, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: -1480680873, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 1168130179}
+  isDefault: 0
+  group: {fileID: 0}
 --- !u!1 &1227587574
 GameObject:
   m_ObjectHideFlags: 0
@@ -36427,6 +36593,8 @@ GameObject:
   - component: {fileID: 1245552264}
   - component: {fileID: 1245552263}
   - component: {fileID: 1245552262}
+  - component: {fileID: 1245552266}
+  - component: {fileID: 1245552265}
   m_Layer: 5
   m_Name: map1
   m_TagString: Untagged
@@ -36485,7 +36653,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 162579361, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -36494,7 +36662,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1245552263}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -36502,6 +36670,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PreSelection, Assembly-CSharp
         m_MethodName: SelectMap
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1245552266}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -36548,6 +36728,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245552260}
   m_CullTransparentMesh: 1
+--- !u!114 &1245552265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245552260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c07a7c0b213584ebf3c87ef0dab281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCustomButtons:
+  - {fileID: 1245552266}
+  - {fileID: 818692103}
+--- !u!114 &1245552266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245552260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: -1513902343, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: 162579361, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 1245552262}
+  isDefault: 1
+  group: {fileID: 0}
 --- !u!1 &1261922776
 GameObject:
   m_ObjectHideFlags: 0
@@ -37115,6 +37327,7 @@ GameObject:
   - component: {fileID: 1469424608}
   - component: {fileID: 1469424607}
   - component: {fileID: 1469424606}
+  - component: {fileID: 1469424609}
   m_Layer: 5
   m_Name: noodlebox
   m_TagString: Untagged
@@ -37173,7 +37386,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: -1575242093, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -37182,7 +37395,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1469424607}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -37194,6 +37407,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1469424609}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -37236,6 +37461,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469424604}
   m_CullTransparentMesh: 1
+--- !u!114 &1469424609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469424604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 731742341, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: -1575242093, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 1469424606}
+  isDefault: 0
+  group: {fileID: 0}
 --- !u!1 &1485490528
 GameObject:
   m_ObjectHideFlags: 0
@@ -42077,7 +42319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb725ac576d88d945afe70fc26274eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artifact: 0
+  artefact: 0
   character: 0
   map: 0
 --- !u!4 &1495878094
@@ -62395,6 +62637,8 @@ GameObject:
   - component: {fileID: 2007999042}
   - component: {fileID: 2007999041}
   - component: {fileID: 2007999040}
+  - component: {fileID: 2007999044}
+  - component: {fileID: 2007999043}
   m_Layer: 5
   m_Name: rubikscube
   m_TagString: Untagged
@@ -62453,7 +62697,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 1003616829, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+    m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -62462,7 +62706,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2007999041}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -62470,6 +62714,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: PreSelection, Assembly-CSharp
         m_MethodName: SelectArtifact
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2007999044}
+        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
+        m_MethodName: SelectItem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -62516,6 +62772,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007999038}
   m_CullTransparentMesh: 1
+--- !u!114 &2007999043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007999038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c07a7c0b213584ebf3c87ef0dab281, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCustomButtons:
+  - {fileID: 2007999044}
+  - {fileID: 425450662}
+  - {fileID: 1469424609}
+  - {fileID: 1168130182}
+--- !u!114 &2007999044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007999038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 339104e69398f9944b1c54b85273a628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSprite: {fileID: 1157771071, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  selectedSprite: {fileID: 1003616829, guid: ed1d71252c937d24b98c0034a5f0db69, type: 3}
+  button: {fileID: 2007999040}
+  isDefault: 1
+  group: {fileID: 0}
 --- !u!1 &2030589813
 GameObject:
   m_ObjectHideFlags: 0
