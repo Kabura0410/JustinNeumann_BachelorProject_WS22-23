@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] allArtefacts;
     public PlayerController[] allPlayer;
 
+    public float playerDelayTime, artifactDelayTime;
+
 
     [Header("Weapon UI")]
     [SerializeField] private Image goldenRevolverSprite;
@@ -183,11 +185,11 @@ public class GameManager : MonoBehaviour
         stopWaveCheck = false;
     }
 
-    public void LoseGame()
+    public void LoseGame(float _time)
     {
-        loseScreen.SetActive(true);
         paused = true;
         Time.timeScale = 0;
+        StartCoroutine(LoseScreenDelayed(_time));
     }
 
     public void WinGame()
@@ -199,8 +201,15 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        LoseGame();
+        LoseGame(playerDelayTime);
     }
+
+    private IEnumerator LoseScreenDelayed(float _time)
+    {
+        yield return new WaitForSecondsRealtime(_time);
+        loseScreen.SetActive(true);
+    }
+
 
     public IEnumerator DeleteParticleDelayed(GameObject _targetObject, float _time)
     {

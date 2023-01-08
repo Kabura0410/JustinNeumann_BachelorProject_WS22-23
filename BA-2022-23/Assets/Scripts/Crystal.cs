@@ -80,7 +80,7 @@ public class Crystal : MonoBehaviour
             GameObject go = Instantiate(explosionEffect, transform.position, Quaternion.identity);
             GameManager.instance.StartCoroutine(GameManager.instance.DeleteParticleDelayed(go, 10));
        
-            GameManager.instance.LoseGame();
+            GameManager.instance.LoseGame(GameManager.instance.artifactDelayTime);
         }
     }
 
