@@ -49,6 +49,9 @@ public class Weapon : MonoBehaviour
 
     public Sprite uiSprite;
 
+    [SerializeField] private GameObject chargeEffect;
+    private GameObject _chargeEffect;
+
     private void Awake()
     {
         actualAmmo = ammoCapacity;
@@ -74,9 +77,19 @@ public class Weapon : MonoBehaviour
             {
                 if (Input.GetMouseButton(0))
                 {
+                    if(_chargeTime == 0 && chargeEffect != null)
+                    {
+                        GameObject go = Instantiate(chargeEffect, shotPoint);
+                        _chargeEffect = go;
+                    }
+
                     if(_chargeTime >= chargeTime)
                     {
-                        for(int i = 0; i < bulletAmount; i++)
+                        if (_chargeEffect != null)
+                        {
+                            Destroy(_chargeEffect);
+                        }
+                        for (int i = 0; i < bulletAmount; i++)
                         {
                             GameObject go = Instantiate(projectile, shotPoint.position, transform.rotation);
                             go.transform.Rotate(new Vector3(0,0,Random.Range(-spreadFactor, spreadFactor)));
@@ -121,6 +134,10 @@ public class Weapon : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 _chargeTime = 0;
+                if(_chargeEffect != null)
+                {
+                    Destroy(_chargeEffect);
+                }
             }
             else
             {
