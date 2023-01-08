@@ -33,6 +33,10 @@ public class MainMenu : MonoBehaviour
         {
             Destroy(PreSelection.instance.gameObject);
         }
+        if(SoundManager.instance != null)
+        {
+            Destroy(SoundManager.instance.gameObject);
+        }
         SceneManager.LoadScene(0);
     }
 
