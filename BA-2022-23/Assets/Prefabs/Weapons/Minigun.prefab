@@ -58,8 +58,8 @@ MonoBehaviour:
   playerKnockback: 100
   enemyKnockback: 35
   reloadTime: 4
-  ammoCapacity: 600
-  maxAmmo: 600
+  ammoCapacity: 300
+  maxAmmo: 300
   currentAmmo: 0
   actualAmmo: 0
   chargeTime: 2
@@ -70,7 +70,7 @@ MonoBehaviour:
   useAmmo: 1
   isStartWeapon: 0
   uiSprite: {fileID: 527632705, guid: 662b58c8fd276de4d8b21004c3814bcb, type: 3}
-  chargeEffect: {fileID: 9017312910028899891, guid: b0963a55b34566544b687b8ba3c6d070, type: 3}
+  chargeEffect: {fileID: 590596705196784491, guid: 684bfa7b16974ce4196b56a2fe434205, type: 3}
 --- !u!82 &-8960069334096663297
 AudioSource:
   m_ObjectHideFlags: 0

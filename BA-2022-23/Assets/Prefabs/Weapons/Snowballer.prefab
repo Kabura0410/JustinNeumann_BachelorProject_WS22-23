@@ -51,8 +51,8 @@ MonoBehaviour:
   projectile: {fileID: 2288040545729649526, guid: 622a7bed9e9181b49989f9896d0bf057, type: 3}
   shotPoint: {fileID: 7113662210620479489}
   startTimeBtwShots: 0.2
-  flashEffectRight: {fileID: 3967512539779551259, guid: ba70060e818ed084fb3f0123a290245c, type: 3}
-  flashEffectLeft: {fileID: 3967512539779551259, guid: d46ed918bcbd678449b18499d3e22ef6, type: 3}
+  flashEffectRight: {fileID: 3967512539779551259, guid: 100539adad2421d43a9886f9b33f8208, type: 3}
+  flashEffectLeft: {fileID: 3967512539779551259, guid: 5b3407f44eac04d4eaf3ce0d019c2685, type: 3}
   spreadFactor: 2
   bulletAmount: 1
   playerKnockback: 150
@@ -70,6 +70,7 @@ MonoBehaviour:
   useAmmo: 1
   isStartWeapon: 0
   uiSprite: {fileID: -1772226509, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
+  chargeEffect: {fileID: 0}
 --- !u!82 &-2421976596177518514
 AudioSource:
   m_ObjectHideFlags: 0
