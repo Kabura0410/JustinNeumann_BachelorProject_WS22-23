@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Weapon UI")]
-    [SerializeField] private Image goldenRevolverSprite;
+    [SerializeField] private Image startWeaponSprite;
     [SerializeField] private Image weapon2Sprite;
     [SerializeField] private Image weapon3Sprite;
 
@@ -429,7 +429,8 @@ public class GameManager : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    goldenRevolverSprite.sprite = weapon.uiSprite;
+                    startWeaponSprite.sprite = weapon.uiSprite;
+                    startWeaponSprite.rectTransform.sizeDelta = new Vector2(weapon.uiSprite.rect.width, weapon.uiSprite.rect.height);
                     if (weapon.CheckForAmmoLeft())
                     {
                         lowOnAmmo1.gameObject.SetActive(false);
@@ -441,6 +442,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case 1:
                     weapon2Sprite.sprite = weapon.uiSprite;
+                    weapon2Sprite.rectTransform.sizeDelta = new Vector2(weapon.uiSprite.rect.width, weapon.uiSprite.rect.height);
                     if (weapon.CheckForAmmoLeft())
                     {
                         lowOnAmmo2.gameObject.SetActive(false);
@@ -452,6 +454,7 @@ public class GameManager : MonoBehaviour
                     break;
                 case 2:
                     weapon3Sprite.sprite = weapon.uiSprite;
+                    weapon3Sprite.rectTransform.sizeDelta = new Vector2(weapon.uiSprite.rect.width, weapon.uiSprite.rect.height); 
                     if (weapon.CheckForAmmoLeft())
                     {
                         lowOnAmmo3.gameObject.SetActive(false);
@@ -472,7 +475,7 @@ public class GameManager : MonoBehaviour
                 j = f;
             }
         }
-        goldenRevolverSprite.color = new Color(goldenRevolverSprite.color.r, goldenRevolverSprite.color.g, goldenRevolverSprite.color.b, .5f);
+        startWeaponSprite.color = new Color(startWeaponSprite.color.r, startWeaponSprite.color.g, startWeaponSprite.color.b, .5f);
         weapon2Sprite.color = new Color(weapon2Sprite.color.r, weapon2Sprite.color.g, weapon2Sprite.color.b, .5f);
         weapon3Sprite.color = new Color(weapon3Sprite.color.r, weapon3Sprite.color.g, weapon3Sprite.color.b, .5f);
         frame1.color = new Color(frame1.color.r, frame1.color.g, frame1.color.b, .5f);
@@ -481,7 +484,7 @@ public class GameManager : MonoBehaviour
         switch (j)
         {
             case 0:
-                goldenRevolverSprite.color = new Color(goldenRevolverSprite.color.r, goldenRevolverSprite.color.g, goldenRevolverSprite.color.b, 1);
+                startWeaponSprite.color = new Color(startWeaponSprite.color.r, startWeaponSprite.color.g, startWeaponSprite.color.b, 1);
                 frame1.color = new Color(frame1.color.r, frame1.color.g, frame1.color.b, 1);
                 break;
             case 1:
