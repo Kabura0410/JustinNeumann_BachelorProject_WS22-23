@@ -59,7 +59,7 @@ MonoBehaviour:
   enemyKnockback: 40
   reloadTime: 1
   ammoCapacity: 3
-  maxAmmo: 120
+  maxAmmo: 250000
   currentAmmo: 0
   actualAmmo: 0
   chargeTime: 0
