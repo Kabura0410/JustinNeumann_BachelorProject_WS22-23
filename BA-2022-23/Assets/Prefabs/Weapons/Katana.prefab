@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7113662209947657189}
   - component: {fileID: -2421976596177518514}
   m_Layer: 0
-  m_Name: Kunai
+  m_Name: Katana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,18 +48,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
-  projectile: {fileID: 2288040545729649526, guid: 6a4efb0632ced1e49ac99500e15b079d, type: 3}
+  projectile: {fileID: 2288040545729649526, guid: 588e890e0aed25f43828515dc358ba13, type: 3}
   shotPoint: {fileID: 7113662210620479489}
-  startTimeBtwShots: 0.15
-  flashEffectRight: {fileID: 3967512539779551259, guid: d36d09a4593a9b0419fa9b8b1c2e6e0e, type: 3}
-  flashEffectLeft: {fileID: 3967512539779551259, guid: d36d09a4593a9b0419fa9b8b1c2e6e0e, type: 3}
+  startTimeBtwShots: 0.2
+  flashEffectRight: {fileID: 3967512539779551259, guid: e4875600b9d19d146a03f9d949960033, type: 3}
+  flashEffectLeft: {fileID: 3967512539779551259, guid: e4875600b9d19d146a03f9d949960033, type: 3}
   spreadFactor: 1
   bulletAmount: 1
   playerKnockback: 150
   enemyKnockback: 40
-  reloadTime: 0.5
-  ammoCapacity: 4
-  maxAmmo: 120
+  reloadTime: 1
+  ammoCapacity: 3
+  maxAmmo: 250000
   currentAmmo: 0
   actualAmmo: 0
   chargeTime: 0
@@ -67,10 +67,10 @@ MonoBehaviour:
   gunshotSound: {fileID: -2421976596177518514}
   anim: {fileID: 5203544489162713814}
   unlocked: 0
-  useAmmo: 1
+  useAmmo: 0
   isStartWeapon: 0
-  uiSprite: {fileID: 1428401908, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
-  chargeEffect: {fileID: 590596705196784491, guid: 684bfa7b16974ce4196b56a2fe434205, type: 3}
+  uiSprite: {fileID: -122157139, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
+  chargeEffect: {fileID: 0}
 --- !u!82 &-2421976596177518514
 AudioSource:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7113662210620479494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: 0}
+  m_LocalPosition: {x: 2.5, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -224,7 +224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7113662211067229681}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -272,7 +272,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 18
-  m_Sprite: {fileID: 711612525, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
+  m_Sprite: {fileID: 650042227, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -293,7 +293,7 @@ Animator:
   m_GameObject: {fileID: 7113662211067229681}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ef55fbc4a6fb1924294de283f9e8f44a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1468cf55dfb85e14da48d03b96b603b0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

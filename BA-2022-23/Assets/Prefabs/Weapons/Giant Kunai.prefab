@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7113662209947657189}
   - component: {fileID: -2421976596177518514}
   m_Layer: 0
-  m_Name: Kunai
+  m_Name: Giant Kunai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,19 +50,19 @@ MonoBehaviour:
   offset: 0
   projectile: {fileID: 2288040545729649526, guid: 6a4efb0632ced1e49ac99500e15b079d, type: 3}
   shotPoint: {fileID: 7113662210620479489}
-  startTimeBtwShots: 0.15
+  startTimeBtwShots: 0.2
   flashEffectRight: {fileID: 3967512539779551259, guid: d36d09a4593a9b0419fa9b8b1c2e6e0e, type: 3}
   flashEffectLeft: {fileID: 3967512539779551259, guid: d36d09a4593a9b0419fa9b8b1c2e6e0e, type: 3}
   spreadFactor: 1
   bulletAmount: 1
   playerKnockback: 150
   enemyKnockback: 40
-  reloadTime: 0.5
+  reloadTime: 1
   ammoCapacity: 4
-  maxAmmo: 120
+  maxAmmo: 80
   currentAmmo: 0
   actualAmmo: 0
-  chargeTime: 0
+  chargeTime: 1
   reloading: 0
   gunshotSound: {fileID: -2421976596177518514}
   anim: {fileID: 5203544489162713814}
@@ -84,7 +84,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 0588b35506b80754c895b8605ce4183b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.5
-  m_Pitch: 1.2
+  m_Pitch: 0.8
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -191,7 +191,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7113662210620479494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: 0, z: 0}
+  m_LocalPosition: {x: 2.25, y: 0, z: 0}
   m_LocalScale: {x: 1.2, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 7113662211067229683}
   - component: {fileID: 5203544489162713814}
   m_Layer: 0
-  m_Name: gun
+  m_Name: Giant Kunai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,7 +272,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 18
-  m_Sprite: {fileID: 711612525, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
+  m_Sprite: {fileID: 1388686944, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
