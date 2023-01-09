@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -121,11 +122,22 @@ public class PlayerController : MonoBehaviour
                     anim = allAnims[0];
                     allPlayerSprites[0].gameObject.SetActive(true);
                     playerSprite = allPlayerSprites[0];
+                    GameObject go = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[1].gameObject;
+                    GameManager.instance.allWeapons.Remove(go);
+                    GameManager.instance.UpdateWeaponText();
+                    GameManager.instance.UpdateWeaponUI();
+                    Destroy(go);
                     break;
                 case PreSelection.Character.Luis:
                     anim = allAnims[1];
                     allPlayerSprites[1].gameObject.SetActive(true);
                     playerSprite = allPlayerSprites[1];
+                    GameObject go2 = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[0].gameObject;
+                    GameManager.instance.allWeapons.Remove(go2);
+                    GameManager.instance.UpdateWeaponText();
+                    GameManager.instance.UpdateWeaponUI();
+                    Destroy(go2);
+                    currentSelectedWeapon = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[0].gameObject.GetComponent<Weapon>();
                     break;
             }
         }

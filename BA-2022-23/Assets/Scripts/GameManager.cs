@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerController player;
 
-    [SerializeField] private List<GameObject> allWeapons;
+    public List<GameObject> allWeapons;
 
     public Crystal crystal;
 
