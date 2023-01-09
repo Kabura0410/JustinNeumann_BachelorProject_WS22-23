@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public int extraJumpsValue;
 
     [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private SpriteRenderer[] allPlayerSprites;
 
     [SerializeField] private Collider2D playerCollider;
 
@@ -96,16 +97,9 @@ public class PlayerController : MonoBehaviour
 
     public Weapon currentSelectedWeapon;
 
+    [SerializeField] private Animator[] allAnims;
     [SerializeField] private Animator anim;
     public Animator animPortal;
-
-    public enum CharacterType
-    {
-        Herbert,
-        Luis
-    }
-
-    public CharacterType character;
 
 
     void Start()
@@ -115,6 +109,26 @@ public class PlayerController : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         Physics2D.IgnoreLayerCollision(9,11);
         startGravity = rb.gravityScale;
+        if(PreSelection.instance != null)
+        {
+            foreach(var r in allPlayerSprites)
+            {
+                r.gameObject.SetActive(false);
+            }
+            switch (PreSelection.instance.character)
+            {
+                case PreSelection.Character.Herbert:
+                    anim = allAnims[0];
+                    allPlayerSprites[0].gameObject.SetActive(true);
+                    playerSprite = allPlayerSprites[0];
+                    break;
+                case PreSelection.Character.Luis:
+                    anim = allAnims[1];
+                    allPlayerSprites[1].gameObject.SetActive(true);
+                    playerSprite = allPlayerSprites[1];
+                    break;
+            }
+        }
     }
 
     void FixedUpdate()
