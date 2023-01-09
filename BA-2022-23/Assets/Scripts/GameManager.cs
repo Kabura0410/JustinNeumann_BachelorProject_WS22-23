@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
     public bool paused;
 
     public GameObject[] allArtefacts;
-    public PlayerController[] allPlayer;
 
     public float playerDelayTime, artifactDelayTime;
 
@@ -500,19 +499,6 @@ public class GameManager : MonoBehaviour
     {
         if(PreSelection.instance != null)
         {
-
-            switch (PreSelection.instance.character)
-            {
-                case PreSelection.Character.Herbert:
-                    player = allPlayer.Where(r => r.character == PlayerController.CharacterType.Herbert).First();
-                    break;
-                case PreSelection.Character.Luis:
-                    player = allPlayer.Where(r => r.character == PlayerController.CharacterType.Luis).First();
-                    break;
-            }
-            player.gameObject.SetActive(true);
-
-
             switch (PreSelection.instance.artefact)
             {
                 case PreSelection.Artefact.Cube:
