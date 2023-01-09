@@ -103,12 +103,12 @@ MonoBehaviour:
   maxSpeed: 15
   minSpeed: 15
   lifeTime: 0.3
-  distance: 1
+  distance: 0.1
   damage: 50
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 512
-  destroyEffect: {fileID: 3967512539779551259, guid: 634ce634b1e400e4d844e4e873bf7de2, type: 3}
+  destroyEffect: {fileID: 3967512539779551259, guid: bd05eca0dd2b42846b9b98ebf52d39e7, type: 3}
   enemyKnockbackIntensity: 0
   playerKnockbackIntensity: 0
   hitAmount: 100

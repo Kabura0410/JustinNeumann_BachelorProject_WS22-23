@@ -531,8 +531,8 @@ TextureImporter:
         y: 18
         width: 23
         height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -552,8 +552,8 @@ TextureImporter:
         y: 14
         width: 36
         height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -573,8 +573,8 @@ TextureImporter:
         y: 18
         width: 36
         height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -594,8 +594,8 @@ TextureImporter:
         y: 16
         width: 22
         height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -775,6 +775,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ShopSnowballer
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 16
+        width: 22
+        height: 13
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 125d5e73bc14ce9429875a88f931ed77
+      internalID: -786053741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shopkatana
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 18
+        width: 36
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ed66d5cd4c36946a84cfb3e30b9907
+      internalID: 496618972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopGiantKunai
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 14
+        width: 36
+        height: 15
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf06889156d767340916783b1af7603a
+      internalID: -94831136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopKunai
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 18
+        width: 23
+        height: 11
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ccdf641d2964641b740aeb03367fba
+      internalID: -1150958472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -797,8 +881,11 @@ TextureImporter:
       vc3: -907545789
       play12: 1476554626
       bulletblue: 541382872
+      Shopkatana: 496618972
       swordswing2: -1931683076
       particle91: -1428284991
+      ShopGiantKunai: -94831136
+      ShopKunai: -1150958472
       particle7: 2128136740
       particle9: -1427171208
       selectartifact: -61577650
@@ -814,6 +901,7 @@ TextureImporter:
       golden snowballer: 2081194782
       selectcharacter: -1063059312
       defaultsprites_v06_2: 599179345
+      ShopSnowballer: -786053741
       shop katana: -122157139
       bulletvoid: -237402680
       defaultsprites_v06_25: 373935536

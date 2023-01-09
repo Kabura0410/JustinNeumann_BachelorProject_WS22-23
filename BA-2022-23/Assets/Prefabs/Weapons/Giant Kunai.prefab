@@ -69,7 +69,7 @@ MonoBehaviour:
   unlocked: 0
   useAmmo: 1
   isStartWeapon: 0
-  uiSprite: {fileID: 1428401908, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
+  uiSprite: {fileID: 1012402736, guid: 9039a4b39894e324b8c5198d897da4f8, type: 3}
   chargeEffect: {fileID: 590596705196784491, guid: 684bfa7b16974ce4196b56a2fe434205, type: 3}
 --- !u!82 &-2421976596177518514
 AudioSource:
