@@ -110,7 +110,7 @@ MonoBehaviour:
   destroyEffect: {fileID: 3967512539779551259, guid: 95052e23f3d05334a870fb3670fb0fb3, type: 3}
   enemyKnockbackIntensity: 0
   playerKnockbackIntensity: 0
-  hitAmount: 20
+  hitAmount: 5
   projectileType: 0
 --- !u!61 &1382073730200970268
 BoxCollider2D:
