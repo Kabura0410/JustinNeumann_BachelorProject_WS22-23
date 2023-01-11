@@ -124,8 +124,6 @@ public class PlayerController : MonoBehaviour
                     playerSprite = allPlayerSprites[0];
                     GameObject go = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[1].gameObject;
                     GameManager.instance.allWeapons.Remove(go);
-                    GameManager.instance.UpdateWeaponText();
-                    GameManager.instance.UpdateWeaponUI();
                     Destroy(go);
                     break;
                 case PreSelection.Character.Luis:
@@ -134,12 +132,12 @@ public class PlayerController : MonoBehaviour
                     playerSprite = allPlayerSprites[1];
                     GameObject go2 = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[0].gameObject;
                     GameManager.instance.allWeapons.Remove(go2);
-                    GameManager.instance.UpdateWeaponText();
-                    GameManager.instance.UpdateWeaponUI();
                     Destroy(go2);
                     currentSelectedWeapon = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[0].gameObject.GetComponent<Weapon>();
+                    print(GetComponentInChildren<Weapon>().gameObject);
                     break;
             }
+            StartCoroutine(DelayedUIUpdate());
         }
     }
 
@@ -446,6 +444,12 @@ public class PlayerController : MonoBehaviour
         knockbackReceived = false;
     }
 
+    private IEnumerator DelayedUIUpdate()
+    {
+        yield return new WaitForEndOfFrame();
+        GameManager.instance.UpdateWeaponText();
+        GameManager.instance.UpdateWeaponUI();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

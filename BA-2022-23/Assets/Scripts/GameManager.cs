@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
 
     public float playerDelayTime, artifactDelayTime;
 
+    private bool playerDied;
+
 
     [Header("Weapon UI")]
     [SerializeField] private Image startWeaponSprite;
@@ -200,12 +202,17 @@ public class GameManager : MonoBehaviour
 
     public void KillPlayer()
     {
+        playerDied = true;
         LoseGame(playerDelayTime);
     }
 
     private IEnumerator LoseScreenDelayed(float _time)
     {
         yield return new WaitForSecondsRealtime(_time);
+        if (!playerDied)
+        {
+            crystal.transform.parent.transform.position = new Vector3(10000, 1000, 10000);
+        }
         loseScreen.SetActive(true);
     }
 
