@@ -428,6 +428,9 @@ MonoBehaviour:
   reloadIndicator: {fileID: 1816659240}
   reloadFillImage: {fileID: 1498849855}
   currentCoins: 0
+  allPlayerDamageEffects:
+  - {fileID: 7914770878453694400, guid: 480b9b90648eec54f85433507284f638, type: 3}
+  - {fileID: 7914770878453694400, guid: fc4c28d19263945449f89b722021cb2c, type: 3}
   playerDamageEffect: {fileID: 7914770878453694400, guid: 480b9b90648eec54f85433507284f638, type: 3}
   playerJumpEffect: {fileID: 189772489203802487, guid: cb9d21bf7ab2cf542b9a1dee683e8102, type: 3}
   playerWalkEffect: {fileID: 189772489203802487, guid: c8f17d4b184e0564093397003944a7a7, type: 3}

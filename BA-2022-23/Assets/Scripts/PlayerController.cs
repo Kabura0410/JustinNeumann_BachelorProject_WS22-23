@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [SerializeField] private GameObject[] allPlayerDamageEffects;
     [SerializeField] private GameObject playerDamageEffect;
     [SerializeField] private GameObject playerJumpEffect;
     [SerializeField] private GameObject playerWalkEffect;
@@ -120,6 +121,7 @@ public class PlayerController : MonoBehaviour
             {
                 case PreSelection.Character.Herbert:
                     anim = allAnims[0];
+                    playerDamageEffect = allPlayerDamageEffects[0];
                     allPlayerSprites[0].gameObject.SetActive(true);
                     playerSprite = allPlayerSprites[0];
                     GameObject go = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[1].gameObject;
@@ -128,6 +130,7 @@ public class PlayerController : MonoBehaviour
                     break;
                 case PreSelection.Character.Luis:
                     anim = allAnims[1];
+                    playerDamageEffect = allPlayerDamageEffects[1];
                     allPlayerSprites[1].gameObject.SetActive(true);
                     playerSprite = allPlayerSprites[1];
                     GameObject go2 = GameManager.instance.allWeapons.Where(r => r.GetComponent<Weapon>().isStartWeapon).ToList()[0].gameObject;
